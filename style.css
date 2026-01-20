@@ -158,6 +158,14 @@ body {
   padding: 10px 15px;
   cursor: pointer;
   transition: all 0.3s ease;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Show menu button only when lamp is lit */
+.scene.lit .menu-toggle {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .menu-toggle:hover {
@@ -385,7 +393,7 @@ p {
   .lamp-container {
     width: 550px;
     height: 700px;
-    top: 60%;
+    top: 58%;
     left: 50%;
     transform: translate(-50%, -50%);
   }
@@ -401,12 +409,12 @@ p {
     transition: left 2.5s ease-in-out, transform 2.5s ease-in-out;
   }
   
-  /* Content above lamp on tablet */
+  /* Content higher up on tablet */
   .content {
     max-width: 90%;
     padding: 30px;
-    padding-top: 100px;
-    top: 25%;
+    padding-top: 80px;
+    top: 18%;
     left: 50%;
     right: auto;
     transform: translate(-50%, -50%);
@@ -414,7 +422,7 @@ p {
   }
   
   .content.visible {
-    top: 25%;
+    top: 18%;
     left: 50%;
     right: auto;
   }
@@ -437,10 +445,10 @@ p {
 /* Mobile phones */
 @media (max-width: 480px) {
   .menu-toggle {
+    display: block;
     top: 15px;
     right: 15px;
     padding: 8px 12px;
-    z-index: 1000;
   }
   
   .menu-toggle span {
@@ -457,7 +465,7 @@ p {
   .lamp-container {
     width: 450px;
     height: 600px;
-    top: 60%;
+    top: 58%;
     left: 50%;
     transform: translate(-50%, -50%);
   }
@@ -475,12 +483,12 @@ p {
     transition: left 2.5s ease-in-out, transform 2.5s ease-in-out;
   }
   
-  /* Content positioning on mobile - above the lamp */
+  /* Content positioning on mobile - higher up to be visible */
   .content {
     max-width: calc(100% - 40px);
     padding: 20px;
-    padding-top: 80px;
-    top: 25%;
+    padding-top: 60px;
+    top: 18%;
     left: 50%;
     right: auto;
     transform: translate(-50%, -50%);
@@ -488,7 +496,7 @@ p {
   }
   
   .content.visible {
-    top: 25%;
+    top: 18%;
     left: 50%;
     right: auto;
   }
@@ -512,26 +520,30 @@ p {
     line-height: 1.5;
   }
   
-  /* Lamp SVG sizes for mobile - adjusted for better string connection */
+  /* Lamp SVG sizes for mobile - adjusted for proper string connection */
   .lamp-svg.lamp-off,
   .lamp-svg.string-off {
     height: 70%;
     bottom: 150px;
-    transform: translateX(-40%);
+    transform: translateX(-50%);
+    left: 50%;
   }
   
   .lamp-svg.string-on {
-    height: 80%;
-    bottom: 100px;
-    transform: translateX(-45%);
+    height: 78%;
+    bottom: 105px;
+    transform: translateX(-50%);
+    left: 50%;
   }
   
   .lamp-svg.lamp-on.lamp-home {
-    height: 80%;
-    bottom: 90px;
-    transform: translateX(-40%);
+    height: 78%;
+    bottom: 95px;
+    transform: translateX(-50%);
+    left: 50%;
   }
   
+  /* Colored lamps centered */
   .lamp-svg.lamp-blue,
   .lamp-svg.lamp-green,
   .lamp-svg.lamp-peach,
@@ -539,6 +551,7 @@ p {
   .lamp-svg.lamp-home-noshadows {
     height: 70%;
     bottom: 160px;
-    left: 48.7%;
+    left: 50%;
+    transform: translateX(-50%);
   }
 }
