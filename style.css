@@ -34,7 +34,7 @@ body {
   width: 1200px;
   height: 1400px;
   z-index: 5;
-  transition: transform 2.5s ease-in-out;
+  transition: transform 2.5s ease-in-out, left 2.5s ease-in-out;
 }
 
 .lamp-container.slide-left {
@@ -381,33 +381,46 @@ p {
     transform: translateX(-5px);
   }
   
-  /* Larger lamp on tablet */
+  /* Larger lamp on tablet, centered lower */
   .lamp-container {
-    width: 600px;
-    height: 800px;
-    top: 50%;
+    width: 550px;
+    height: 700px;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
   
   .lamp-container.slide-left {
+    left: 50%;
     transform: translate(-50%, -50%);
   }
   
-  /* Content takes full width when visible */
+  .lamp-container.slide-off {
+    left: -50%;
+    transform: translate(-50%, -50%);
+    transition: left 2.5s ease-in-out, transform 2.5s ease-in-out;
+  }
+  
+  /* Content above lamp on tablet */
   .content {
     max-width: 90%;
     padding: 30px;
-    padding-top: 120px;
+    padding-top: 100px;
+    top: 25%;
     left: 50%;
     right: auto;
     transform: translate(-50%, -50%);
+    text-align: center;
   }
   
   .content.visible {
+    top: 25%;
     left: 50%;
     right: auto;
   }
   
   .content.centered {
+    top: 50%;
     left: 50%;
     right: auto;
   }
@@ -427,6 +440,7 @@ p {
     top: 15px;
     right: 15px;
     padding: 8px 12px;
+    z-index: 1000;
   }
   
   .menu-toggle span {
@@ -439,42 +453,49 @@ p {
     width: 200px;
   }
   
-  /* Bigger lamp on phones, centered */
+  /* Bigger lamp on phones, centered lower on screen */
   .lamp-container {
-    width: 500px;
-    height: 650px;
-    top: 45%;
+    width: 450px;
+    height: 600px;
+    top: 60%;
     left: 50%;
     transform: translate(-50%, -50%);
   }
   
   /* Keep lamp centered when "slide-left" class is added */
   .lamp-container.slide-left {
+    left: 50%;
     transform: translate(-50%, -50%);
   }
   
   /* Lamp slides off screen completely on mobile when needed */
   .lamp-container.slide-off {
-    transform: translate(calc(-50% - 120vw), -50%);
+    left: -50%;
+    transform: translate(-50%, -50%);
+    transition: left 2.5s ease-in-out, transform 2.5s ease-in-out;
   }
   
-  /* Content positioning on mobile */
+  /* Content positioning on mobile - above the lamp */
   .content {
     max-width: calc(100% - 40px);
     padding: 20px;
-    padding-top: 100px;
+    padding-top: 80px;
+    top: 25%;
     left: 50%;
     right: auto;
     transform: translate(-50%, -50%);
+    text-align: center;
   }
   
   .content.visible {
+    top: 25%;
     left: 50%;
     right: auto;
   }
   
   /* Full width centered content when lamp slides off */
   .content.centered {
+    top: 50%;
     left: 50%;
     right: auto;
     transform: translate(-50%, -50%);
@@ -491,21 +512,24 @@ p {
     line-height: 1.5;
   }
   
-  /* Lamp SVG sizes for mobile */
+  /* Lamp SVG sizes for mobile - adjusted for better string connection */
   .lamp-svg.lamp-off,
   .lamp-svg.string-off {
-    height: 65%;
-    bottom: 200px;
+    height: 70%;
+    bottom: 150px;
+    transform: translateX(-40%);
   }
   
   .lamp-svg.string-on {
-    height: 75%;
-    bottom: 150px;
+    height: 80%;
+    bottom: 100px;
+    transform: translateX(-45%);
   }
   
   .lamp-svg.lamp-on.lamp-home {
-    height: 75%;
-    bottom: 140px;
+    height: 80%;
+    bottom: 90px;
+    transform: translateX(-40%);
   }
   
   .lamp-svg.lamp-blue,
@@ -513,7 +537,8 @@ p {
   .lamp-svg.lamp-peach,
   .lamp-svg.lamp-purple,
   .lamp-svg.lamp-home-noshadows {
-    height: 65%;
-    bottom: 210px;
+    height: 70%;
+    bottom: 160px;
+    left: 48.7%;
   }
 }
