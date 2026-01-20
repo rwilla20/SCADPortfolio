@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Add this script FIRST before anything else -->
+  <script>
+    if (localStorage.getItem('cameFromColorPage') === 'true') {
+      document.write('<style>.lamp-off,.string-off{display:none!important}.lamp-container{transform:translate(calc(-50% - 25vw),-50%)!important}.scene{background:#1a1a1a!important}.navbar,.content{opacity:1!important;pointer-events:auto!important}</style>');
+    }
+  </script>
+
+  <title>Riley Willard - Home</title>
+  <link rel="stylesheet" href="https://use.typekit.net/lez4ize.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="scene">
+    <!-- Lamp Container -->
+    <div class="lamp-container">
+      <!-- Lamp OFF (clickable string) -->
+      <img src="assets/LampOff_Lamp.svg" class="lamp-svg lamp-off active" alt="Lamp Off">
+      <img src="assets/LampOff_String.svg" class="lamp-svg string-off clickable active" alt="String Off">
+      
+      <!-- Lamp ON variations (hidden initially) -->
+      <img src="assets/LampOn_home.svg" class="lamp-svg lamp-on lamp-home" alt="Lamp On Home">
+      <img src="assets/LampOn_home_noshadow.svg" class="lamp-svg lamp-on lamp-home-noshadows" alt="Lamp On Home No Shadows">
+      <img src="assets/LampOn_Blue.svg" class="lamp-svg lamp-on lamp-blue" alt="Lamp On Blue">
+      <img src="assets/LampOn_Green.svg" class="lamp-svg lamp-on lamp-green" alt="Lamp On Green">
+      <img src="assets/LampOn_Peach.svg" class="lamp-svg lamp-on lamp-peach" alt="Lamp On Peach">
+      <img src="assets/LampOn_Purple.svg" class="lamp-svg lamp-on lamp-purple" alt="Lamp On Purple">
+      <img src="assets/LampOn_String.svg" class="lamp-svg string-on" alt="String On">
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+      <a href="index.html" class="nav-item home" data-color="home">Home</a>
+      <a href="blue.html" class="nav-item blue" data-color="blue">Blue</a>
+      <a href="green.html" class="nav-item green" data-color="green">Green</a>
+      <a href="peach.html" class="nav-item peach" data-color="peach">Peach</a>
+      <a href="purple.html" class="nav-item purple" data-color="purple">Purple</a>
+    </nav>
+
+    <!-- Home Content -->
+    <div class="content">
+      <section class="content-section active">
+        <h1>Welcome to Riley's Portfolio</h1>
+        <p>:)</p>
+      </section>
+    </div>
+  </div>
+
+  <!-- Audio for string pull sound -->
+  <audio id="string-sound" preload="auto">
+    <source src="assets/string-pull.mp3" type="audio/mpeg">
+  </audio>
+
+  <script src="script-home.js"></script>
+</body>
+</html>

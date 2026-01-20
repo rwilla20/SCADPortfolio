@@ -1,0 +1,276 @@
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #0a0a0a;
+  font-family: 'zeitung-pro-variable', Arial, sans-serif;
+  font-weight: 400;
+  overflow-x: hidden;
+}
+
+.scene {
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+  background: #0a0a0a;
+  transition: background-color 0.8s ease;
+}
+
+/* When lamp is on, lighten the background */
+.scene.lit {
+  background: #1a1a1a;
+}
+
+/* Lamp container - starts centered, slides left when lit */
+.lamp-container {
+  position: fixed;
+  top: 57%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1200px;
+  height: 1400px;
+  z-index: 5;
+  transition: transform 2.5s ease-in-out;
+}
+
+.lamp-container.slide-left {
+  transform: translate(calc(-50% - 25vw), -50%);
+}
+
+/* Slide lamp completely off screen (for colored pages) */
+.lamp-container.slide-off {
+  transform: translate(calc(-50% - 100vw), -50%);
+}
+
+/* All lamp SVGs stacked */
+.lamp-svg {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: auto;
+  height: 100%;
+  max-width: 100%;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+  pointer-events: none;
+}
+
+/* Slow fade transition for home lamp with shadows */
+.lamp-svg.lamp-home {
+  transition: opacity 1.5s ease;
+}
+
+.lamp-svg.active {
+  opacity: 1;
+}
+
+/* Make sure lamp-off stays at specific size and position */
+.lamp-svg.lamp-off,
+.lamp-svg.string-off {
+  height: 55%;
+  max-height: 100%;
+  transform: translateX(-40%);
+  bottom: 300px;
+}
+
+/* String on positioning */
+.lamp-svg.string-on {
+  height: 65%;
+  max-height: 100%;
+  transform: translateX(-45%);
+  bottom: 214px;
+}
+
+/* Make ONLY the LampOn home specifically positioned */
+.lamp-svg.lamp-on.lamp-home {
+  height: 65%;
+  max-height: 100%;
+  transform: translateX(-40%);
+  bottom: 200px;
+}
+
+/* Scale colored lamps to match home lamp size */
+.lamp-svg.lamp-blue,
+.lamp-svg.lamp-green,
+.lamp-svg.lamp-peach,
+.lamp-svg.lamp-purple,
+.lamp-svg.lamp-home-noshadows {
+  height: 55%;
+  max-height: none;
+  bottom: 303px;
+  left: 48.7%;
+}
+
+/* Make sure lamp body is on top of string */
+.lamp-off {
+  z-index: 2;
+}
+
+.string-off {
+  z-index: 1;
+}
+
+/* String is clickable when lamp is off */
+.lamp-svg.clickable {
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+/* Only animate the OFF string */
+.string-off.clickable {
+  animation: gentle-sway 3s ease-in-out infinite;
+}
+
+@keyframes gentle-sway {
+  0%, 100% {
+    transform: translateX(-40%) translateY(0);
+  }
+  50% {
+    transform: translateX(-40%) translateY(12px);
+  }
+}
+
+.lamp-svg.clickable:hover {
+  filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.5));
+  animation: none;
+}
+
+.lamp-svg.clickable:active {
+  transform: translateX(-40%) translateY(8px);
+  transition: transform 0.1s ease;
+}
+
+/* Navigation bar - horizontal at top */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  padding: 30px 50px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1s ease;
+  z-index: 10;
+  background: rgba(10, 10, 10, 0.8);
+  backdrop-filter: blur(10px);
+}
+
+.navbar.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.nav-item {
+  padding: 10px 20px;
+  color: #ffefcc;
+  text-decoration: none;
+  font-size: 1.1em;
+  font-weight: 800;
+  font-family: 'zeitung-pro-variable', Arial, sans-serif;
+  transition: all 0.3s ease;
+  border-bottom: 2px solid transparent;
+  position: relative;
+}
+
+.nav-item:hover {
+  transform: translateY(-2px);
+}
+
+/* Hover color effects */
+.nav-item.home:hover {
+  color: #ffefcc;
+  border-bottom-color: #ffefcc;
+}
+
+.nav-item.blue:hover {
+  color: #6f6dac;
+  border-bottom-color: #6f6dac;
+}
+
+.nav-item.green:hover {
+  color: #6d8b6c;
+  border-bottom-color: #6d8b6c;
+}
+
+.nav-item.peach:hover {
+  color: #de6f5f;
+  border-bottom-color: #de6f5f;
+}
+
+.nav-item.purple:hover {
+  color: #836190;
+  border-bottom-color: #836190;
+}
+
+/* Content sections - start off-screen right, slide in when visible */
+.content {
+  position: fixed;
+  top: 50%;
+  right: -100%;
+  transform: translateY(-50%);
+  opacity: 0;
+  pointer-events: none;
+  transition: right 2.5s ease-in-out, opacity 0.6s ease 0.3s;
+  padding: 50px;
+  padding-top: 200px;
+  color: #ffefcc;
+  max-width: 500px;
+  z-index: 6;
+}
+
+.content.visible {
+  right: 8%;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Centered content when lamp slides off screen */
+.content.centered {
+  right: 50%;
+  transform: translate(50%, -50%);
+  max-width: 800px;
+}
+
+.content-section {
+  min-height: 100vh;
+  padding: 50px 0;
+  display: none;
+}
+
+.content-section.active {
+  display: block;
+}
+
+/* Typography */
+h1 {
+  font-family: 'zeitung-pro-variable', Arial, sans-serif;
+  font-weight: 800;
+  font-size: 3em;
+  margin-bottom: 20px;
+  color: #ffefcc;
+}
+
+h2, h3, h4 {
+  font-family: 'zeitung-pro-variable', Arial, sans-serif;
+  font-weight: 800;
+  color: #ffefcc;
+}
+
+p {
+  font-family: 'zeitung-pro-variable', Arial, sans-serif;
+  font-weight: 400;
+  font-size: 1.2em;
+  line-height: 1.6;
+  color: #ffefcc;
+}
