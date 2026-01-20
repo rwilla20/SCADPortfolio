@@ -11,11 +11,37 @@ const navbar = document.querySelector('.navbar');
 const content = document.querySelector('.content');
 const navItems = document.querySelectorAll('.nav-item');
 const stringSound = document.getElementById('string-sound');
+const menuToggle = document.querySelector('.menu-toggle');
 
 // Track state
 let isLit = false;
 let currentColor = defaultLampColor;
 let shadowTimeout = null;
+let menuOpen = false;
+
+// Mobile menu toggle
+if (menuToggle) {
+  menuToggle.addEventListener('click', () => {
+    menuOpen = !menuOpen;
+    navbar.classList.toggle('menu-open', menuOpen);
+  });
+
+  // Close menu when clicking nav items
+  navItems.forEach(item => {
+    item.addEventListener('click', () => {
+      menuOpen = false;
+      navbar.classList.remove('menu-open');
+    });
+  });
+
+  // Close menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!navbar.contains(e.target) && !menuToggle.contains(e.target) && menuOpen) {
+      menuOpen = false;
+      navbar.classList.remove('menu-open');
+    }
+  });
+}
 
 // Check if coming from another page IMMEDIATELY (before DOM loads)
 const cameFromColorPage = localStorage.getItem('cameFromColorPage');
@@ -99,6 +125,10 @@ function turnOnLamp() {
 
 function turnOffLamp() {
   if (!isLit) return;
+
+  // Close mobile menu if open
+  menuOpen = false;
+  navbar.classList.remove('menu-open');
   
   // Play sound effect
   stringSound.currentTime = 0;
