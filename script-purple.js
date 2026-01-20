@@ -1,6 +1,6 @@
 // Set the default lamp color for this page
 // Change this for each page: 'blue', 'green', 'peach', 'purple'
-const defaultLampColor = 'peach';
+const defaultLampColor = 'purple';
 
 // Get all elements
 const scene = document.querySelector('.scene');
