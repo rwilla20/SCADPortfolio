@@ -145,6 +145,35 @@ body {
   transition: transform 0.1s ease;
 }
 
+/* Hamburger menu button (hidden on desktop) */
+.menu-toggle {
+  display: none;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  background: rgba(255, 239, 204, 0.1);
+  border: 2px solid #ffefcc;
+  border-radius: 8px;
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.menu-toggle:hover {
+  background: rgba(255, 239, 204, 0.2);
+}
+
+.menu-toggle span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background: #ffefcc;
+  margin: 5px 0;
+  transition: 0.3s;
+  border-radius: 3px;
+}
+
 /* Navigation bar - horizontal at top */
 .navbar {
   position: fixed;
@@ -160,7 +189,7 @@ body {
   pointer-events: none;
   transition: opacity 1s ease;
   z-index: 10;
-  background: rgba(10, 10, 10, 0.8);
+  background: rgba(10, 10, 10, 0.95);
   backdrop-filter: blur(10px);
 }
 
@@ -277,44 +306,63 @@ p {
    RESPONSIVE DESIGN - MOBILE & TABLET
    ======================================== */
 
-/* Tablets and smaller laptops */
-@media (max-width: 1024px) {
-  .lamp-container {
-    width: 900px;
-    height: 1100px;
-  }
-  
-  .content {
-    max-width: 400px;
-    padding: 40px;
-    padding-top: 150px;
-  }
-  
-  h1 {
-    font-size: 2.5em;
-  }
-}
-
-/* Tablets in portrait mode */
+/* Tablets in portrait mode - START showing mobile menu */
 @media (max-width: 768px) {
-  .lamp-container {
-    width: 600px;
-    height: 800px;
-    top: 60%;
+  /* Show hamburger menu */
+  .menu-toggle {
+    display: block;
   }
   
-  .lamp-container.slide-left {
-    transform: translate(calc(-50% - 15vw), -50%);
-  }
-  
+  /* Hide navbar by default on mobile, show when menu is open */
   .navbar {
-    gap: 20px;
-    padding: 20px 30px;
+    flex-direction: column;
+    top: 70px;
+    left: auto;
+    right: -100%;
+    width: 250px;
+    height: auto;
+    gap: 0;
+    padding: 20px;
+    border-radius: 12px 0 0 12px;
+    opacity: 0;
+    transition: right 0.4s ease, opacity 0.4s ease;
+  }
+  
+  .navbar.visible {
+    right: 0;
+    opacity: 1;
+  }
+  
+  .navbar.menu-open {
+    right: 0;
+    opacity: 1;
+    pointer-events: auto;
   }
   
   .nav-item {
-    font-size: 1em;
-    padding: 8px 15px;
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1em;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 239, 204, 0.2);
+  }
+  
+  .nav-item:last-child {
+    border-bottom: none;
+  }
+  
+  .nav-item:hover {
+    transform: translateX(-5px);
+  }
+  
+  .lamp-container {
+    width: 500px;
+    height: 700px;
+    top: 55%;
+  }
+  
+  .lamp-container.slide-left {
+    transform: translate(calc(-50% - 12vw), -50%);
   }
   
   .content {
@@ -335,52 +383,59 @@ p {
 
 /* Mobile phones */
 @media (max-width: 480px) {
-  /* Stack navigation vertically on very small screens */
+  .menu-toggle {
+    top: 15px;
+    right: 15px;
+    padding: 8px 12px;
+  }
+  
+  .menu-toggle span {
+    width: 22px;
+    height: 2px;
+  }
+  
   .navbar {
-    flex-direction: column;
-    gap: 10px;
-    padding: 15px;
-    align-items: stretch;
+    top: 60px;
+    width: 200px;
   }
   
-  .nav-item {
-    font-size: 0.9em;
-    padding: 10px;
-    text-align: center;
-  }
-  
-  /* Make lamp smaller on phones */
+  /* Make lamp smaller and move it up on phones */
   .lamp-container {
-    width: 400px;
-    height: 600px;
-    top: 55%;
+    width: 350px;
+    height: 500px;
+    top: 40%;
   }
   
-  /* Lamp slides off screen completely on mobile */
+  /* Lamp slides off screen completely on mobile when lit */
   .lamp-container.slide-left {
-    transform: translate(calc(-50% - 60vw), -50%);
+    transform: translate(calc(-50% - 50vw), -50%);
   }
   
   .lamp-container.slide-off {
     transform: translate(calc(-50% - 120vw), -50%);
   }
   
-  /* Center content on mobile when lamp is visible */
+  /* Content positioning on mobile */
   .content {
-    max-width: 90%;
+    max-width: calc(100% - 40px);
     padding: 20px;
-    padding-top: 100px;
-    right: 5%;
-    left: 5%;
-    transform: translateY(-50%);
+    padding-top: 80px;
+    right: auto;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .content.visible {
+    left: 50%;
+    right: auto;
   }
   
   /* Full width centered content when lamp slides off */
   .content.centered {
-    right: 50%;
-    left: auto;
-    transform: translate(50%, -50%);
-    max-width: 85%;
+    right: auto;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: calc(100% - 40px);
   }
   
   h1 {
@@ -397,17 +452,17 @@ p {
   .lamp-svg.lamp-off,
   .lamp-svg.string-off {
     height: 60%;
-    bottom: 250px;
+    bottom: 180px;
   }
   
   .lamp-svg.string-on {
     height: 70%;
-    bottom: 180px;
+    bottom: 130px;
   }
   
   .lamp-svg.lamp-on.lamp-home {
     height: 70%;
-    bottom: 170px;
+    bottom: 120px;
   }
   
   .lamp-svg.lamp-blue,
@@ -416,6 +471,6 @@ p {
   .lamp-svg.lamp-purple,
   .lamp-svg.lamp-home-noshadows {
     height: 60%;
-    bottom: 260px;
+    bottom: 190px;
   }
 }
