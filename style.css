@@ -354,14 +354,11 @@ p {
     padding: 20px;
     border-radius: 12px 0 0 12px;
     opacity: 0;
+    pointer-events: none;
     transition: right 0.4s ease, opacity 0.4s ease;
   }
   
-  .navbar.visible {
-    right: 0;
-    opacity: 1;
-  }
-  
+  /* Only show menu when it's been opened */
   .navbar.menu-open {
     right: 0;
     opacity: 1;
@@ -384,21 +381,35 @@ p {
     transform: translateX(-5px);
   }
   
+  /* Larger lamp on tablet */
   .lamp-container {
-    width: 500px;
-    height: 700px;
-    top: 55%;
+    width: 600px;
+    height: 800px;
+    top: 50%;
   }
   
   .lamp-container.slide-left {
-    transform: translate(calc(-50% - 12vw), -50%);
+    transform: translate(-50%, -50%);
   }
   
+  /* Content takes full width when visible */
   .content {
-    max-width: 350px;
+    max-width: 90%;
     padding: 30px;
     padding-top: 120px;
-    right: 5%;
+    left: 50%;
+    right: auto;
+    transform: translate(-50%, -50%);
+  }
+  
+  .content.visible {
+    left: 50%;
+    right: auto;
+  }
+  
+  .content.centered {
+    left: 50%;
+    right: auto;
   }
   
   h1 {
@@ -428,18 +439,21 @@ p {
     width: 200px;
   }
   
-  /* Make lamp smaller and move it up on phones */
+  /* Bigger lamp on phones, centered */
   .lamp-container {
-    width: 350px;
-    height: 500px;
-    top: 40%;
+    width: 500px;
+    height: 650px;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
   
-  /* Lamp slides off screen completely on mobile when lit */
+  /* Keep lamp centered when "slide-left" class is added */
   .lamp-container.slide-left {
-    transform: translate(calc(-50% - 50vw), -50%);
+    transform: translate(-50%, -50%);
   }
   
+  /* Lamp slides off screen completely on mobile when needed */
   .lamp-container.slide-off {
     transform: translate(calc(-50% - 120vw), -50%);
   }
@@ -448,9 +462,9 @@ p {
   .content {
     max-width: calc(100% - 40px);
     padding: 20px;
-    padding-top: 80px;
-    right: auto;
+    padding-top: 100px;
     left: 50%;
+    right: auto;
     transform: translate(-50%, -50%);
   }
   
@@ -461,37 +475,37 @@ p {
   
   /* Full width centered content when lamp slides off */
   .content.centered {
-    right: auto;
     left: 50%;
+    right: auto;
     transform: translate(-50%, -50%);
     max-width: calc(100% - 40px);
   }
   
   h1 {
-    font-size: 1.8em;
+    font-size: 2em;
     margin-bottom: 15px;
   }
   
   p {
-    font-size: 0.95em;
+    font-size: 1em;
     line-height: 1.5;
   }
   
-  /* Smaller lamp SVGs on mobile */
+  /* Lamp SVG sizes for mobile */
   .lamp-svg.lamp-off,
   .lamp-svg.string-off {
-    height: 60%;
-    bottom: 180px;
+    height: 65%;
+    bottom: 200px;
   }
   
   .lamp-svg.string-on {
-    height: 70%;
-    bottom: 130px;
+    height: 75%;
+    bottom: 150px;
   }
   
   .lamp-svg.lamp-on.lamp-home {
-    height: 70%;
-    bottom: 120px;
+    height: 75%;
+    bottom: 140px;
   }
   
   .lamp-svg.lamp-blue,
@@ -499,7 +513,7 @@ p {
   .lamp-svg.lamp-peach,
   .lamp-svg.lamp-purple,
   .lamp-svg.lamp-home-noshadows {
-    height: 60%;
-    bottom: 190px;
+    height: 65%;
+    bottom: 210px;
   }
 }
