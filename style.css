@@ -294,6 +294,35 @@ h2, h3, h4 {
   color: #ffefcc;
 }
 
+/* Page-specific header colors */
+.page-blue h1,
+.page-blue h2,
+.page-blue h3,
+.page-blue h4 {
+  color: #6f6dac;
+}
+
+.page-green h1,
+.page-green h2,
+.page-green h3,
+.page-green h4 {
+  color: #6d8b6c;
+}
+
+.page-peach h1,
+.page-peach h2,
+.page-peach h3,
+.page-peach h4 {
+  color: #de6f5f;
+}
+
+.page-purple h1,
+.page-purple h2,
+.page-purple h3,
+.page-purple h4 {
+  color: #836190;
+}
+
 p {
   font-family: 'zeitung-pro-variable', Arial, sans-serif;
   font-weight: 400;
