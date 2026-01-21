@@ -3,11 +3,6 @@
   padding: 0;
   box-sizing: border-box;
 }
-/* Home page header alignment - desktop only */
-body:not([class*="page-"]) .content h1 {
-  text-align: left;
-  padding-left: 20px;
-}
 
 body {
   margin: 0;
