@@ -465,8 +465,8 @@ p {
   .lamp-container {
     width: 450px;
     height: 600px;
-    top: 80%;
-    left: 60%;
+    top: 58%;
+    left: 50%;
     transform: translate(-50%, -50%);
   }
   
@@ -488,7 +488,7 @@ p {
     max-width: calc(100% - 40px);
     padding: 20px;
     padding-top: 60px;
-    top: 100%;
+    top: 18%;
     left: 50%;
     right: auto;
     transform: translate(-50%, -50%);
@@ -551,7 +551,7 @@ p {
   .lamp-svg.lamp-home-noshadows {
     height: 70%;
     bottom: 160px;
-    left: 70%;
+    left: 50%;
     transform: translateX(-50%);
   }
 }
