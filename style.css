@@ -465,7 +465,7 @@ p {
   .lamp-container {
     width: 450px;
     height: 600px;
-    top: 58%;
+    top: 100%;
     left: 60%;
     transform: translate(-50%, -50%);
   }
@@ -488,7 +488,7 @@ p {
     max-width: calc(100% - 40px);
     padding: 20px;
     padding-top: 60px;
-    top: 30%;
+    top: 300%;
     left: 50%;
     right: auto;
     transform: translate(-50%, -50%);
