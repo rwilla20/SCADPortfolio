@@ -466,7 +466,7 @@ p {
     width: 450px;
     height: 600px;
     top: 58%;
-    left: 50%;
+    left: 60%;
     transform: translate(-50%, -50%);
   }
   
@@ -488,7 +488,7 @@ p {
     max-width: calc(100% - 40px);
     padding: 20px;
     padding-top: 60px;
-    top: 18%;
+    top: 30%;
     left: 50%;
     right: auto;
     transform: translate(-50%, -50%);
