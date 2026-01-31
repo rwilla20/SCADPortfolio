@@ -3,18 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <script>
-    if (localStorage.getItem('cameFromColorPage') === 'true') {
-      document.write('<style>.lamp-off,.string-off{display:none!important}.lamp-container{transform:translate(calc(-50% - 25vw),-50%)!important}.scene{background:#1a1a1a!important}.navbar,.content{opacity:1!important;pointer-events:auto!important}</style>');
-    }
-  </script>
-
-  <title>Riley Willard - Home</title>
+  <title>Riley Willard - About Me</title>
   <link rel="stylesheet" href="https://use.typekit.net/lez4ize.css">
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="page-yellow">
   <div class="scene">
     <!-- Mobile Menu Toggle -->
     <button class="menu-toggle" aria-label="Toggle menu">
@@ -23,11 +16,7 @@
       <span></span>
     </button>
 
-    <!-- Lamp Container -->
-    <div class="lamp-container">
-      <img src="assets/lampoff_lamp.svg" class="lamp-svg lamp-off active" alt="Lamp Off">
-      <img src="assets/lampoff_string.svg" class="lamp-svg string-off clickable active" alt="String Off">
-
+    <div class="lamp-container slide-left">
       <img src="assets/lampon_home_shadow.svg" class="lamp-svg lamp-on lamp-home" alt="Lamp On Home">
       <img src="assets/lampon_home_noshadow.svg" class="lamp-svg lamp-on lamp-home-noshadows" alt="Lamp On Home No Shadows">
       <img src="assets/lampon_blue.svg" class="lamp-svg lamp-on lamp-blue" alt="Lamp On Blue">
@@ -38,7 +27,6 @@
       <img src="assets/lampon_string.svg" class="lamp-svg string-on" alt="String On">
     </div>
 
-    <!-- Navigation -->
     <nav class="navbar">
       <a href="index.html" class="nav-item home" data-color="home">Home</a>
       <a href="demoreel.html" class="nav-item blue" data-color="blue">Demo Reel</a>
@@ -50,10 +38,9 @@
       <a href="mailto:rileydwillard@icloud.com" class="nav-contact nav-email">rileydwillard@icloud.com</a>
     </nav>
 
-    <!-- Home Content -->
     <div class="content">
       <section class="content-section active">
-        <h1>Welcome to Riley's Portfolio</h1>
+        <h1>About Me</h1>
         <p>:)</p>
       </section>
     </div>
@@ -63,6 +50,6 @@
     <source src="assets/string-pull.mp3" type="audio/mpeg">
   </audio>
 
-  <script src="script-home.js"></script>
+  <script src="script-about.js"></script>
 </body>
 </html>

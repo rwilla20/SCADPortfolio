@@ -20,12 +20,11 @@ body {
   transition: background-color 0.8s ease;
 }
 
-/* When lamp is on, lighten the background */
 .scene.lit {
   background: #1a1a1a;
 }
 
-/* Lamp container - starts centered, slides left when lit */
+/* Lamp container */
 .lamp-container {
   position: fixed;
   top: 57%;
@@ -41,7 +40,6 @@ body {
   transform: translate(calc(-50% - 25vw), -50%);
 }
 
-/* Slide lamp completely off screen (for colored pages) */
 .lamp-container.slide-off {
   transform: translate(calc(-50% - 100vw), -50%);
 }
@@ -60,7 +58,6 @@ body {
   pointer-events: none;
 }
 
-/* Slow fade transition for home lamp with shadows */
 .lamp-svg.lamp-home {
   transition: opacity 1.5s ease;
 }
@@ -69,7 +66,6 @@ body {
   opacity: 1;
 }
 
-/* Make sure lamp-off stays at specific size and position */
 .lamp-svg.lamp-off,
 .lamp-svg.string-off {
   height: 55%;
@@ -78,7 +74,6 @@ body {
   bottom: 300px;
 }
 
-/* String on positioning */
 .lamp-svg.string-on {
   height: 65%;
   max-height: 100%;
@@ -86,7 +81,6 @@ body {
   bottom: 214px;
 }
 
-/* Make ONLY the LampOn home specifically positioned */
 .lamp-svg.lamp-on.lamp-home {
   height: 65%;
   max-height: 100%;
@@ -94,11 +88,11 @@ body {
   bottom: 200px;
 }
 
-/* Scale colored lamps to match home lamp size */
 .lamp-svg.lamp-blue,
 .lamp-svg.lamp-green,
 .lamp-svg.lamp-peach,
 .lamp-svg.lamp-purple,
+.lamp-svg.lamp-yellow,
 .lamp-svg.lamp-home-noshadows {
   height: 55%;
   max-height: none;
@@ -106,7 +100,6 @@ body {
   left: 48.7%;
 }
 
-/* Make sure lamp body is on top of string */
 .lamp-off {
   z-index: 2;
 }
@@ -115,24 +108,18 @@ body {
   z-index: 1;
 }
 
-/* String is clickable when lamp is off */
 .lamp-svg.clickable {
   pointer-events: auto;
   cursor: pointer;
 }
 
-/* Only animate the OFF string */
 .string-off.clickable {
   animation: gentle-sway 3s ease-in-out infinite;
 }
 
 @keyframes gentle-sway {
-  0%, 100% {
-    transform: translateX(-40%) translateY(0);
-  }
-  50% {
-    transform: translateX(-40%) translateY(12px);
-  }
+  0%, 100% { transform: translateX(-40%) translateY(0); }
+  50% { transform: translateX(-40%) translateY(12px); }
 }
 
 .lamp-svg.clickable:hover {
@@ -145,7 +132,7 @@ body {
   transition: transform 0.1s ease;
 }
 
-/* Hamburger menu button (hidden on desktop) */
+/* Hamburger menu button */
 .menu-toggle {
   display: none;
   position: fixed;
@@ -162,7 +149,6 @@ body {
   pointer-events: none;
 }
 
-/* Show menu button only when lamp is lit */
 .scene.lit .menu-toggle {
   opacity: 1;
   pointer-events: auto;
@@ -182,7 +168,7 @@ body {
   border-radius: 3px;
 }
 
-/* Navigation bar - horizontal at top */
+/* Navigation bar */
 .navbar {
   position: fixed;
   top: 0;
@@ -206,9 +192,10 @@ body {
   pointer-events: auto;
 }
 
+/* All nav items are green base color */
 .nav-item {
   padding: 10px 20px;
-  color: #ffefcc;
+  color: #6d8b6c;
   text-decoration: none;
   font-size: 1.1em;
   font-weight: 800;
@@ -220,35 +207,38 @@ body {
 
 .nav-item:hover {
   transform: translateY(-2px);
-}
-
-/* Hover color effects */
-.nav-item.home:hover {
-  color: #ffefcc;
-  border-bottom-color: #ffefcc;
-}
-
-.nav-item.blue:hover {
-  color: #6f6dac;
-  border-bottom-color: #6f6dac;
-}
-
-.nav-item.green:hover {
   color: #6d8b6c;
   border-bottom-color: #6d8b6c;
 }
 
-.nav-item.peach:hover {
-  color: #de6f5f;
-  border-bottom-color: #de6f5f;
+/* Contact info in navbar */
+.nav-contact {
+  color: #6d8b6c;
+  font-size: 0.9em;
+  font-weight: 400;
+  font-family: 'zeitung-pro-variable', Arial, sans-serif;
+  text-decoration: none;
+  opacity: 0.8;
+  padding: 10px 0;
 }
 
-.nav-item.purple:hover {
-  color: #836190;
-  border-bottom-color: #836190;
+.nav-contact.nav-email {
+  text-decoration: none;
+  transition: opacity 0.3s ease;
 }
 
-/* Content sections - start off-screen right, slide in when visible */
+.nav-contact.nav-email:hover {
+  opacity: 1;
+}
+
+/* Separator between nav links and contact */
+.nav-contact:first-of-type {
+  margin-left: 20px;
+  padding-left: 20px;
+  border-left: 1px solid rgba(109, 139, 108, 0.4);
+}
+
+/* Content sections */
 .content {
   position: fixed;
   top: 50%;
@@ -270,7 +260,6 @@ body {
   pointer-events: auto;
 }
 
-/* Centered content when lamp slides off screen */
 .content.centered {
   right: 50%;
   transform: translate(50%, -50%);
@@ -303,32 +292,24 @@ h2, h3, h4 {
 }
 
 /* Page-specific header colors */
-.page-blue h1,
-.page-blue h2,
-.page-blue h3,
-.page-blue h4 {
+.page-blue h1, .page-blue h2, .page-blue h3, .page-blue h4 {
   color: #6f6dac;
 }
 
-.page-green h1,
-.page-green h2,
-.page-green h3,
-.page-green h4 {
+.page-green h1, .page-green h2, .page-green h3, .page-green h4 {
   color: #6d8b6c;
 }
 
-.page-peach h1,
-.page-peach h2,
-.page-peach h3,
-.page-peach h4 {
+.page-peach h1, .page-peach h2, .page-peach h3, .page-peach h4 {
   color: #de6f5f;
 }
 
-.page-purple h1,
-.page-purple h2,
-.page-purple h3,
-.page-purple h4 {
+.page-purple h1, .page-purple h2, .page-purple h3, .page-purple h4 {
   color: #836190;
+}
+
+.page-yellow h1, .page-yellow h2, .page-yellow h3, .page-yellow h4 {
+  color: #d4a843;
 }
 
 p {
@@ -343,14 +324,11 @@ p {
    RESPONSIVE DESIGN - MOBILE & TABLET
    ======================================== */
 
-/* Tablets in portrait mode - START showing mobile menu */
 @media (max-width: 768px) {
-  /* Show hamburger menu */
   .menu-toggle {
     display: block;
   }
-  
-  /* Hide navbar by default on mobile, show when menu is open */
+
   .navbar {
     flex-direction: column;
     top: 70px;
@@ -365,31 +343,44 @@ p {
     pointer-events: none;
     transition: right 0.4s ease, opacity 0.4s ease;
   }
-  
-  /* Only show menu when it's been opened */
+
   .navbar.menu-open {
     right: 0;
     opacity: 1;
     pointer-events: auto;
   }
-  
+
   .nav-item {
     width: 100%;
     padding: 15px;
     font-size: 1.1em;
     text-align: center;
-    border-bottom: 1px solid rgba(255, 239, 204, 0.2);
+    border-bottom: 1px solid rgba(109, 139, 108, 0.3);
   }
-  
-  .nav-item:last-child {
-    border-bottom: none;
+
+  .nav-item:last-of-type {
+    border-bottom: 1px solid rgba(109, 139, 108, 0.3);
   }
-  
+
+  .nav-contact {
+    width: 100%;
+    text-align: center;
+    padding: 10px 15px;
+    border-left: none;
+    margin-left: 0;
+  }
+
+  .nav-contact:first-of-type {
+    border-left: none;
+    margin-left: 0;
+    padding-left: 15px;
+    border-top: 1px solid rgba(109, 139, 108, 0.3);
+  }
+
   .nav-item:hover {
     transform: translateX(-5px);
   }
-  
-  /* Larger lamp on tablet, centered lower */
+
   .lamp-container {
     width: 550px;
     height: 700px;
@@ -397,19 +388,18 @@ p {
     left: 50%;
     transform: translate(-50%, -50%);
   }
-  
+
   .lamp-container.slide-left {
     left: 50%;
     transform: translate(-50%, -50%);
   }
-  
+
   .lamp-container.slide-off {
     left: -50%;
     transform: translate(-50%, -50%);
     transition: left 2.5s ease-in-out, transform 2.5s ease-in-out;
   }
-  
-  /* Content higher up on tablet */
+
   .content {
     max-width: 90%;
     padding: 30px;
@@ -420,29 +410,23 @@ p {
     transform: translate(-50%, -50%);
     text-align: center;
   }
-  
+
   .content.visible {
     top: 18%;
     left: 50%;
     right: auto;
   }
-  
+
   .content.centered {
     top: 50%;
     left: 50%;
     right: auto;
   }
-  
-  h1 {
-    font-size: 2em;
-  }
-  
-  p {
-    font-size: 1em;
-  }
+
+  h1 { font-size: 2em; }
+  p { font-size: 1em; }
 }
 
-/* Mobile phones */
 @media (max-width: 480px) {
   .menu-toggle {
     display: block;
@@ -450,18 +434,17 @@ p {
     right: 15px;
     padding: 8px 12px;
   }
-  
+
   .menu-toggle span {
     width: 22px;
     height: 2px;
   }
-  
+
   .navbar {
     top: 60px;
     width: 200px;
   }
-  
-  /* Bigger lamp on phones, centered lower on screen */
+
   .lamp-container {
     width: 450px;
     height: 600px;
@@ -469,21 +452,18 @@ p {
     left: 50%;
     transform: translate(-50%, -50%);
   }
-  
-  /* Keep lamp centered when "slide-left" class is added */
+
   .lamp-container.slide-left {
     left: 50%;
     transform: translate(-50%, -50%);
   }
-  
-  /* Lamp slides off screen completely on mobile when needed */
+
   .lamp-container.slide-off {
     left: -50%;
     transform: translate(-50%, -50%);
     transition: left 2.5s ease-in-out, transform 2.5s ease-in-out;
   }
-  
-  /* Content positioning on mobile - higher up to be visible */
+
   .content {
     max-width: calc(100% - 40px);
     padding: 20px;
@@ -494,14 +474,13 @@ p {
     transform: translate(-50%, -50%);
     text-align: center;
   }
-  
+
   .content.visible {
     top: 18%;
     left: 50%;
     right: auto;
   }
-  
-  /* Full width centered content when lamp slides off */
+
   .content.centered {
     top: 50%;
     left: 50%;
@@ -509,18 +488,10 @@ p {
     transform: translate(-50%, -50%);
     max-width: calc(100% - 40px);
   }
-  
-  h1 {
-    font-size: 2em;
-    margin-bottom: 15px;
-  }
-  
-  p {
-    font-size: 1em;
-    line-height: 1.5;
-  }
-  
-  /* Lamp SVG sizes for mobile - adjusted for proper string connection */
+
+  h1 { font-size: 2em; margin-bottom: 15px; }
+  p { font-size: 1em; line-height: 1.5; }
+
   .lamp-svg.lamp-off,
   .lamp-svg.string-off {
     height: 70%;
@@ -528,26 +499,26 @@ p {
     transform: translateX(-50%);
     left: 65%;
   }
-  
+
   .lamp-svg.string-on {
     height: 78%;
     bottom: 105px;
     transform: translateX(-50%);
     left: 50%;
   }
-  
+
   .lamp-svg.lamp-on.lamp-home {
     height: 78%;
     bottom: 95px;
     transform: translateX(-50%);
     left: 50%;
   }
-  
-  /* Colored lamps centered */
+
   .lamp-svg.lamp-blue,
   .lamp-svg.lamp-green,
   .lamp-svg.lamp-peach,
   .lamp-svg.lamp-purple,
+  .lamp-svg.lamp-yellow,
   .lamp-svg.lamp-home-noshadows {
     height: 70%;
     bottom: 160px;
