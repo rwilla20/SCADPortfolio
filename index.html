@@ -3,18 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <script>
-    if (localStorage.getItem('cameFromColorPage') === 'true') {
-      document.write('<style>.lamp-off,.string-off{display:none!important}.lamp-container{transform:translate(calc(-50% - 25vw),-50%)!important}.scene{background:#1a1a1a!important}.navbar,.content{opacity:1!important;pointer-events:auto!important}</style>');
-    }
-  </script>
-
-  <title>Riley Willard - Home</title>
+  <title>Riley Willard - Demo Reel</title>
   <link rel="stylesheet" href="https://use.typekit.net/lez4ize.css">
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="page-home">
   <div class="scene">
     <!-- Mobile Menu Toggle -->
     <button class="menu-toggle" aria-label="Toggle menu">
@@ -27,21 +20,19 @@
     <div class="lamp-container">
       <img src="assets/lampoff_lamp.svg" class="lamp-svg lamp-off active" alt="Lamp Off">
       <img src="assets/lampoff_string.svg" class="lamp-svg string-off clickable active" alt="String Off">
-
       <img src="assets/lampon_home_shadow.svg" class="lamp-svg lamp-on lamp-home" alt="Lamp On Home">
-      <img src="assets/lampon_home_noshadow.svg" class="lamp-svg lamp-on lamp-home-noshadows" alt="Lamp On Home No Shadows">
-      <img src="assets/lampon_blue.svg" class="lamp-svg lamp-on lamp-blue" alt="Lamp On Blue">
-      <img src="assets/lampon_green.svg" class="lamp-svg lamp-on lamp-green" alt="Lamp On Green">
-      <img src="assets/lampon_peach.svg" class="lamp-svg lamp-on lamp-peach" alt="Lamp On Peach">
-      <img src="assets/lampon_purple.svg" class="lamp-svg lamp-on lamp-purple" alt="Lamp On Purple">
-      <img src="assets/lampon_yellow.svg" class="lamp-svg lamp-on lamp-yellow" alt="Lamp On Yellow">
       <img src="assets/lampon_string.svg" class="lamp-svg string-on" alt="String On">
+    </div>
+
+    <!-- Prompt Text -->
+    <div class="home-prompt">
+      <h1>Turn off the light!</h1>
+      <p>The show's about to start!</p>
     </div>
 
     <!-- Navigation -->
     <nav class="navbar">
-      <a href="index.html" class="nav-item home" data-color="home">Home</a>
-      <a href="demoreel.html" class="nav-item blue" data-color="blue">Demo Reel</a>
+      <a href="index.html" class="nav-item home" data-color="home">Demo Reel</a>
       <a href="animation.html" class="nav-item green" data-color="green">Animation</a>
       <a href="production.html" class="nav-item peach" data-color="peach">Production</a>
       <a href="resume.html" class="nav-item purple" data-color="purple">Resume</a>
@@ -50,12 +41,17 @@
       <a href="mailto:rileydwillard@icloud.com" class="nav-contact nav-email">rileydwillard@icloud.com</a>
     </nav>
 
-    <!-- Home Content -->
-    <div class="content">
-      <section class="content-section active">
-        <h1>Welcome to Riley's Portfolio</h1>
-        <p>:)</p>
-      </section>
+    <!-- Demo Reel Content (hidden initially) -->
+    <div class="demoreel-container">
+      <div class="demoreel-video">
+        <!-- Replace with Riley's actual demo reel video -->
+        <iframe 
+          src="https://www.youtube.com/embed/YOUR_VIDEO_ID" 
+          frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen>
+        </iframe>
+      </div>
     </div>
   </div>
 

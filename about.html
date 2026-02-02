@@ -7,8 +7,8 @@
   <link rel="stylesheet" href="https://use.typekit.net/lez4ize.css">
   <link rel="stylesheet" href="style.css">
 </head>
-<body class="page-yellow">
-  <div class="scene">
+<body class="page-yellow page-about">
+  <div class="scene lit">
     <!-- Mobile Menu Toggle -->
     <button class="menu-toggle" aria-label="Toggle menu">
       <span></span>
@@ -16,20 +16,9 @@
       <span></span>
     </button>
 
-    <div class="lamp-container slide-left">
-      <img src="assets/lampon_home_shadow.svg" class="lamp-svg lamp-on lamp-home" alt="Lamp On Home">
-      <img src="assets/lampon_home_noshadow.svg" class="lamp-svg lamp-on lamp-home-noshadows" alt="Lamp On Home No Shadows">
-      <img src="assets/lampon_blue.svg" class="lamp-svg lamp-on lamp-blue" alt="Lamp On Blue">
-      <img src="assets/lampon_green.svg" class="lamp-svg lamp-on lamp-green" alt="Lamp On Green">
-      <img src="assets/lampon_peach.svg" class="lamp-svg lamp-on lamp-peach" alt="Lamp On Peach">
-      <img src="assets/lampon_purple.svg" class="lamp-svg lamp-on lamp-purple" alt="Lamp On Purple">
-      <img src="assets/lampon_yellow.svg" class="lamp-svg lamp-on lamp-yellow" alt="Lamp On Yellow">
-      <img src="assets/lampon_string.svg" class="lamp-svg string-on" alt="String On">
-    </div>
-
-    <nav class="navbar">
-      <a href="index.html" class="nav-item home" data-color="home">Home</a>
-      <a href="demoreel.html" class="nav-item blue" data-color="blue">Demo Reel</a>
+    <!-- Navigation -->
+    <nav class="navbar visible">
+      <a href="index.html" class="nav-item home" data-color="home">Demo Reel</a>
       <a href="animation.html" class="nav-item green" data-color="green">Animation</a>
       <a href="production.html" class="nav-item peach" data-color="peach">Production</a>
       <a href="resume.html" class="nav-item purple" data-color="purple">Resume</a>
@@ -38,17 +27,41 @@
       <a href="mailto:rileydwillard@icloud.com" class="nav-contact nav-email">rileydwillard@icloud.com</a>
     </nav>
 
-    <div class="content">
-      <section class="content-section active">
-        <h1>About Me</h1>
-        <p>:)</p>
-      </section>
+    <!-- About Content -->
+    <div class="about-content">
+      <h1>About Me</h1>
+      
+      <!-- Photo and Bio Section -->
+      <div class="about-section">
+        <div class="about-photo">
+          <img src="assets/riley-photo.jpg" alt="Riley Willard">
+        </div>
+        
+        <div class="about-bio">
+          <p>
+            Hi! I'm Riley Willard, an animator and production designer passionate about bringing stories to life through motion and design. 
+            I specialize in character animation, 3D modeling, and creative production work.
+          </p>
+          <p>
+            Currently based in [Location], I'm always exploring new techniques and pushing the boundaries of what's possible in animation. 
+            When I'm not animating, you can find me [hobbies/interests].
+          </p>
+        </div>
+      </div>
+
+      <!-- Contact Section -->
+      <div class="contact-section">
+        <h2>Contact Info</h2>
+        <a href="mailto:rileydwillard@icloud.com" class="contact-box">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+          </svg>
+          <span>rileydwillard@icloud.com</span>
+        </a>
+      </div>
     </div>
   </div>
-
-  <audio id="string-sound" preload="auto">
-    <source src="assets/string-pull.mp3" type="audio/mpeg">
-  </audio>
 
   <script src="script-about.js"></script>
 </body>

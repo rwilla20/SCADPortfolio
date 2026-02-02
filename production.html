@@ -7,8 +7,8 @@
   <link rel="stylesheet" href="https://use.typekit.net/lez4ize.css">
   <link rel="stylesheet" href="style.css">
 </head>
-<body class="page-peach">
-  <div class="scene">
+<body class="page-peach page-production">
+  <div class="scene lit">
     <!-- Mobile Menu Toggle -->
     <button class="menu-toggle" aria-label="Toggle menu">
       <span></span>
@@ -16,20 +16,9 @@
       <span></span>
     </button>
 
-    <div class="lamp-container slide-left">
-      <img src="assets/lampon_home_shadow.svg" class="lamp-svg lamp-on lamp-home" alt="Lamp On Home">
-      <img src="assets/lampon_home_noshadow.svg" class="lamp-svg lamp-on lamp-home-noshadows" alt="Lamp On Home No Shadows">
-      <img src="assets/lampon_blue.svg" class="lamp-svg lamp-on lamp-blue" alt="Lamp On Blue">
-      <img src="assets/lampon_green.svg" class="lamp-svg lamp-on lamp-green" alt="Lamp On Green">
-      <img src="assets/lampon_peach.svg" class="lamp-svg lamp-on lamp-peach" alt="Lamp On Peach">
-      <img src="assets/lampon_purple.svg" class="lamp-svg lamp-on lamp-purple" alt="Lamp On Purple">
-      <img src="assets/lampon_yellow.svg" class="lamp-svg lamp-on lamp-yellow" alt="Lamp On Yellow">
-      <img src="assets/lampon_string.svg" class="lamp-svg string-on" alt="String On">
-    </div>
-
-    <nav class="navbar">
-      <a href="index.html" class="nav-item home" data-color="home">Home</a>
-      <a href="demoreel.html" class="nav-item blue" data-color="blue">Demo Reel</a>
+    <!-- Navigation -->
+    <nav class="navbar visible">
+      <a href="index.html" class="nav-item home" data-color="home">Demo Reel</a>
       <a href="animation.html" class="nav-item green" data-color="green">Animation</a>
       <a href="production.html" class="nav-item peach" data-color="peach">Production</a>
       <a href="resume.html" class="nav-item purple" data-color="purple">Resume</a>
@@ -38,17 +27,45 @@
       <a href="mailto:rileydwillard@icloud.com" class="nav-contact nav-email">rileydwillard@icloud.com</a>
     </nav>
 
-    <div class="content">
-      <section class="content-section active">
-        <h1>Production</h1>
-        <p>:)</p>
-      </section>
+    <!-- Production Content -->
+    <div class="production-content">
+      <h1>Domain la Citadelle</h1>
+      
+      <div class="production-grid">
+        <!-- Advertisement Video (left, spans 2 rows) -->
+        <div class="production-item ad-video">
+          <h3>Advertisement</h3>
+          <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+          </div>
+        </div>
+
+        <!-- Color Swatches (top right) -->
+        <div class="production-item color-swatches">
+          <h3>Color Swatches</h3>
+          <img src="assets/production/color-swatches.jpg" alt="Color Swatches">
+        </div>
+
+        <!-- Bottle Render (middle right) -->
+        <div class="production-item bottle-render">
+          <h3>Bottle Render</h3>
+          <img src="assets/production/bottle-render.jpg" alt="Bottle Render">
+        </div>
+
+        <!-- 3D Park (bottom left) -->
+        <div class="production-item park-3d">
+          <h3>3D Park</h3>
+          <img src="assets/production/3d-park.jpg" alt="3D Park">
+        </div>
+
+        <!-- Additional Item (bottom right) -->
+        <div class="production-item additional">
+          <h3>Additional Work</h3>
+          <img src="assets/production/additional.jpg" alt="Additional">
+        </div>
+      </div>
     </div>
   </div>
-
-  <audio id="string-sound" preload="auto">
-    <source src="assets/string-pull.mp3" type="audio/mpeg">
-  </audio>
 
   <script src="script-production.js"></script>
 </body>

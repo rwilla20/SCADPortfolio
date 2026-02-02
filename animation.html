@@ -7,8 +7,8 @@
   <link rel="stylesheet" href="https://use.typekit.net/lez4ize.css">
   <link rel="stylesheet" href="style.css">
 </head>
-<body class="page-green">
-  <div class="scene">
+<body class="page-green page-animation">
+  <div class="scene lit">
     <!-- Mobile Menu Toggle -->
     <button class="menu-toggle" aria-label="Toggle menu">
       <span></span>
@@ -16,20 +16,9 @@
       <span></span>
     </button>
 
-    <div class="lamp-container slide-left">
-      <img src="assets/lampon_home_shadow.svg" class="lamp-svg lamp-on lamp-home" alt="Lamp On Home">
-      <img src="assets/lampon_home_noshadow.svg" class="lamp-svg lamp-on lamp-home-noshadows" alt="Lamp On Home No Shadows">
-      <img src="assets/lampon_blue.svg" class="lamp-svg lamp-on lamp-blue" alt="Lamp On Blue">
-      <img src="assets/lampon_green.svg" class="lamp-svg lamp-on lamp-green" alt="Lamp On Green">
-      <img src="assets/lampon_peach.svg" class="lamp-svg lamp-on lamp-peach" alt="Lamp On Peach">
-      <img src="assets/lampon_purple.svg" class="lamp-svg lamp-on lamp-purple" alt="Lamp On Purple">
-      <img src="assets/lampon_yellow.svg" class="lamp-svg lamp-on lamp-yellow" alt="Lamp On Yellow">
-      <img src="assets/lampon_string.svg" class="lamp-svg string-on" alt="String On">
-    </div>
-
-    <nav class="navbar">
-      <a href="index.html" class="nav-item home" data-color="home">Home</a>
-      <a href="demoreel.html" class="nav-item blue" data-color="blue">Demo Reel</a>
+    <!-- Navigation -->
+    <nav class="navbar visible">
+      <a href="index.html" class="nav-item home" data-color="home">Demo Reel</a>
       <a href="animation.html" class="nav-item green" data-color="green">Animation</a>
       <a href="production.html" class="nav-item peach" data-color="peach">Production</a>
       <a href="resume.html" class="nav-item purple" data-color="purple">Resume</a>
@@ -38,17 +27,77 @@
       <a href="mailto:rileydwillard@icloud.com" class="nav-contact nav-email">rileydwillard@icloud.com</a>
     </nav>
 
-    <div class="content">
-      <section class="content-section active">
-        <h1>Animation</h1>
-        <p>:)</p>
-      </section>
+    <!-- Animation Content -->
+    <div class="animation-content">
+      <h1>Animation</h1>
+      
+      <!-- Animation Project 1 -->
+      <div class="animation-project">
+        <div class="animation-main">
+          <h2>Project Title</h2>
+          <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+          </div>
+        </div>
+        
+        <div class="animation-process">
+          <div class="process-box">
+            <h3>Sketches</h3>
+            <img src="assets/animation/sketches1.jpg" alt="Sketches">
+          </div>
+          <div class="process-box">
+            <h3>Reference Video</h3>
+            <video controls>
+              <source src="assets/animation/reference1.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="process-box">
+            <h3>Blocking</h3>
+            <img src="assets/animation/blocking1.jpg" alt="Blocking">
+          </div>
+          <div class="process-box">
+            <h3>1st Pass</h3>
+            <video controls>
+              <source src="assets/animation/firstpass1.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+
+      <!-- Animation Project 2 -->
+      <div class="animation-project">
+        <div class="animation-main">
+          <h2>Project Title 2</h2>
+          <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+          </div>
+        </div>
+        
+        <div class="animation-process">
+          <div class="process-box">
+            <h3>Sketches</h3>
+            <img src="assets/animation/sketches2.jpg" alt="Sketches">
+          </div>
+          <div class="process-box">
+            <h3>Reference Video</h3>
+            <video controls>
+              <source src="assets/animation/reference2.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="process-box">
+            <h3>Blocking</h3>
+            <img src="assets/animation/blocking2.jpg" alt="Blocking">
+          </div>
+          <div class="process-box">
+            <h3>1st Pass</h3>
+            <video controls>
+              <source src="assets/animation/firstpass2.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-
-  <audio id="string-sound" preload="auto">
-    <source src="assets/string-pull.mp3" type="audio/mpeg">
-  </audio>
 
   <script src="script-animation.js"></script>
 </body>
