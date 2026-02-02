@@ -9,21 +9,36 @@ const stringSound = document.getElementById('string-sound');
 const navItems = document.querySelectorAll('.nav-item');
 const lampHome = document.querySelector('.lamp-home');
 
-// Navbar hover - change lamp and nav item colors
+// Lamp SVG sources for different colors
+const lampSources = {
+  home: 'assets/lampon_home_noshadow.svg',
+  animation: 'assets/lampon_green.svg',
+  production: 'assets/lampon_peach.svg',
+  resume: 'assets/lampon_purple.svg',
+  about: 'assets/lampon_blue.svg'
+};
+
+// Navbar hover - change lamp SVG and nav item colors
 navItems.forEach(item => {
   item.addEventListener('mouseenter', () => {
     const page = item.dataset.page;
-    changeLampColor(page);
+    changeLampImage(page);
     changeNavColor(page);
   });
   
   item.addEventListener('mouseleave', () => {
-    changeLampColor('home');
+    changeLampImage('home');
     changeNavColor('home');
   });
 });
 
-function changeLampColor(page) {
+function changeLampImage(page) {
+  // Change the lamp SVG source
+  if (lampSources[page]) {
+    lampHome.src = lampSources[page];
+  }
+  
+  // Add glow effect
   const colors = {
     home: '#ffefcc',
     animation: '#6d8b6c',
@@ -91,5 +106,8 @@ function closeDemoReel() {
     lampContainer.classList.remove('hidden');
     homePrompt.classList.remove('hidden');
     homePrompt.classList.add('visible');
+    
+    // Reset lamp to default
+    changeLampImage('home');
   }, 300);
 }

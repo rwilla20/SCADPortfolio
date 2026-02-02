@@ -48,11 +48,10 @@ body {
   align-items: center;
   padding: 20px 60px;
   z-index: 10;
-  background: transparent;
 }
 
 .navbar-green {
-  background: var(--color-green);
+  background: var(--color-green) !important;
 }
 
 .navbar-visible {
@@ -124,7 +123,7 @@ body {
 .lamp-home-container {
   position: fixed;
   top: 50%;
-  left: 50%;
+  left: 25%;
   transform: translate(-50%, -50%);
   width: 500px;
   height: 700px;
