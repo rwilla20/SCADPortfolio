@@ -1,5 +1,23 @@
 // ===== script-animation.js =====
 const navItems = document.querySelectorAll('.nav-item');
+const currentPage = 'animation';
+
+// Set initial colors on page load
+window.addEventListener('DOMContentLoaded', () => {
+  setActiveState();
+});
+
+function setActiveState() {
+  navItems.forEach(item => {
+    if (item.dataset.page === currentPage) {
+      item.classList.add('active');
+      item.style.color = '#5a7359'; // Darker green
+    } else {
+      item.classList.remove('active');
+      item.style.color = '#ffefcc';
+    }
+  });
+}
 
 // Navbar hover - change nav item colors on all pages
 navItems.forEach(item => {
@@ -9,14 +27,14 @@ navItems.forEach(item => {
   });
   
   item.addEventListener('mouseleave', () => {
-    changeNavColor('animation'); // Reset to current page color
+    setActiveState(); // Reset to current page state
   });
 });
 
 function changeNavColor(page) {
   const colors = {
-    home: var(--color-offwhite),
-    animation: '#6d8b6c',
+    home: '#ffefcc',
+    animation: '#5a7359', // Darker green
     production: '#de6f5f',
     resume: '#836190',
     about: '#6f6dac'
@@ -25,7 +43,7 @@ function changeNavColor(page) {
     if (item.dataset.page === page) {
       item.style.color = colors[page];
     } else {
-      item.style.color = 'var(--color-offwhite)';
+      item.style.color = '#ffefcc';
     }
   });
 }

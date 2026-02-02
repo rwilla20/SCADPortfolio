@@ -3,11 +3,13 @@ const scene = document.querySelector('.scene');
 const stringHome = document.querySelector('.string-home');
 const lampContainer = document.querySelector('.lamp-home-container');
 const homePrompt = document.querySelector('.home-prompt');
+const demoTitle = document.querySelector('.demo-title');
 const demoreelContainer = document.querySelector('.demoreel-container');
 const closeReel = document.querySelector('.close-reel');
 const stringSound = document.getElementById('string-sound');
 const navItems = document.querySelectorAll('.nav-item');
 const lampHome = document.querySelector('.lamp-home');
+const currentPage = 'home';
 
 // Lamp SVG sources for different colors
 const lampSources = {
@@ -17,6 +19,23 @@ const lampSources = {
   resume: 'assets/lampon_purple.svg',
   about: 'assets/lampon_blue.svg'
 };
+
+// Set initial colors on page load
+window.addEventListener('DOMContentLoaded', () => {
+  setActiveState();
+});
+
+function setActiveState() {
+  navItems.forEach(item => {
+    if (item.dataset.page === currentPage) {
+      item.classList.add('active');
+      item.style.color = '#ffefcc';
+    } else {
+      item.classList.remove('active');
+      item.style.color = '#ffefcc';
+    }
+  });
+}
 
 // Navbar hover - change lamp SVG and nav item colors
 navItems.forEach(item => {
@@ -28,7 +47,7 @@ navItems.forEach(item => {
   
   item.addEventListener('mouseleave', () => {
     changeLampImage('home');
-    changeNavColor('home');
+    setActiveState(); // Reset to current page state
   });
 });
 
@@ -42,7 +61,7 @@ function changeLampImage(page) {
 function changeNavColor(page) {
   const colors = {
     home: '#ffefcc',
-    animation: '#6d8b6c',
+    animation: '#5a7359',
     production: '#de6f5f',
     resume: '#836190',
     about: '#6f6dac'
@@ -64,8 +83,9 @@ function turnOffLamp() {
   stringSound.currentTime = 0;
   stringSound.play().catch(err => console.log('Audio play failed:', err));
   
-  // Hide prompt text
+  // Hide prompt text and demo title
   homePrompt.classList.add('hidden');
+  if (demoTitle) demoTitle.classList.add('hidden');
   
   // Hide lamp
   lampContainer.classList.add('hidden');
@@ -96,6 +116,9 @@ function closeDemoReel() {
     lampContainer.classList.remove('hidden');
     homePrompt.classList.remove('hidden');
     homePrompt.classList.add('visible');
+    if (demoTitle) {
+      demoTitle.classList.remove('hidden');
+    }
     
     // Reset lamp to default
     changeLampImage('home');
