@@ -37,16 +37,6 @@ function changeLampImage(page) {
   if (lampSources[page]) {
     lampHome.src = lampSources[page];
   }
-  
-  // Add glow effect
-  const colors = {
-    home: '#ffefcc',
-    animation: '#6d8b6c',
-    production: '#de6f5f', 
-    resume: '#836190',
-    about: '#6f6dac'
-  };
-  lampHome.style.filter = `drop-shadow(0 0 20px ${colors[page]})`;
 }
 
 function changeNavColor(page) {
