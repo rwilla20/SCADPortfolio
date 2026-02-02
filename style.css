@@ -6,48 +6,108 @@
 
 body {
   margin: 0;
-  background: #0a0a0a;
   font-family: 'zeitung-pro-variable', Arial, sans-serif;
   font-weight: 400;
   overflow-x: hidden;
 }
 
+/* ===== HOME PAGE SCENE ===== */
 .scene {
   position: relative;
   width: 100vw;
   min-height: 100vh;
-  background: #0a0a0a;
   transition: background-color 0.8s ease;
 }
 
-.scene.lit {
-  background: #1a1a1a;
+/* Light off-white background initially */
+.scene-light {
+  background: #f5f5f0;
 }
 
-.scene.lights-off {
+/* Dark background after clicking */
+.scene-dark {
   background: #000000;
 }
 
-/* ===== LAMP STYLES ===== */
-.lamp-container {
+/* ===== GREEN NAVBAR ===== */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  padding: 25px 50px;
+  z-index: 10;
+  transition: all 0.3s ease;
+}
+
+.navbar-green {
+  background: #6d8b6c;
+}
+
+.navbar.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.nav-item {
+  padding: 10px 20px;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1.1em;
+  font-weight: 800;
+  transition: all 0.3s ease;
+  border-bottom: 2px solid transparent;
+}
+
+.nav-item:hover {
+  transform: translateY(-2px);
+  border-bottom-color: #ffffff;
+}
+
+.nav-contact {
+  color: #ffffff;
+  font-size: 0.9em;
+  font-weight: 400;
+  text-decoration: none;
+  opacity: 0.9;
+  padding: 10px 0;
+}
+
+.nav-contact.nav-email:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+.nav-contact:first-of-type {
+  margin-left: 20px;
+  padding-left: 20px;
+  border-left: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+/* ===== LAMP ON HOME PAGE ===== */
+.lamp-home-container {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 600px;
-  height: 800px;
+  width: 500px;
+  height: 700px;
   z-index: 5;
-  transition: all 2.5s ease-in-out;
+  transition: opacity 0.8s ease;
 }
 
-.lamp-container.slide-off-home {
-  left: -100%;
+.lamp-home-container.hidden {
   opacity: 0;
+  pointer-events: none;
 }
 
 .lamp-svg {
   position: absolute;
-  bottom: 100px;
+  bottom: 80px;
   left: 50%;
   transform: translateX(-50%);
   width: auto;
@@ -77,25 +137,21 @@ body {
 }
 
 .lamp-svg.clickable:hover {
-  filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.5));
+  filter: drop-shadow(0 0 15px rgba(109, 139, 108, 0.8));
   animation: none;
 }
 
 /* ===== HOME PAGE PROMPT ===== */
 .home-prompt {
   position: fixed;
-  top: 35%;
+  top: 30%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  opacity: 0;
-  transition: opacity 1s ease;
+  opacity: 1;
+  transition: opacity 0.6s ease;
   z-index: 4;
   pointer-events: none;
-}
-
-.home-prompt.visible {
-  opacity: 1;
 }
 
 .home-prompt.hidden {
@@ -103,15 +159,15 @@ body {
 }
 
 .home-prompt h1 {
-  font-size: 3em;
-  color: #ffefcc;
+  font-size: 3.5em;
+  color: #2a2a2a;
   margin-bottom: 10px;
   font-weight: 800;
 }
 
 .home-prompt p {
-  font-size: 1.5em;
-  color: #ffefcc;
+  font-size: 1.8em;
+  color: #4a4a4a;
   font-weight: 400;
 }
 
@@ -150,100 +206,6 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-}
-
-/* ===== HAMBURGER MENU ===== */
-.menu-toggle {
-  display: none;
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 1000;
-  background: rgba(109, 139, 108, 0.2);
-  border: 2px solid #6d8b6c;
-  border-radius: 8px;
-  padding: 10px 15px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  opacity: 0;
-  pointer-events: none;
-}
-
-.scene.lit .menu-toggle {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.menu-toggle:hover {
-  background: rgba(109, 139, 108, 0.3);
-}
-
-.menu-toggle span {
-  display: block;
-  width: 25px;
-  height: 3px;
-  background: #6d8b6c;
-  margin: 5px 0;
-  transition: 0.3s;
-  border-radius: 3px;
-}
-
-/* ===== NAVIGATION ===== */
-.navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 40px;
-  padding: 30px 50px;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 1s ease;
-  z-index: 10;
-  background: rgba(10, 10, 10, 0.95);
-  backdrop-filter: blur(10px);
-}
-
-.navbar.visible {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.nav-item {
-  padding: 10px 20px;
-  color: #6d8b6c;
-  text-decoration: none;
-  font-size: 1.1em;
-  font-weight: 800;
-  transition: all 0.3s ease;
-  border-bottom: 2px solid transparent;
-}
-
-.nav-item:hover {
-  transform: translateY(-2px);
-  border-bottom-color: #6d8b6c;
-}
-
-.nav-contact {
-  color: #6d8b6c;
-  font-size: 0.9em;
-  font-weight: 400;
-  text-decoration: none;
-  opacity: 0.8;
-  padding: 10px 0;
-}
-
-.nav-contact.nav-email:hover {
-  opacity: 1;
-}
-
-.nav-contact:first-of-type {
-  margin-left: 20px;
-  padding-left: 20px;
-  border-left: 1px solid rgba(109, 139, 108, 0.4);
 }
 
 /* ===== ANIMATION PAGE ===== */

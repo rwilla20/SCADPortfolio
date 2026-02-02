@@ -8,43 +8,34 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="page-home">
-  <div class="scene">
-    <!-- Mobile Menu Toggle -->
-    <button class="menu-toggle" aria-label="Toggle menu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-
-    <!-- Lamp Container -->
-    <div class="lamp-container">
-      <img src="assets/lampoff_lamp.svg" class="lamp-svg lamp-off active" alt="Lamp Off">
-      <img src="assets/lampoff_string.svg" class="lamp-svg string-off clickable active" alt="String Off">
-      <img src="assets/lampon_home_shadow.svg" class="lamp-svg lamp-on lamp-home" alt="Lamp On Home">
-      <img src="assets/lampon_string.svg" class="lamp-svg string-on" alt="String On">
-    </div>
-
-    <!-- Prompt Text -->
-    <div class="home-prompt">
-      <h1>Turn off the light!</h1>
-      <p>The show's about to start!</p>
-    </div>
-
+  <div class="scene scene-light">
+    
     <!-- Navigation -->
-    <nav class="navbar">
-      <a href="index.html" class="nav-item home" data-color="home">Demo Reel</a>
-      <a href="animation.html" class="nav-item green" data-color="green">Animation</a>
-      <a href="production.html" class="nav-item peach" data-color="peach">Production</a>
-      <a href="resume.html" class="nav-item purple" data-color="purple">Resume</a>
-      <a href="about.html" class="nav-item yellow" data-color="yellow">About Me</a>
+    <nav class="navbar navbar-green visible">
+      <a href="index.html" class="nav-item">Demo Reel</a>
+      <a href="animation.html" class="nav-item">Animation</a>
+      <a href="production.html" class="nav-item">Production</a>
+      <a href="resume.html" class="nav-item">Resume</a>
+      <a href="about.html" class="nav-item">About Me</a>
       <span class="nav-contact">440.731.1975</span>
       <a href="mailto:rileydwillard@icloud.com" class="nav-contact nav-email">rileydwillard@icloud.com</a>
     </nav>
 
-    <!-- Demo Reel Content (hidden initially) -->
+    <!-- Lamp with String -->
+    <div class="lamp-home-container">
+      <img src="assets/lampoff_lamp.svg" class="lamp-svg lamp-off active" alt="Lamp">
+      <img src="assets/lampoff_string.svg" class="lamp-svg string-off clickable active" alt="String">
+    </div>
+
+    <!-- Prompt Text -->
+    <div class="home-prompt visible">
+      <h1>Turn off the light!</h1>
+      <p>The show's about to start!</p>
+    </div>
+
+    <!-- Demo Reel Video (hidden initially) -->
     <div class="demoreel-container">
       <div class="demoreel-video">
-        <!-- Replace with Riley's actual demo reel video -->
         <iframe 
           src="https://www.youtube.com/embed/YOUR_VIDEO_ID" 
           frameborder="0" 
