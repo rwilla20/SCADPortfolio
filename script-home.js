@@ -4,6 +4,7 @@ const stringHome = document.querySelector('.string-home');
 const lampContainer = document.querySelector('.lamp-home-container');
 const homePrompt = document.querySelector('.home-prompt');
 const demoreelContainer = document.querySelector('.demoreel-container');
+const closeReel = document.querySelector('.close-reel');
 const stringSound = document.getElementById('string-sound');
 const navItems = document.querySelectorAll('.nav-item');
 const lampHome = document.querySelector('.lamp-home');
@@ -35,7 +36,7 @@ function changeLampColor(page) {
 
 function changeNavColor(page) {
   const colors = {
-    home: '#2a2a2a',
+    home: '#ffffff',
     animation: '#6d8b6c',
     production: '#de6f5f',
     resume: '#836190',
@@ -45,7 +46,7 @@ function changeNavColor(page) {
     if (item.dataset.page === page) {
       item.style.color = colors[page];
     } else {
-      item.style.color = '#2a2a2a';
+      item.style.color = '#ffffff';
     }
   });
 }
@@ -72,4 +73,23 @@ function turnOffLamp() {
   setTimeout(() => {
     demoreelContainer.classList.add('visible');
   }, 800);
+}
+
+// Close demo reel and go back to lamp
+closeReel.addEventListener('click', closeDemoReel);
+
+function closeDemoReel() {
+  // Hide demo reel
+  demoreelContainer.classList.remove('visible');
+  
+  // Change background back to light
+  scene.classList.remove('scene-dark');
+  scene.classList.add('scene-light');
+  
+  // Show lamp and prompt again
+  setTimeout(() => {
+    lampContainer.classList.remove('hidden');
+    homePrompt.classList.remove('hidden');
+    homePrompt.classList.add('visible');
+  }, 300);
 }

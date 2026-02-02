@@ -37,19 +37,22 @@ body {
   background: #000000;
 }
 
-/* ===== NAVIGATION (present on all pages) ===== */
+/* ===== GREEN NAVBAR WITH LOGO ===== */
 .navbar {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  gap: 40px;
-  padding: 25px 50px;
+  padding: 20px 60px;
   z-index: 10;
   background: transparent;
+}
+
+.navbar-green {
+  background: var(--color-green);
 }
 
 .navbar-visible {
@@ -57,18 +60,37 @@ body {
   pointer-events: auto;
 }
 
+/* Logo on far left */
+.nav-logo {
+  flex-shrink: 0;
+}
+
+.nav-logo img {
+  height: 50px;
+  width: auto;
+}
+
+/* Center nav links */
+.nav-links {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  flex: 1;
+}
+
 .nav-item {
   padding: 10px 20px;
-  color: #2a2a2a;
+  color: #ffffff;
   text-decoration: none;
   font-size: 1.1em;
   font-weight: 800;
   transition: all 0.3s ease;
   border-bottom: 2px solid transparent;
+  white-space: nowrap;
 }
 
 .nav-item.active {
-  border-bottom-color: #2a2a2a;
+  border-bottom-color: #ffffff;
 }
 
 .nav-item:hover {
@@ -76,24 +98,26 @@ body {
   border-bottom-color: currentColor;
 }
 
+/* Contact info on far right */
+.nav-contact-info {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  flex-shrink: 0;
+}
+
 .nav-contact {
-  color: #2a2a2a;
+  color: #ffffff;
   font-size: 0.9em;
   font-weight: 400;
   text-decoration: none;
-  opacity: 0.8;
-  padding: 10px 0;
+  opacity: 0.9;
+  white-space: nowrap;
 }
 
 .nav-contact.nav-email:hover {
   opacity: 1;
   text-decoration: underline;
-}
-
-.nav-contact:first-of-type {
-  margin-left: 20px;
-  padding-left: 20px;
-  border-left: 1px solid rgba(42, 42, 42, 0.3);
 }
 
 /* ===== LAMP ON HOME PAGE ===== */
@@ -215,6 +239,33 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
+}
+
+/* Close button for demo reel */
+.close-reel {
+  position: absolute;
+  top: -50px;
+  right: 0;
+  background: transparent;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #ffffff;
+}
+
+.close-reel:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: rotate(90deg);
+}
+
+.close-reel svg {
+  color: #ffffff;
 }
 
 /* ===== ANIMATION PAGE ===== */

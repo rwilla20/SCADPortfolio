@@ -10,15 +10,22 @@
 <body class="page-home">
   <div class="scene scene-light">
     
-    <!-- Navigation -->
-    <nav class="navbar navbar-visible">
-      <a href="index.html" class="nav-item active" data-page="home">Demo Reel</a>
-      <a href="animation.html" class="nav-item" data-page="animation">Animation</a>
-      <a href="production.html" class="nav-item" data-page="production">Production</a>
-      <a href="resume.html" class="nav-item" data-page="resume">Resume</a>
-      <a href="about.html" class="nav-item" data-page="about">About Me</a>
-      <span class="nav-contact">440.731.1975</span>
-      <a href="mailto:rileydwillard@icloud.com" class="nav-contact nav-email">rileydwillard@icloud.com</a>
+    <!-- Navigation with Logo -->
+    <nav class="navbar navbar-green navbar-visible">
+      <div class="nav-logo">
+        <img src="assets/RileyWillard_3dAnimator_Typography.svg" alt="Riley Willard 3D Animator">
+      </div>
+      <div class="nav-links">
+        <a href="index.html" class="nav-item active" data-page="home">Demo Reel</a>
+        <a href="animation.html" class="nav-item" data-page="animation">Animation</a>
+        <a href="production.html" class="nav-item" data-page="production">Production</a>
+        <a href="resume.html" class="nav-item" data-page="resume">Resume</a>
+        <a href="about.html" class="nav-item" data-page="about">About Me</a>
+      </div>
+      <div class="nav-contact-info">
+        <span class="nav-contact">440.731.1975</span>
+        <a href="mailto:rileydwillard@icloud.com" class="nav-contact nav-email">rileydwillard@icloud.com</a>
+      </div>
     </nav>
 
     <!-- Lamp with String -->
@@ -35,6 +42,14 @@
 
     <!-- Demo Reel Video (hidden initially) -->
     <div class="demoreel-container">
+      <!-- Close button -->
+      <button class="close-reel" aria-label="Close demo reel">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+      
       <div class="demoreel-video">
         <iframe 
           src="https://www.youtube.com/embed/YOUR_VIDEO_ID" 
