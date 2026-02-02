@@ -79,7 +79,7 @@ body {
 
 .nav-item {
   padding: 10px 20px;
-  color: #ffffff;
+  color: var(--color-offwhite);
   text-decoration: none;
   font-size: 1.1em;
   font-weight: 800;
@@ -90,7 +90,7 @@ body {
 }
 
 .nav-item.active {
-  border-bottom-color: #ffffff;
+  border-bottom-color: var(--color-offwhite);
 }
 
 .nav-item:hover {
@@ -103,6 +103,11 @@ body {
     1px 1px 0 var(--color-offwhite);
 }
 
+/* Remove outline for Demo Reel specifically */
+.nav-item[data-page="home"]:hover {
+  text-shadow: none;
+}
+
 /* Contact info on far right */
 .nav-contact-info {
   display: flex;
@@ -112,7 +117,7 @@ body {
 }
 
 .nav-contact {
-  color: #ffffff;
+  color: var(--color-offwhite);
   font-size: 0.9em;
   font-weight: 400;
   text-decoration: none;
@@ -131,8 +136,8 @@ body {
   top: 50%;
   left: 15%;
   transform: translate(-50%, -50%);
-  width: 500px;
-  height: 700px;
+  width: 650px;
+  height: 900px;
   z-index: 5;
   transition: opacity 0.8s ease;
 }
@@ -249,28 +254,31 @@ body {
 /* Close button for demo reel */
 .close-reel {
   position: absolute;
-  top: -50px;
-  right: 0;
-  background: transparent;
+  top: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.7);
   border: 2px solid #ffffff;
   border-radius: 50%;
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   transition: all 0.3s ease;
   color: #ffffff;
+  z-index: 100;
 }
 
 .close-reel:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.2);
   transform: rotate(90deg);
 }
 
 .close-reel svg {
   color: #ffffff;
+  width: 32px;
+  height: 32px;
 }
 
 /* ===== ANIMATION PAGE ===== */
@@ -467,7 +475,7 @@ body {
 
 .about-content h1 {
   font-size: 3em;
-  color: #d4a843;
+  color: #6f6dac;
   margin-bottom: 60px;
   text-align: center;
 }
@@ -482,7 +490,7 @@ body {
 .about-photo {
   border-radius: 12px;
   overflow: hidden;
-  border: 3px solid rgba(212, 168, 67, 0.3);
+  border: 3px solid rgba(111, 109, 172, 0.3);
 }
 
 .about-photo img {
@@ -500,7 +508,7 @@ body {
 .about-bio p {
   font-size: 1.2em;
   line-height: 1.8;
-  color: #ffefcc;
+  color: #2a2a2a;
   margin-bottom: 20px;
 }
 
@@ -510,7 +518,7 @@ body {
 
 .contact-section h2 {
   font-size: 2em;
-  color: #d4a843;
+  color: #6f6dac;
   margin-bottom: 30px;
 }
 
@@ -519,10 +527,10 @@ body {
   align-items: center;
   gap: 15px;
   padding: 25px 50px;
-  background: rgba(212, 168, 67, 0.1);
-  border: 2px solid rgba(212, 168, 67, 0.3);
+  background: rgba(111, 109, 172, 0.1);
+  border: 2px solid rgba(111, 109, 172, 0.3);
   border-radius: 12px;
-  color: #d4a843;
+  color: #6f6dac;
   text-decoration: none;
   font-size: 1.3em;
   font-weight: 600;
@@ -530,8 +538,8 @@ body {
 }
 
 .contact-box:hover {
-  border-color: #d4a843;
-  background: rgba(212, 168, 67, 0.2);
+  border-color: #6f6dac;
+  background: rgba(111, 109, 172, 0.2);
   transform: translateY(-3px);
 }
 

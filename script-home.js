@@ -41,7 +41,7 @@ function changeLampImage(page) {
 
 function changeNavColor(page) {
   const colors = {
-    home: '#ffffff',
+    home: '#ffefcc',
     animation: '#6d8b6c',
     production: '#de6f5f',
     resume: '#836190',
@@ -51,7 +51,7 @@ function changeNavColor(page) {
     if (item.dataset.page === page) {
       item.style.color = colors[page];
     } else {
-      item.style.color = '#ffffff';
+      item.style.color = '#ffefcc';
     }
   });
 }
