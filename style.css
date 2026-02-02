@@ -9,9 +9,19 @@ body {
   font-family: 'zeitung-pro-variable', Arial, sans-serif;
   font-weight: 400;
   overflow-x: hidden;
+  background: #ffefcc;
 }
 
-/* ===== HOME PAGE SCENE ===== */
+/* ===== COLOR VARIABLES ===== */
+:root {
+  --color-offwhite: #ffefcc;
+  --color-green: #6d8b6c;
+  --color-blue: #6f6dac;
+  --color-purple: #836190;
+  --color-peach: #de6f5f;
+}
+
+/* ===== SCENE ===== */
 .scene {
   position: relative;
   width: 100vw;
@@ -19,17 +29,15 @@ body {
   transition: background-color 0.8s ease;
 }
 
-/* Light off-white background initially */
 .scene-light {
-  background: #f5f5f0;
+  background: var(--color-offwhite);
 }
 
-/* Dark background after clicking */
 .scene-dark {
   background: #000000;
 }
 
-/* ===== GREEN NAVBAR ===== */
+/* ===== NAVIGATION (present on all pages) ===== */
 .navbar {
   position: fixed;
   top: 0;
@@ -41,21 +49,17 @@ body {
   gap: 40px;
   padding: 25px 50px;
   z-index: 10;
-  transition: all 0.3s ease;
+  background: transparent;
 }
 
-.navbar-green {
-  background: #6d8b6c;
-}
-
-.navbar.visible {
+.navbar-visible {
   opacity: 1;
   pointer-events: auto;
 }
 
 .nav-item {
   padding: 10px 20px;
-  color: #ffffff;
+  color: #2a2a2a;
   text-decoration: none;
   font-size: 1.1em;
   font-weight: 800;
@@ -63,17 +67,21 @@ body {
   border-bottom: 2px solid transparent;
 }
 
+.nav-item.active {
+  border-bottom-color: #2a2a2a;
+}
+
 .nav-item:hover {
   transform: translateY(-2px);
-  border-bottom-color: #ffffff;
+  border-bottom-color: currentColor;
 }
 
 .nav-contact {
-  color: #ffffff;
+  color: #2a2a2a;
   font-size: 0.9em;
   font-weight: 400;
   text-decoration: none;
-  opacity: 0.9;
+  opacity: 0.8;
   padding: 10px 0;
 }
 
@@ -85,7 +93,7 @@ body {
 .nav-contact:first-of-type {
   margin-left: 20px;
   padding-left: 20px;
-  border-left: 1px solid rgba(255, 255, 255, 0.4);
+  border-left: 1px solid rgba(42, 42, 42, 0.3);
 }
 
 /* ===== LAMP ON HOME PAGE ===== */
@@ -114,7 +122,7 @@ body {
   height: 70%;
   max-width: 100%;
   opacity: 0;
-  transition: opacity 0.8s ease;
+  transition: all 0.3s ease;
   pointer-events: none;
 }
 
@@ -127,7 +135,8 @@ body {
   cursor: pointer;
 }
 
-.string-off.clickable {
+/* String swaying animation */
+.string-home.clickable {
   animation: gentle-sway 3s ease-in-out infinite;
 }
 
@@ -137,7 +146,7 @@ body {
 }
 
 .lamp-svg.clickable:hover {
-  filter: drop-shadow(0 0 15px rgba(109, 139, 108, 0.8));
+  filter: drop-shadow(0 0 20px var(--color-offwhite)) !important;
   animation: none;
 }
 
@@ -193,7 +202,7 @@ body {
 .demoreel-video {
   position: relative;
   width: 100%;
-  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  padding-bottom: 56.25%;
   background: #000;
   border-radius: 8px;
   overflow: hidden;
