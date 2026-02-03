@@ -387,6 +387,14 @@ body {
   height: 100%;
 }
 
+.video-container video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
 .animation-process {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -417,6 +425,33 @@ body {
   width: 100%;
   height: auto;
   border-radius: 4px;
+}
+
+/* 3-column layout for Lip Sync */
+.animation-process-3col {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.polish-large {
+  grid-row: span 3;
+}
+
+.process-box-right {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.process-box-right .process-box {
+  flex: 1;
+}
+
+.process-box-right .process-box video {
+  height: calc(100% - 50px);
+  object-fit: cover;
 }
 
 /* ===== PRODUCTION PAGE ===== */
