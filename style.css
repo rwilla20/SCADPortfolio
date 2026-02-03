@@ -333,7 +333,7 @@ body {
 
 /* ===== ANIMATION PAGE ===== */
 .animation-content {
-  padding: 120px 80px 80px;
+  padding: 160px 80px 80px;
   max-width: 1600px;
   margin: 0 auto;
 }
@@ -411,7 +411,7 @@ body {
 
 /* ===== PRODUCTION PAGE ===== */
 .production-content {
-  padding: 120px 80px 80px;
+  padding: 160px 80px 80px;
   max-width: 1600px;
   margin: 0 auto;
 }
@@ -468,7 +468,7 @@ body {
 
 /* ===== RESUME PAGE ===== */
 .resume-content {
-  padding: 120px 80px 80px;
+  padding: 160px 80px 80px;
   max-width: 1000px;
   margin: 0 auto;
   text-align: center;
@@ -518,7 +518,7 @@ body {
 
 /* ===== ABOUT PAGE ===== */
 .about-content {
-  padding: 120px 80px 80px;
+  padding: 160px 80px 80px;
   max-width: 1200px;
   margin: 0 auto;
 }
