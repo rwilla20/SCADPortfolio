@@ -492,6 +492,67 @@ body {
   border-radius: 4px;
 }
 
+/* Production Page Lightbox */
+.lightbox {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+
+.lightbox.active {
+  display: flex;
+}
+
+.lightbox-content {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+}
+
+.lightbox-close {
+  position: fixed;
+  top: 40px;
+  right: 40px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 3px solid #ffffff;
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #ffffff;
+}
+
+.lightbox-close:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: rotate(90deg) scale(1.1);
+}
+
+.lightbox-close svg {
+  color: #ffffff;
+  width: 36px;
+  height: 36px;
+}
+
+.production-item img {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.production-item img:hover {
+  transform: scale(1.05);
+}
+
 /* PDF Download Button */
 .production-pdf {
   text-align: center;
@@ -605,13 +666,14 @@ body {
 .about-photo {
   border-radius: 12px;
   overflow: hidden;
-  border: none;  /* Removed the border */
+  border: none;
 }
 
 .about-photo img {
   width: 100%;
   height: auto;
   display: block;
+  border-radius: 12px;  /* Added border-radius to the image itself */
 }
 
 .about-bio {

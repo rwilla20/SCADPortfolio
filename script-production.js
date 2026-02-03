@@ -65,3 +65,37 @@ if (menuToggle) {
     }
   });
 }
+
+// Lightbox functionality
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+const lightboxClose = document.getElementById('lightbox-close');
+const productionImages = document.querySelectorAll('.production-item img');
+
+// Open lightbox when clicking on images
+productionImages.forEach(img => {
+  img.addEventListener('click', () => {
+    lightbox.classList.add('active');
+    lightboxImg.src = img.src;
+    lightboxImg.alt = img.alt;
+  });
+});
+
+// Close lightbox
+lightboxClose.addEventListener('click', () => {
+  lightbox.classList.add('active');
+});
+
+// Close lightbox when clicking outside the image
+lightbox.addEventListener('click', (e) => {
+  if (e.target === lightbox) {
+    lightbox.classList.remove('active');
+  }
+});
+
+// Close lightbox with Escape key
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+    lightbox.classList.remove('active');
+  }
+});
