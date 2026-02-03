@@ -48,10 +48,11 @@ body {
   align-items: center;
   padding: 20px 60px;
   z-index: 10;
+  background: transparent;
 }
 
 .navbar-green {
-  background: var(--color-green) !important;
+  background: var(--color-green);
 }
 
 .navbar-visible {
@@ -62,13 +63,11 @@ body {
 /* Logo on far left */
 .nav-logo {
   flex-shrink: 0;
-  margin-right: 20px;
 }
 
 .nav-logo img {
-  height: 120px;
+  height: 50px;
   width: auto;
-  object-fit: contain;
 }
 
 /* Center nav links */
@@ -81,62 +80,35 @@ body {
 
 .nav-item {
   padding: 10px 20px;
-  color: var(--color-offwhite);
+  color: #ffffff;
   text-decoration: none;
   font-size: 1.1em;
   font-weight: 800;
   transition: all 0.3s ease;
   border-bottom: 2px solid transparent;
   white-space: nowrap;
-  text-shadow: none;
 }
 
 .nav-item.active {
-  border-bottom-color: var(--color-offwhite);
-  text-shadow: 
-    -1px -1px 0 var(--color-offwhite),
-    1px -1px 0 var(--color-offwhite),
-    -1px 1px 0 var(--color-offwhite),
-    1px 1px 0 var(--color-offwhite) !important;
-}
-
-/* Special styling for Demo Reel when active */
-.nav-item[data-page="home"].active {
-  color: #000000 !important;
-  text-shadow: 
-    -1px -1px 0 var(--color-offwhite),
-    1px -1px 0 var(--color-offwhite),
-    -1px 1px 0 var(--color-offwhite),
-    1px 1px 0 var(--color-offwhite) !important;
+  border-bottom-color: #ffffff;
 }
 
 .nav-item:hover {
   transform: translateY(-2px);
   border-bottom-color: currentColor;
-  text-shadow: 
-    -1px -1px 0 var(--color-offwhite),
-    1px -1px 0 var(--color-offwhite),
-    -1px 1px 0 var(--color-offwhite),
-    1px 1px 0 var(--color-offwhite);
-}
-
-/* Demo Reel stays black on hover */
-.nav-item[data-page="home"]:hover {
-  color: #000000;
 }
 
 /* Contact info on far right */
 .nav-contact-info {
   display: flex;
-  flex-direction: column;
-  gap: 5px;
-  align-items: flex-end;
+  gap: 20px;
+  align-items: center;
   flex-shrink: 0;
 }
 
 .nav-contact {
-  color: var(--color-offwhite);
-  font-size: 0.85em;
+  color: #ffffff;
+  font-size: 0.9em;
   font-weight: 400;
   text-decoration: none;
   opacity: 0.9;
@@ -152,10 +124,10 @@ body {
 .lamp-home-container {
   position: fixed;
   top: 50%;
-  left: 22%;
+  left: 50%;
   transform: translate(-50%, -50%);
-  width: 800px;
-  height: 1100px;
+  width: 500px;
+  height: 700px;
   z-index: 5;
   transition: opacity 0.8s ease;
 }
@@ -174,7 +146,7 @@ body {
   height: 70%;
   max-width: 100%;
   opacity: 0;
-  transition: opacity 0.4s ease-in-out;
+  transition: all 0.3s ease;
   pointer-events: none;
 }
 
@@ -185,20 +157,6 @@ body {
 .lamp-svg.clickable {
   pointer-events: auto;
   cursor: pointer;
-}
-
-/* Make sure lamp is in front of string */
-.lamp-home {
-  z-index: 2;
-}
-
-.string-home {
-  z-index: 1;
-}
-
-/* String positioning - moved down more */
-.string-home {
-  bottom: 120px !important;
 }
 
 /* String swaying animation */
@@ -219,7 +177,7 @@ body {
 /* ===== HOME PAGE PROMPT ===== */
 .home-prompt {
   position: fixed;
-  top: 40%;
+  top: 30%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
@@ -244,30 +202,6 @@ body {
   font-size: 1.8em;
   color: #4a4a4a;
   font-weight: 400;
-}
-
-/* Demo Reel Title */
-.demo-title {
-  position: fixed;
-  top: 25%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  opacity: 1;
-  transition: opacity 0.6s ease;
-  z-index: 4;
-  pointer-events: none;
-}
-
-.demo-title.hidden {
-  opacity: 0;
-}
-
-.demo-title h2 {
-  font-size: 3em;
-  color: #2a2a2a;
-  font-weight: 800;
-  margin: 0;
 }
 
 /* ===== DEMO REEL CONTAINER ===== */
@@ -309,44 +243,41 @@ body {
 
 /* Close button for demo reel */
 .close-reel {
-  position: fixed;
-  top: 120px;
-  right: 40px;
-  background: rgba(0, 0, 0, 0.8);
-  border: 3px solid #ffffff;
+  position: absolute;
+  top: -50px;
+  right: 0;
+  background: transparent;
+  border: 2px solid #ffffff;
   border-radius: 50%;
-  width: 70px;
-  height: 70px;
+  width: 50px;
+  height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   transition: all 0.3s ease;
   color: #ffffff;
-  z-index: 1000;
 }
 
 .close-reel:hover {
-  background: rgba(255, 255, 255, 0.3);
-  transform: rotate(90deg) scale(1.1);
+  background: rgba(255, 255, 255, 0.1);
+  transform: rotate(90deg);
 }
 
 .close-reel svg {
   color: #ffffff;
-  width: 36px;
-  height: 36px;
 }
 
 /* ===== ANIMATION PAGE ===== */
 .animation-content {
-  padding: 160px 80px 80px;
+  padding: 120px 80px 80px;
   max-width: 1600px;
   margin: 0 auto;
 }
 
 .animation-content h1 {
   font-size: 3em;
-  color: #5a7359;
+  color: #6d8b6c;
   margin-bottom: 60px;
   text-align: center;
 }
@@ -357,7 +288,7 @@ body {
 
 .animation-project h2 {
   font-size: 2em;
-  color: #5a7359;
+  color: #6d8b6c;
   margin-bottom: 30px;
 }
 
@@ -390,21 +321,21 @@ body {
 }
 
 .process-box {
-  background: rgba(90, 115, 89, 0.1);
-  border: 2px solid rgba(90, 115, 89, 0.3);
+  background: rgba(109, 139, 108, 0.1);
+  border: 2px solid rgba(109, 139, 108, 0.3);
   border-radius: 8px;
   padding: 20px;
   transition: all 0.3s ease;
 }
 
 .process-box:hover {
-  border-color: #5a7359;
+  border-color: #6d8b6c;
   transform: translateY(-5px);
 }
 
 .process-box h3 {
   font-size: 1.2em;
-  color: #5a7359;
+  color: #6d8b6c;
   margin-bottom: 15px;
 }
 
@@ -417,14 +348,14 @@ body {
 
 /* ===== PRODUCTION PAGE ===== */
 .production-content {
-  padding: 160px 80px 80px;
+  padding: 120px 80px 80px;
   max-width: 1600px;
   margin: 0 auto;
 }
 
 .production-content h1 {
   font-size: 3em;
-  color: #de6f5f;
+  color: var(--color-peach);
   margin-bottom: 60px;
   text-align: center;
 }
@@ -443,24 +374,31 @@ body {
   padding: 20px;
   overflow: hidden;
   transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
 }
 
 .production-item:hover {
-  border-color: #de6f5f;
+  border-color: var(--color-peach);
   transform: translateY(-5px);
 }
 
 .production-item h3 {
   font-size: 1.3em;
-  color: #de6f5f;
+  color: var(--color-peach);
   margin-bottom: 15px;
 }
 
-.production-item img {
+.production-item img,
+.production-item video {
   width: 100%;
   height: calc(100% - 50px);
   object-fit: cover;
   border-radius: 4px;
+}
+
+.production-item video {
+  background: #000;
 }
 
 .ad-video {
@@ -472,9 +410,42 @@ body {
   padding-bottom: 0;
 }
 
+.ad-video video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* PDF Preview Link */
+.pdf-preview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  height: calc(100% - 50px);
+  text-decoration: none;
+  color: var(--color-peach);
+  transition: all 0.3s ease;
+  background: rgba(222, 111, 95, 0.05);
+  border-radius: 4px;
+  padding: 20px;
+}
+
+.pdf-preview:hover {
+  background: rgba(222, 111, 95, 0.15);
+  transform: scale(1.05);
+}
+
+.pdf-preview span {
+  font-size: 1.1em;
+  font-weight: 600;
+  text-align: center;
+}
+
 /* ===== RESUME PAGE ===== */
 .resume-content {
-  padding: 160px 80px 80px;
+  padding: 120px 80px 80px;
   max-width: 1000px;
   margin: 0 auto;
   text-align: center;
@@ -524,14 +495,14 @@ body {
 
 /* ===== ABOUT PAGE ===== */
 .about-content {
-  padding: 160px 80px 80px;
+  padding: 120px 80px 80px;
   max-width: 1200px;
   margin: 0 auto;
 }
 
 .about-content h1 {
   font-size: 3em;
-  color: #6f6dac;
+  color: #d4a843;
   margin-bottom: 60px;
   text-align: center;
 }
@@ -546,7 +517,7 @@ body {
 .about-photo {
   border-radius: 12px;
   overflow: hidden;
-  border: 3px solid rgba(111, 109, 172, 0.3);
+  border: 3px solid rgba(212, 168, 67, 0.3);
 }
 
 .about-photo img {
@@ -564,7 +535,7 @@ body {
 .about-bio p {
   font-size: 1.2em;
   line-height: 1.8;
-  color: #2a2a2a;
+  color: #ffefcc;
   margin-bottom: 20px;
 }
 
@@ -574,7 +545,7 @@ body {
 
 .contact-section h2 {
   font-size: 2em;
-  color: #6f6dac;
+  color: #d4a843;
   margin-bottom: 30px;
 }
 
@@ -583,10 +554,10 @@ body {
   align-items: center;
   gap: 15px;
   padding: 25px 50px;
-  background: rgba(111, 109, 172, 0.1);
-  border: 2px solid rgba(111, 109, 172, 0.3);
+  background: rgba(212, 168, 67, 0.1);
+  border: 2px solid rgba(212, 168, 67, 0.3);
   border-radius: 12px;
-  color: #6f6dac;
+  color: #d4a843;
   text-decoration: none;
   font-size: 1.3em;
   font-weight: 600;
@@ -594,8 +565,8 @@ body {
 }
 
 .contact-box:hover {
-  border-color: #6f6dac;
-  background: rgba(111, 109, 172, 0.2);
+  border-color: #d4a843;
+  background: rgba(212, 168, 67, 0.2);
   transform: translateY(-3px);
 }
 
