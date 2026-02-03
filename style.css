@@ -62,10 +62,11 @@ body {
 /* Logo on far left */
 .nav-logo {
   flex-shrink: 0;
+  margin-right: 20px;
 }
 
 .nav-logo img {
-  height: 110px;
+  height: 120px;
   width: auto;
   object-fit: contain;
 }
@@ -112,12 +113,16 @@ body {
 .nav-item:hover {
   transform: translateY(-2px);
   border-bottom-color: currentColor;
-  color: #000000;
   text-shadow: 
     -1px -1px 0 var(--color-offwhite),
     1px -1px 0 var(--color-offwhite),
     -1px 1px 0 var(--color-offwhite),
     1px 1px 0 var(--color-offwhite);
+}
+
+/* Demo Reel stays black on hover */
+.nav-item[data-page="home"]:hover {
+  color: #000000;
 }
 
 /* Contact info on far right */
@@ -259,7 +264,7 @@ body {
 }
 
 .demo-title h2 {
-  font-size: 4em;
+  font-size: 3em;
   color: #2a2a2a;
   font-weight: 800;
   margin: 0;
