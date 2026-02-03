@@ -585,7 +585,6 @@ body {
 .pdf-download-btn svg {
   flex-shrink: 0;
 }
-
 /* Production Page Lightbox */
 .lightbox {
   display: none;
@@ -598,6 +597,7 @@ body {
   z-index: 1000;
   justify-content: center;
   align-items: center;
+  padding: 80px 40px 40px 40px;
 }
 
 .lightbox.active {
@@ -608,6 +608,19 @@ body {
   max-width: 90%;
   max-height: 90%;
   object-fit: contain;
+}
+
+#lightbox-video {
+  width: 85vw;
+  height: auto;
+  max-height: 85vh;
+}
+
+#lightbox-img {
+  width: auto;
+  height: auto;
+  max-width: 85vw;
+  max-height: 85vh;
 }
 
 .lightbox-close {
@@ -625,6 +638,7 @@ body {
   cursor: pointer;
   transition: all 0.3s ease;
   color: #ffffff;
+  z-index: 1001;
 }
 
 .lightbox-close:hover {

@@ -90,18 +90,24 @@ productionImages.forEach(img => {
 productionVideos.forEach(video => {
   video.addEventListener('click', () => {
     lightbox.classList.add('active');
-    lightboxVideo.src = video.src;
+    
+    // Get video source from either src attribute or source tag
+    const videoSrc = video.querySelector('source') ? video.querySelector('source').src : video.src;
+    lightboxVideo.src = videoSrc;
+    
     lightboxVideo.style.display = 'block';
     lightboxImg.style.display = 'none';
-    lightboxVideo.play();
+    lightboxVideo.load(); // Load the video with controls
+    lightboxVideo.play(); // Auto-play in lightbox
   });
 });
 
-// Close lightbox - FIXED
+// Close lightbox
 lightboxClose.addEventListener('click', () => {
-  lightbox.classList.remove('active');  // Changed from add to remove
+  lightbox.classList.remove('active');
   lightboxVideo.pause();
   lightboxVideo.currentTime = 0;
+  lightboxVideo.src = ''; // Clear source to stop loading
 });
 
 // Close lightbox when clicking outside the image/video
@@ -110,6 +116,7 @@ lightbox.addEventListener('click', (e) => {
     lightbox.classList.remove('active');
     lightboxVideo.pause();
     lightboxVideo.currentTime = 0;
+    lightboxVideo.src = '';
   }
 });
 
@@ -119,5 +126,6 @@ document.addEventListener('keydown', (e) => {
     lightbox.classList.remove('active');
     lightboxVideo.pause();
     lightboxVideo.currentTime = 0;
+    lightboxVideo.src = '';
   }
 });
