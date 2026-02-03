@@ -65,7 +65,7 @@ body {
 }
 
 .nav-logo img {
-  height: 70px;
+  height: 90px;
   width: auto;
   object-fit: contain;
 }
@@ -92,6 +92,11 @@ body {
 
 .nav-item.active {
   border-bottom-color: var(--color-offwhite);
+  text-shadow: 
+    -1px -1px 0 var(--color-offwhite),
+    1px -1px 0 var(--color-offwhite),
+    -1px 1px 0 var(--color-offwhite),
+    1px 1px 0 var(--color-offwhite);
 }
 
 .nav-item:hover {
@@ -106,6 +111,10 @@ body {
 
 /* Remove outline for Demo Reel specifically */
 .nav-item[data-page="home"]:hover {
+  text-shadow: none;
+}
+
+.nav-item[data-page="home"].active {
   text-shadow: none;
 }
 
@@ -136,7 +145,7 @@ body {
 .lamp-home-container {
   position: fixed;
   top: 50%;
-  left: 15%;
+  left: 20%;
   transform: translate(-50%, -50%);
   width: 800px;
   height: 1100px;
@@ -171,9 +180,9 @@ body {
   cursor: pointer;
 }
 
-/* String positioning - moved up */
+/* String positioning - moved down */
 .string-home {
-  bottom: 180px !important;
+  bottom: 150px !important;
 }
 
 /* String swaying animation */
@@ -224,7 +233,7 @@ body {
 /* Demo Reel Title */
 .demo-title {
   position: fixed;
-  top: 15%;
+  top: 20%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;

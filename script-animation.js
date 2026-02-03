@@ -11,7 +11,7 @@ function setActiveState() {
   navItems.forEach(item => {
     if (item.dataset.page === currentPage) {
       item.classList.add('active');
-      item.style.color = '#5a7359'; // Darker green
+      item.style.color = '#4a5e49'; // Even darker green for active state
     } else {
       item.classList.remove('active');
       item.style.color = '#ffefcc';
@@ -34,7 +34,7 @@ navItems.forEach(item => {
 function changeNavColor(page) {
   const colors = {
     home: '#ffefcc',
-    animation: '#5a7359', // Darker green
+    animation: '#5a7359', // Darker green for hover
     production: '#de6f5f',
     resume: '#836190',
     about: '#6f6dac'
