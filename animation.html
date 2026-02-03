@@ -35,38 +35,34 @@
       <div class="animation-project">
         <div class="animation-main">
           <h2>Midas Touch</h2>
-          <div class="video-container">
-            <video controls>
-              <source src="assets/animation/RileyWillard_Final.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-          </div>
         </div>
         
-        <div class="animation-process">
-          <div class="process-box">
-            <h3>Reference Video</h3>
-            <video controls>
-              <source src="assets/animation/RileyWillard_Reference.mp4" type="video/mp4">
-            </video>
-          </div>
-          <div class="process-box">
-            <h3>First Pass</h3>
-            <video controls>
-              <source src="assets/animation/RileyWillard_FirstPass.mp4" type="video/mp4">
-            </video>
-          </div>
-          <div class="process-box">
-            <h3>Second Pass</h3>
-            <video controls>
-              <source src="assets/animation/RileyWillard_SecondPass.mp4" type="video/mp4">
-            </video>
-          </div>
-          <div class="process-box">
+        <div class="animation-process-3col">
+          <div class="process-box polish-large">
             <h3>Polish</h3>
             <video controls>
               <source src="assets/animation/RileyWillard_Final.mp4" type="video/mp4">
             </video>
+          </div>
+          <div class="process-box-right">
+            <div class="process-box">
+              <h3>Reference Video</h3>
+              <video controls>
+                <source src="assets/animation/RileyWillard_Reference.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="process-box">
+              <h3>First Pass</h3>
+              <video controls>
+                <source src="assets/animation/RileyWillard_FirstPass.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="process-box">
+              <h3>Second Pass</h3>
+              <video controls>
+                <source src="assets/animation/RileyWillard_SecondPass.mp4" type="video/mp4">
+              </video>
+            </div>
           </div>
         </div>
       </div>
@@ -107,6 +103,18 @@
         </div>
       </div>
     </div>
+  </div>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightbox-close">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+    <img class="lightbox-content" id="lightbox-img" src="" alt="">
+    <video class="lightbox-content" id="lightbox-video" src="" controls></video>
   </div>
 
   <script src="script-animation.js"></script>
