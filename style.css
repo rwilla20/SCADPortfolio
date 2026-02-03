@@ -181,6 +181,15 @@ body {
   cursor: pointer;
 }
 
+/* Make sure lamp is in front of string */
+.lamp-home {
+  z-index: 2;
+}
+
+.string-home {
+  z-index: 1;
+}
+
 /* String positioning - moved down more */
 .string-home {
   bottom: 120px !important;
