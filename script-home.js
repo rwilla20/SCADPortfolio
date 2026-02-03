@@ -52,9 +52,17 @@ navItems.forEach(item => {
 });
 
 function changeLampImage(page) {
-  // Change the lamp SVG source
+  // Change the lamp SVG source with smooth transition
   if (lampSources[page]) {
-    lampHome.src = lampSources[page];
+    // Fade out
+    lampHome.style.opacity = '0';
+    
+    // Change image after fade out
+    setTimeout(() => {
+      lampHome.src = lampSources[page];
+      // Fade in
+      lampHome.style.opacity = '1';
+    }, 200);
   }
 }
 
