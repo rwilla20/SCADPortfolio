@@ -146,7 +146,7 @@ body {
 .lamp-home-container {
   position: fixed;
   top: 50%;
-  left: 25%;
+  left: 22%;
   transform: translate(-50%, -50%);
   width: 800px;
   height: 1100px;
@@ -304,7 +304,7 @@ body {
 /* Close button for demo reel */
 .close-reel {
   position: fixed;
-  top: 100px;
+  top: 120px;
   right: 40px;
   background: rgba(0, 0, 0, 0.8);
   border: 3px solid #ffffff;
