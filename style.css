@@ -247,16 +247,12 @@ body {
 }
 
 /* Demo Reel Title */
-.demo-title {
-  position: fixed;
-  top: 25%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  opacity: 1;
-  transition: opacity 0.6s ease;
-  z-index: 4;
-  pointer-events: none;
+.demo-title h1 {
+  font-size: 3em;
+  color: #2a2a2a;
+  font-weight: 800;
+  margin: 0;
+  font-family: 'zeitung-pro-variable', Arial, sans-serif;
 }
 
 .demo-title.hidden {
@@ -349,6 +345,8 @@ body {
   color: #5a7359;
   margin-bottom: 60px;
   text-align: center;
+  font-weight: 800;
+  font-family: 'zeitung-pro-variable', Arial, sans-serif;
 }
 
 .animation-project {
@@ -427,6 +425,8 @@ body {
   color: #de6f5f;
   margin-bottom: 60px;
   text-align: center;
+  font-weight: 800;
+  font-family: 'zeitung-pro-variable', Arial, sans-serif;
 }
 
 .production-grid {
@@ -528,6 +528,8 @@ body {
   font-size: 3em;
   color: #836190;
   margin-bottom: 60px;
+  font-weight: 800;
+  font-family: 'zeitung-pro-variable', Arial, sans-serif;
 }
 
 .resume-container {
@@ -583,6 +585,8 @@ body {
   color: #6f6dac;
   margin-bottom: 60px;
   text-align: center;
+  font-weight: 800;
+  font-family: 'zeitung-pro-variable', Arial, sans-serif;
 }
 
 .about-section {
