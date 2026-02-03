@@ -112,6 +112,7 @@ body {
 .nav-item:hover {
   transform: translateY(-2px);
   border-bottom-color: currentColor;
+  color: #000000;
   text-shadow: 
     -1px -1px 0 var(--color-offwhite),
     1px -1px 0 var(--color-offwhite),

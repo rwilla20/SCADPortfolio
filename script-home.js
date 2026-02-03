@@ -68,11 +68,11 @@ function changeLampImage(page) {
 
 function changeNavColor(page) {
   const colors = {
-    home: '#ffefcc',
-    animation: '#5a7359',
-    production: '#de6f5f',
-    resume: '#836190',
-    about: '#6f6dac'
+    home: '#000000',
+    animation: '#000000',
+    production: '#000000',
+    resume: '#000000',
+    about: '#000000'
   };
   navItems.forEach(item => {
     if (item.dataset.page === page) {
