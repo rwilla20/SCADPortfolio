@@ -219,7 +219,7 @@ body {
 /* ===== HOME PAGE PROMPT ===== */
 .home-prompt {
   position: fixed;
-  top: 40%;
+  top: 50%;  /* Changed from 40% to 50% to center it vertically */
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
