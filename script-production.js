@@ -69,8 +69,10 @@ if (menuToggle) {
 // Lightbox functionality
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightbox-img');
+const lightboxVideo = document.getElementById('lightbox-video');
 const lightboxClose = document.getElementById('lightbox-close');
 const productionImages = document.querySelectorAll('.production-item img');
+const productionVideos = document.querySelectorAll('.production-item video');
 
 // Open lightbox when clicking on images
 productionImages.forEach(img => {
@@ -78,18 +80,36 @@ productionImages.forEach(img => {
     lightbox.classList.add('active');
     lightboxImg.src = img.src;
     lightboxImg.alt = img.alt;
+    lightboxImg.style.display = 'block';
+    lightboxVideo.style.display = 'none';
+    lightboxVideo.pause();
   });
 });
 
-// Close lightbox
-lightboxClose.addEventListener('click', () => {
-  lightbox.classList.add('active');
+// Open lightbox when clicking on videos
+productionVideos.forEach(video => {
+  video.addEventListener('click', () => {
+    lightbox.classList.add('active');
+    lightboxVideo.src = video.src;
+    lightboxVideo.style.display = 'block';
+    lightboxImg.style.display = 'none';
+    lightboxVideo.play();
+  });
 });
 
-// Close lightbox when clicking outside the image
+// Close lightbox - FIXED
+lightboxClose.addEventListener('click', () => {
+  lightbox.classList.remove('active');  // Changed from add to remove
+  lightboxVideo.pause();
+  lightboxVideo.currentTime = 0;
+});
+
+// Close lightbox when clicking outside the image/video
 lightbox.addEventListener('click', (e) => {
   if (e.target === lightbox) {
     lightbox.classList.remove('active');
+    lightboxVideo.pause();
+    lightboxVideo.currentTime = 0;
   }
 });
 
@@ -97,5 +117,7 @@ lightbox.addEventListener('click', (e) => {
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape' && lightbox.classList.contains('active')) {
     lightbox.classList.remove('active');
+    lightboxVideo.pause();
+    lightboxVideo.currentTime = 0;
   }
 });
