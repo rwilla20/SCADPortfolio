@@ -10,14 +10,21 @@
 <body class="page-production">
   <div class="scene scene-light">
     <!-- Navigation -->
-    <nav class="navbar navbar-visible">
-      <a href="index.html" class="nav-item" data-page="home">Demo Reel</a>
-      <a href="animation.html" class="nav-item" data-page="animation">Animation</a>
-      <a href="production.html" class="nav-item active" data-page="production">Production</a>
-      <a href="resume.html" class="nav-item" data-page="resume">Resume</a>
-      <a href="about.html" class="nav-item" data-page="about">About Me</a>
-      <span class="nav-contact">440.731.1975</span>
-      <a href="mailto:rileydwillard@icloud.com" class="nav-contact nav-email">rileydwillard@icloud.com</a>
+    <nav class="navbar navbar-green navbar-visible">
+      <div class="nav-logo">
+        <img src="assets/RileyWillard_3dAnimator_Typography.svg" alt="Riley Willard 3D Animator">
+      </div>
+      <div class="nav-links">
+        <a href="index.html" class="nav-item" data-page="home">Demo Reel</a>
+        <a href="animation.html" class="nav-item" data-page="animation">Animation</a>
+        <a href="production.html" class="nav-item active" data-page="production">Production</a>
+        <a href="resume.html" class="nav-item" data-page="resume">Resume</a>
+        <a href="about.html" class="nav-item" data-page="about">About Me</a>
+      </div>
+      <div class="nav-contact-info">
+        <span class="nav-contact">440.731.1975</span>
+        <a href="mailto:rileydwillard@icloud.com" class="nav-contact nav-email">rileydwillard@icloud.com</a>
+      </div>
     </nav>
 
     <!-- Production Content -->
@@ -28,34 +35,52 @@
         <!-- Advertisement Video (left, spans 2 rows) -->
         <div class="production-item ad-video">
           <h3>Advertisement</h3>
-          <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" frameborder="0" allowfullscreen></iframe>
-          </div>
+          <video controls>
+            <source src="assets/production/CitadelleOPENER_FINALFINALmp4 (1).mov" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
         </div>
 
         <!-- Color Swatches (top right) -->
         <div class="production-item color-swatches">
           <h3>Color Swatches</h3>
-          <img src="assets/production/color-swatches.jpg" alt="Color Swatches">
+          <img src="assets/production/Winery - Process Book (2).png" alt="Color Swatches">
         </div>
 
         <!-- Bottle Render (middle right) -->
         <div class="production-item bottle-render">
           <h3>Bottle Render</h3>
-          <img src="assets/production/bottle-render.jpg" alt="Bottle Render">
+          <img src="assets/production/Render_01.jpeg" alt="Bottle Render">
         </div>
 
-        <!-- 3D Park (bottom left) -->
+        <!-- 3D Animation (bottom left) -->
         <div class="production-item park-3d">
-          <h3>3D Park</h3>
-          <img src="assets/production/3d-park.jpg" alt="3D Park">
+          <h3>3D Animation</h3>
+          <video controls>
+            <source src="assets/production/Video3_000.mov" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
         </div>
 
-        <!-- Additional Item (bottom right) -->
+        <!-- Logo (bottom right) -->
         <div class="production-item additional">
-          <h3>Additional Work</h3>
-          <img src="assets/production/additional.jpg" alt="Additional">
+          <h3>Logo</h3>
+          <img src="assets/production/Winery - Process Book (1).png" alt="Citadelle Logo">
         </div>
+      </div>
+
+      <!-- Presentation PDF Download -->
+      <div class="production-pdf">
+        <a href="assets/production/Citadelle Presentation_FINAL (1).pdf" class="pdf-download-btn" target="_blank">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+            <polyline points="10 9 9 9 8 9"></polyline>
+          </svg>
+          View Full Presentation
+        </a>
       </div>
     </div>
   </div>

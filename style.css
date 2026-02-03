@@ -467,9 +467,53 @@ body {
   grid-row: span 2;
 }
 
+.ad-video video {
+  width: 100%;
+  height: calc(100% - 50px);
+  object-fit: cover;
+  border-radius: 4px;
+}
+
 .ad-video .video-container {
   height: calc(100% - 50px);
   padding-bottom: 0;
+}
+
+.production-item video {
+  width: 100%;
+  height: calc(100% - 50px);
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+/* PDF Download Button */
+.production-pdf {
+  text-align: center;
+  margin-top: 60px;
+}
+
+.pdf-download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 40px;
+  background: #de6f5f;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 1.15em;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.pdf-download-btn:hover {
+  background: #c45a4d;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(222, 111, 95, 0.4);
+}
+
+.pdf-download-btn svg {
+  flex-shrink: 0;
 }
 
 /* ===== RESUME PAGE ===== */
