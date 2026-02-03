@@ -129,8 +129,8 @@ body {
 }
 
 .nav-contact {
-  color: #ffffff;
-  font-size: 0.75em;
+  color: var(--color-offwhite);
+  font-size: 0.85em;
   font-weight: 400;
   text-decoration: none;
   opacity: 0.9;
