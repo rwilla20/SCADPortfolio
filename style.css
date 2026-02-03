@@ -151,7 +151,7 @@ body {
 /* ===== LAMP ON HOME PAGE ===== */
 .lamp-home-container {
   position: fixed;
-  top: 50%;
+  top: 55%;
   left: 22%;
   transform: translate(-50%, -50%);
   width: 800px;
@@ -263,7 +263,7 @@ body {
   opacity: 0;
 }
 
-.demo-title h2 {
+.demo-title h1 {
   font-size: 3em;
   color: #2a2a2a;
   font-weight: 800;
