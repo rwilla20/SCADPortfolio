@@ -65,7 +65,7 @@ body {
 }
 
 .nav-logo img {
-  height: 90px;
+  height: 110px;
   width: auto;
   object-fit: contain;
 }
@@ -96,7 +96,7 @@ body {
     -1px -1px 0 var(--color-offwhite),
     1px -1px 0 var(--color-offwhite),
     -1px 1px 0 var(--color-offwhite),
-    1px 1px 0 var(--color-offwhite);
+    1px 1px 0 var(--color-offwhite) !important;
 }
 
 .nav-item:hover {
@@ -107,15 +107,6 @@ body {
     1px -1px 0 var(--color-offwhite),
     -1px 1px 0 var(--color-offwhite),
     1px 1px 0 var(--color-offwhite);
-}
-
-/* Remove outline for Demo Reel specifically */
-.nav-item[data-page="home"]:hover {
-  text-shadow: none;
-}
-
-.nav-item[data-page="home"].active {
-  text-shadow: none;
 }
 
 /* Contact info on far right */
@@ -145,7 +136,7 @@ body {
 .lamp-home-container {
   position: fixed;
   top: 50%;
-  left: 20%;
+  left: 25%;
   transform: translate(-50%, -50%);
   width: 800px;
   height: 1100px;
@@ -180,9 +171,9 @@ body {
   cursor: pointer;
 }
 
-/* String positioning - moved down */
+/* String positioning - moved down more */
 .string-home {
-  bottom: 150px !important;
+  bottom: 120px !important;
 }
 
 /* String swaying animation */
@@ -233,7 +224,7 @@ body {
 /* Demo Reel Title */
 .demo-title {
   position: fixed;
-  top: 20%;
+  top: 25%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
