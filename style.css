@@ -987,6 +987,37 @@ body {
   z-index: 1;
 }
 
+/* Hamburger menu button styles (outside media query) */
+.menu-toggle {
+  display: none;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  flex-direction: column;
+  gap: 5px;
+  background: rgba(255, 239, 204, 0.3);
+  border: 2px solid var(--color-offwhite);
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  z-index: 1001;
+  pointer-events: auto;
+}
+
+.menu-toggle span {
+  width: 25px;
+  height: 3px;
+  background: var(--color-offwhite);
+  display: block;
+  transition: 0.3s;
+}
+
+/* String positioning - moved down more */
+.string-home {
+  bottom: 110px !important;
+  z-index: 1;
+}
+
 /* ===== MOBILE RESPONSIVE ===== */
 @media (max-width: 768px) {
   /* Show hamburger menu on mobile */
@@ -1052,6 +1083,7 @@ body {
   /* Home page adjustments */
   .home-prompt {
     top: 50%;
+    left: 60%;
     padding: 0 20px;
   }
 
@@ -1061,6 +1093,10 @@ body {
 
   .home-prompt p {
     font-size: 1.2em;
+  }
+
+  .demo-title {
+    left: 60%;
   }
 
   .demo-title h1 {
@@ -1202,6 +1238,14 @@ body {
 
 /* Extra small phones */
 @media (max-width: 480px) {
+  .home-prompt {
+    left: 65%;
+  }
+
+  .demo-title {
+    left: 65%;
+  }
+
   .home-prompt h1 {
     font-size: 1.5em;
   }
