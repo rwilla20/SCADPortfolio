@@ -1017,6 +1017,36 @@ body {
   bottom: 110px !important;
   z-index: 1;
 }
+/* Hamburger menu button styles (outside media query) */
+.menu-toggle {
+  display: none;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  flex-direction: column;
+  gap: 5px;
+  background: rgba(255, 239, 204, 0.3);
+  border: 2px solid var(--color-offwhite);
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  z-index: 1001;
+  pointer-events: auto;
+}
+
+.menu-toggle span {
+  width: 25px;
+  height: 3px;
+  background: var(--color-offwhite);
+  display: block;
+  transition: 0.3s;
+}
+
+/* String positioning - moved down more */
+.string-home {
+  bottom: 110px !important;
+  z-index: 1;
+}
 
 /* ===== MOBILE RESPONSIVE ===== */
 @media (max-width: 768px) {
@@ -1030,6 +1060,7 @@ body {
     flex-direction: column;
     padding: 15px 20px;
     align-items: flex-start;
+    z-index: 10;
   }
 
   .nav-logo {
@@ -1065,7 +1096,7 @@ body {
     padding: 80px 20px 20px;
     gap: 0;
     transition: right 0.4s ease;
-    z-index: 999;
+    z-index: 1000;
     box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
   }
 
