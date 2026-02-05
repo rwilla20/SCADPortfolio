@@ -174,15 +174,15 @@ body {
   height: 70%;
   max-width: 100%;
   opacity: 0;
-  /* IMPROVED: Longer, smoother transition */
-  transition: opacity 0.8s ease-in-out;
+  /* Make it even smoother - try 1s, 1.2s, or even 1.5s */
+  transition: opacity 1.2s ease-in-out;
   pointer-events: none;
 }
 
 .lamp-svg.active {
   opacity: 1;
-  /* IMPROVED: Smooth fade-in with same timing */
-  transition: opacity 0.8s ease-in-out;
+  /* Match the same timing */
+  transition: opacity 1.2s ease-in-out;
 }
 
 .lamp-svg.clickable {
@@ -202,8 +202,8 @@ body {
 /* String positioning - moved down more */
 .string-home {
   bottom: 120px !important;
-  /* IMPROVED: Match lamp transition timing */
-  transition: opacity 0.8s ease-in-out;
+  /* Match lamp transition timing */
+  transition: opacity 1.2s ease-in-out;
 }
 
 /* String swaying animation */
