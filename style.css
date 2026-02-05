@@ -981,11 +981,25 @@ body {
     right: 0;
   }
 
+  .nav-logo {
+    display: none;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 0;
+  }
+
   .nav-item {
     width: 100%;
     padding: 15px;
     text-align: center;
     border-bottom: 1px solid rgba(109, 139, 108, 0.3);
+  }
+
+  .nav-contact-info {
+    align-items: center;
+    margin-top: 15px;
   }
 
   .nav-contact {
@@ -997,6 +1011,7 @@ body {
     border-top: 1px solid rgba(109, 139, 108, 0.3);
   }
 
+  /* Home page adjustments */
   .home-prompt h1 {
     font-size: 2em;
   }
@@ -1005,32 +1020,168 @@ body {
     font-size: 1.2em;
   }
 
-  .animation-content,
-  .production-content,
-  .resume-content,
-  .about-content {
-    padding: 100px 30px 50px;
+  .demo-title h1 {
+    font-size: 2em;
+  }
+
+  .lamp-home-container {
+    width: 400px;
+    height: 600px;
+    left: 50%;
+  }
+
+  /* Animation page mobile */
+  .animation-content {
+    padding: 120px 20px 50px;
+  }
+
+  .animation-content h1 {
+    font-size: 2em;
+    margin-bottom: 40px;
+  }
+
+  .animation-project h2 {
+    font-size: 1.5em;
+  }
+
+  .animation-process-3col {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .process-column-left,
+  .process-box-right {
+    gap: 15px;
   }
 
   .animation-process {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
+  }
+
+  /* Production page mobile */
+  .production-content {
+    padding: 120px 20px 50px;
+  }
+
+  .production-content h1 {
+    font-size: 2em;
+    margin-bottom: 40px;
   }
 
   .production-grid {
     grid-template-columns: 1fr;
     grid-template-rows: auto;
+    gap: 20px;
   }
 
   .ad-video {
     grid-row: span 1;
   }
 
+  /* Resume page mobile */
+  .resume-content {
+    padding: 120px 20px 50px;
+  }
+
+  .resume-content h1 {
+    font-size: 2em;
+    margin-bottom: 40px;
+  }
+
+  .resume-container {
+    padding: 20px;
+  }
+
+  /* About page mobile */
+  .about-content {
+    padding: 120px 20px 50px;
+  }
+
+  .about-content h1 {
+    font-size: 2em;
+    margin-bottom: 40px;
+  }
+
   .about-section {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 30px;
   }
 
   .about-bio p {
+    font-size: 1em;
+  }
+
+  .contact-box {
+    font-size: 1.1em;
+    padding: 20px 35px;
+  }
+
+  /* Lightbox mobile */
+  .lightbox-close,
+  .close-reel {
+    top: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+  }
+
+  .lightbox-close svg,
+  .close-reel svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  #lightbox-video,
+  .animation-content #lightbox-video {
+    width: 95vw;
+    max-height: 80vh;
+  }
+
+  #lightbox-img,
+  .animation-content #lightbox-img {
+    max-width: 95vw;
+    max-height: 80vh;
+  }
+
+  /* Demo reel mobile */
+  .demoreel-container {
+    width: 95vw;
+  }
+
+  .download-btn,
+  .pdf-download-btn {
+    font-size: 1em;
+    padding: 12px 30px;
+  }
+}
+
+/* Extra small phones */
+@media (max-width: 480px) {
+  .home-prompt h1 {
+    font-size: 1.5em;
+  }
+
+  .home-prompt p {
+    font-size: 1em;
+  }
+
+  .demo-title h1 {
+    font-size: 1.5em;
+  }
+
+  .animation-content h1,
+  .production-content h1,
+  .resume-content h1,
+  .about-content h1 {
+    font-size: 1.8em;
+  }
+
+  .lamp-home-container {
+    width: 300px;
+    height: 450px;
+  }
+
+  .process-box h3 {
     font-size: 1em;
   }
 }
