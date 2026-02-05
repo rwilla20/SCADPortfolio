@@ -957,29 +957,41 @@ body {
   background: rgba(111, 109, 172, 0.2);
   transform: translateY(-3px);
 }
+/* Hamburger menu button styles (outside media query) */
+.menu-toggle {
+  display: none;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  flex-direction: column;
+  gap: 5px;
+  background: rgba(255, 239, 204, 0.3);
+  border: 2px solid var(--color-offwhite);
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.menu-toggle span {
+  width: 25px;
+  height: 3px;
+  background: var(--color-offwhite);
+  display: block;
+  transition: 0.3s;
+}
+
+/* String positioning - moved down more */
+.string-home {
+  bottom: 110px !important;
+  z-index: 1;
+}
+
 /* ===== MOBILE RESPONSIVE ===== */
 @media (max-width: 768px) {
-  /* Hamburger menu toggle */
+  /* Show hamburger menu on mobile */
   .menu-toggle {
-    display: block;
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    flex-direction: column;
-    gap: 5px;
-    background: var(--color-green);
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    z-index: 1000;
-  }
-
-  .menu-toggle span {
-    width: 25px;
-    height: 3px;
-    background: var(--color-offwhite);
-    transition: 0.3s;
+    display: flex;
   }
 
   /* Navbar - keep logo and contact info visible */
@@ -1038,6 +1050,11 @@ body {
   }
 
   /* Home page adjustments */
+  .home-prompt {
+    top: 50%;
+    padding: 0 20px;
+  }
+
   .home-prompt h1 {
     font-size: 2em;
   }
@@ -1050,11 +1067,11 @@ body {
     font-size: 2em;
   }
 
-  /* Lamp repositioned to left side */
+  /* Lamp repositioned on mobile */
   .lamp-home-container {
     width: 350px;
     height: 550px;
-    left: 25%;
+    left: 30%;
     top: 55%;
   }
 
@@ -1204,10 +1221,11 @@ body {
     font-size: 1.8em;
   }
 
+  /* Lamp repositioned for small phones */
   .lamp-home-container {
     width: 280px;
     height: 450px;
-    left: 20%;
+    left: 30%;
   }
 
   .process-box h3 {
