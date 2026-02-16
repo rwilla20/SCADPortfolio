@@ -78,6 +78,9 @@ animationVideos.forEach(video => {
   video.addEventListener('click', () => {
     lightbox.classList.add('active');
     
+    // Pause the clicked video to prevent echo
+    video.pause();
+    
     // Get video source from either src attribute or source tag
     const videoSrc = video.querySelector('source') ? video.querySelector('source').src : video.src;
     lightboxVideo.src = videoSrc;

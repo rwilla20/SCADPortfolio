@@ -84,8 +84,15 @@ function changeNavColor(page) {
 }
 
 // Click string OR play button to turn off lamp and show demo reel
-stringHome.addEventListener('click', turnOffLamp);
-playButton.addEventListener('click', turnOffLamp);
+stringHome.addEventListener('click', (e) => {
+  e.stopPropagation(); // Prevent event bubbling
+  turnOffLamp();
+});
+
+playButton.addEventListener('click', (e) => {
+  e.stopPropagation(); // Prevent event bubbling
+  turnOffLamp();
+});
 
 function turnOffLamp() {
   // Play sound effect
@@ -110,6 +117,36 @@ function turnOffLamp() {
 
 // Close demo reel and go back to lamp
 closeReel.addEventListener('click', closeDemoReel);
+
+// Make demo reel video clickable to pause/play
+demoreelContainer.addEventListener('DOMContentLoaded', () => {
+  const demoVideo = demoreelContainer.querySelector('video');
+  if (demoVideo) {
+    demoVideo.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (demoVideo.paused) {
+        demoVideo.play();
+      } else {
+        demoVideo.pause();
+      }
+    });
+  }
+});
+
+// Also handle if video is added later
+setTimeout(() => {
+  const demoVideo = demoreelContainer.querySelector('video');
+  if (demoVideo) {
+    demoVideo.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (demoVideo.paused) {
+        demoVideo.play();
+      } else {
+        demoVideo.pause();
+      }
+    });
+  }
+}, 1000);
 
 function closeDemoReel() {
   // Hide demo reel

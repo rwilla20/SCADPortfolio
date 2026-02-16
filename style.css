@@ -289,16 +289,15 @@ html {
 /* ===== DEMO REEL CONTAINER ===== */
 .demoreel-container {
   position: fixed;
-  top: 50%;
+  top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 90vw;
-  max-width: 1400px;
+  width: 80vw;
+  max-width: 1200px;
   opacity: 0;
   pointer-events: none;
   transition: opacity 1s ease;
   z-index: 3;
-  padding-top: 80px; /* Add padding to clear navbar */
 }
 
 .demoreel-container.visible {
@@ -328,7 +327,7 @@ html {
 /* Close button for demo reel */
 .close-reel {
   position: fixed;
-  top: 120px;
+  top: 180px;
   right: 40px;
   background: rgba(0, 0, 0, 0.8);
   border: 3px solid #ffffff;
