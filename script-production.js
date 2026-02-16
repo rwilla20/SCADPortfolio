@@ -91,8 +91,8 @@ productionVideos.forEach(video => {
   video.addEventListener('click', () => {
     lightbox.classList.add('active');
     
-    // Pause the clicked video to prevent echo
-    video.pause();
+    // Pause ALL videos on the page to prevent echo
+    document.querySelectorAll('video').forEach(v => v.pause());
     
     // Get video source from either src attribute or source tag
     const videoSrc = video.querySelector('source') ? video.querySelector('source').src : video.src;
