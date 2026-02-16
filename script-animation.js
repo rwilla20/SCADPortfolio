@@ -71,7 +71,7 @@ const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightbox-img');
 const lightboxVideo = document.getElementById('lightbox-video');
 const lightboxClose = document.getElementById('lightbox-close');
-const animationVideos = document.querySelectorAll('.process-box video, .final-animation video, .rendered-animation video');
+const animationVideos = document.querySelectorAll('.process-box video, .final-animation video, .rendered-animation video, .animation-process-grid video');
 
 // Open lightbox when clicking on videos
 animationVideos.forEach(video => {

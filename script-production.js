@@ -72,7 +72,7 @@ const lightboxImg = document.getElementById('lightbox-img');
 const lightboxVideo = document.getElementById('lightbox-video');
 const lightboxClose = document.getElementById('lightbox-close');
 const productionImages = document.querySelectorAll('.production-item img');
-const productionVideos = document.querySelectorAll('.production-item video');
+const productionVideos = document.querySelectorAll('.production-item video, .production-video-item video');
 
 // Open lightbox when clicking on images
 productionImages.forEach(img => {

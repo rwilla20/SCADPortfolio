@@ -447,7 +447,52 @@ html {
   transform: scale(1.02);
 }
 
-/* Process Videos Grid */
+/* Process Videos Grid - 2x2 Equal Sizes */
+.animation-process-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.animation-process-grid .process-box {
+  background: rgba(90, 115, 89, 0.1);
+  border: 2px solid rgba(90, 115, 89, 0.3);
+  border-radius: 8px;
+  padding: 20px;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.animation-process-grid .process-box:hover {
+  border-color: #5a7359;
+  transform: translateY(-5px);
+}
+
+.animation-process-grid .process-box h3 {
+  font-size: 1.2em;
+  color: #5a7359;
+  margin-bottom: 15px;
+}
+
+.animation-process-grid .process-box video {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+  object-fit: cover;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.animation-process-grid .process-box video:hover {
+  transform: scale(1.05);
+}
+
+/* OLD STYLES - keeping for backwards compatibility but not used */
 .animation-process-3col {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -512,11 +557,11 @@ html {
   transform: scale(1.05);
 }
 
-/* Project Divider */
+/* Project Divider - SOLID BOLD LINE */
 .project-divider {
   width: 100%;
-  height: 3px;
-  background: linear-gradient(to right, transparent, #5a7359, transparent);
+  height: 4px;
+  background: #5a7359;
   margin: 80px 0;
   border-radius: 2px;
 }
@@ -694,56 +739,177 @@ html {
 /* PDF Viewer Styles */
 .pdf-viewer-section {
   margin-top: 80px;
-  padding: 40px;
-  background: rgba(222, 111, 95, 0.05);
-  border-radius: 12px;
+  padding: 50px;
+  background: linear-gradient(135deg, rgba(222, 111, 95, 0.05), rgba(222, 111, 95, 0.1));
+  border-radius: 16px;
+  border: 2px solid rgba(222, 111, 95, 0.2);
 }
 
 .pdf-viewer-section h2 {
-  font-size: 2.5em;
+  font-size: 2.8em;
   color: #de6f5f;
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 50px;
   font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 .pdf-embed-container {
   max-width: 1200px;
   margin: 0 auto;
   background: #fff;
-  border-radius: 8px;
+  border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.25);
+  border: 3px solid rgba(222, 111, 95, 0.3);
 }
 
 .pdf-embed-container iframe {
   display: block;
   width: 100%;
   min-height: 800px;
+  border: none;
 }
 
 .pdf-fallback {
   text-align: center;
-  padding: 20px;
-  background: rgba(222, 111, 95, 0.1);
+  padding: 25px;
+  background: rgba(222, 111, 95, 0.08);
   color: #2a2a2a;
   font-size: 1.1em;
 }
 
 .pdf-fallback a {
   color: #de6f5f;
-  font-weight: 600;
+  font-weight: 700;
   text-decoration: none;
   border-bottom: 2px solid #de6f5f;
   transition: all 0.3s ease;
+  padding: 2px 0;
 }
 
 .pdf-fallback a:hover {
   color: #c45a4d;
   border-bottom-color: #c45a4d;
+  padding-bottom: 4px;
 }
 
-/* Production Page Lightbox */
+/* Production Videos Grid - 2 Videos Side by Side */
+.production-videos-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 80px;
+}
+
+.production-video-item {
+  background: rgba(222, 111, 95, 0.1);
+  border: 2px solid rgba(222, 111, 95, 0.3);
+  border-radius: 12px;
+  padding: 30px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.production-video-item:hover {
+  border-color: #de6f5f;
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(222, 111, 95, 0.2);
+}
+
+.production-video-item h3 {
+  font-size: 1.5em;
+  color: #de6f5f;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.production-video-item video {
+  width: 100%;
+  height: auto;
+  min-height: 400px;
+  object-fit: cover;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.production-video-item video:hover {
+  transform: scale(1.02);
+}
+
+/* OLD Production Grid - Keep for reference but not used */
+.production-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 400px);
+  gap: 30px;
+}
+
+.production-item {
+  background: rgba(222, 111, 95, 0.1);
+  border: 2px solid rgba(222, 111, 95, 0.3);
+  border-radius: 8px;
+  padding: 20px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.production-item:hover {
+  border-color: #de6f5f;
+  transform: translateY(-5px);
+}
+
+.production-item h3 {
+  font-size: 1.3em;
+  color: #de6f5f;
+  margin-bottom: 15px;
+}
+
+.production-item img {
+  width: 100%;
+  height: calc(100% - 50px);
+  object-fit: cover;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.production-item img:hover {
+  transform: scale(1.05);
+}
+
+.ad-video {
+  grid-row: span 1;
+}
+
+.ad-video video {
+  width: 100%;
+  height: calc(100% - 50px);
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.ad-video .video-container {
+  height: calc(100% - 50px);
+  padding-bottom: 0;
+}
+
+.production-item video {
+  width: 100%;
+  height: calc(100% - 50px);
+  object-fit: cover;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.production-item video:hover {
+  transform: scale(1.05);
+}
+
+/* PDF Viewer Styles - Hide Sidebar */
 .lightbox {
   display: none;
   position: fixed;
@@ -1073,6 +1239,15 @@ html {
     font-size: 1.6em;
   }
 
+  .animation-process-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .animation-process-grid .process-box video {
+    min-height: 250px;
+  }
+
   .animation-process-3col {
     grid-template-columns: 1fr;
     gap: 15px;
@@ -1110,6 +1285,15 @@ html {
     grid-template-columns: 1fr;
     grid-template-rows: auto;
     gap: 20px;
+  }
+
+  .production-videos-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .production-video-item video {
+    min-height: 300px;
   }
 
   .ad-video {
