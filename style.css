@@ -315,7 +315,8 @@ html {
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
 }
 
-.demoreel-video iframe {
+.demoreel-video iframe,
+.demoreel-video video {
   position: absolute;
   top: 0;
   left: 0;
