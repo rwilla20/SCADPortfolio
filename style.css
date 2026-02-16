@@ -298,6 +298,7 @@ html {
   pointer-events: none;
   transition: opacity 1s ease;
   z-index: 3;
+  padding-top: 80px; /* Add padding to clear navbar */
 }
 
 .demoreel-container.visible {

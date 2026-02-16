@@ -98,7 +98,7 @@ productionVideos.forEach(video => {
     lightboxVideo.style.display = 'block';
     lightboxImg.style.display = 'none';
     lightboxVideo.load(); // Load the video with controls
-    lightboxVideo.play(); // Auto-play in lightbox
+    // Removed autoplay - user can click play if they want
   });
 });
 

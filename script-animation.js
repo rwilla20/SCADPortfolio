@@ -85,7 +85,7 @@ animationVideos.forEach(video => {
     lightboxVideo.style.display = 'block';
     lightboxImg.style.display = 'none';
     lightboxVideo.load();
-    lightboxVideo.play();
+    // Removed autoplay - user can click play if they want
   });
 });
 
