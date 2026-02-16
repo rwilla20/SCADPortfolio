@@ -10,6 +10,11 @@ body {
   font-weight: 400;
   overflow-x: hidden;
   background: #ffefcc;
+  overscroll-behavior: none; /* Prevents middle mouse scroll resize */
+}
+
+html {
+  overscroll-behavior: none; /* Prevents middle mouse scroll resize */
 }
 
 /* ===== COLOR VARIABLES ===== */
@@ -27,6 +32,7 @@ body {
   width: 100vw;
   min-height: 100vh;
   transition: background-color 0.8s ease;
+  overscroll-behavior: none; /* Prevents middle mouse scroll resize */
 }
 
 .scene-light {
@@ -125,7 +131,7 @@ body {
   color: #000000;
 }
 
-/* Contact info on far right */
+/* Contact info on far right - removed phone number */
 .nav-contact-info {
   display: flex;
   flex-direction: column;
@@ -201,7 +207,7 @@ body {
 
 /* String positioning - moved down more */
 .string-home {
-  bottom: 120px !important;
+  bottom: 110px !important;
   /* Match lamp transition timing */
   transition: opacity 4s ease-in-out;
 }
@@ -221,10 +227,10 @@ body {
   animation: none;
 }
 
-/* ===== HOME PAGE PROMPT ===== */
+/* ===== HOME PAGE PROMPT WITH PLAY BUTTON ===== */
 .home-prompt {
   position: fixed;
-  top: 50%;  /* Changed from 40% to 50% to center it vertically */
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
@@ -249,32 +255,35 @@ body {
   font-size: 1.8em;
   color: #4a4a4a;
   font-weight: 400;
+  margin-bottom: 30px;
 }
 
-/* Demo Reel Title */
-.demo-title {
-  position: fixed;
-  top: 200px;  
-  left: 50%;
-  transform: translateX(-50%);
-  text-align: center;
-  opacity: 1;
-  transition: opacity 0.6s ease;
-  z-index: 4;
-  pointer-events: none;
+/* Play Button */
+.play-button {
+  background: rgba(109, 139, 108, 0.9);
+  border: 3px solid var(--color-offwhite);
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: var(--color-offwhite);
+  pointer-events: auto;
+  margin-top: 20px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
 }
 
-.demo-title.hidden {
-  opacity: 0;
+.play-button:hover {
+  background: rgba(109, 139, 108, 1);
+  transform: scale(1.1);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
 }
 
-.demo-title h1 {
-  font-size: 3em;
-  color: #2a2a2a;
-  font-weight: 800;
-  margin: 0;
-  font-family: 'zeitung-pro-variable', Arial, sans-serif;
-  top: 500px; 
+.play-button svg {
+  padding-left: 5px; /* Optical centering for play icon */
 }
 
 /* ===== DEMO REEL CONTAINER ===== */
@@ -346,18 +355,9 @@ body {
 
 /* ===== ANIMATION PAGE ===== */
 .animation-content {
-  padding: 200px 80px 80px;
+  padding: 180px 80px 80px;
   max-width: 1600px;
   margin: 0 auto;
-}
-
-.animation-content h1 {
-  font-size: 3em;
-  color: #5a7359;
-  margin-bottom: 60px;
-  text-align: center;
-  font-weight: 800;
-  font-family: 'zeitung-pro-variable', Arial, sans-serif;
 }
 
 .animation-project {
@@ -365,81 +365,51 @@ body {
 }
 
 .animation-project h2 {
-  font-size: 2em;
+  font-size: 2.5em;
   color: #5a7359;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
+  font-weight: 800;
 }
 
 .animation-main {
   margin-bottom: 40px;
 }
 
-.video-container {
-  position: relative;
-  width: 100%;
-  padding-bottom: 56.25%;
-  background: #000;
-  border-radius: 8px;
-  overflow: hidden;
-  margin-bottom: 20px;
-}
-
-.video-container iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.video-container video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.animation-process {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-}
-
-.process-box {
+/* Final Animation - Large Display */
+.final-animation {
   background: rgba(90, 115, 89, 0.1);
   border: 2px solid rgba(90, 115, 89, 0.3);
-  border-radius: 8px;
-  padding: 20px;
+  border-radius: 12px;
+  padding: 30px;
+  margin-bottom: 50px;
   transition: all 0.3s ease;
 }
 
-.process-box:hover {
+.final-animation:hover {
   border-color: #5a7359;
   transform: translateY(-5px);
 }
 
-.process-box h3 {
-  font-size: 1.2em;
+.final-animation h3 {
+  font-size: 1.8em;
   color: #5a7359;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
+  font-weight: 700;
 }
 
-.process-box img,
-.process-box video {
+.final-animation video {
   width: 100%;
   height: auto;
-  border-radius: 4px;
+  border-radius: 8px;
   cursor: pointer;
   transition: transform 0.3s ease;
 }
 
-.process-box img:hover,
-.process-box video:hover {
-  transform: scale(1.05);
+.final-animation video:hover {
+  transform: scale(1.02);
 }
 
-/* 2x2 grid layout for both projects */
+/* Process Videos Grid */
 .animation-process-3col {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -471,12 +441,46 @@ body {
   flex-direction: column;
 }
 
-.process-box-right .process-box video,
-.process-column-left .process-box video {
+.process-box {
+  background: rgba(90, 115, 89, 0.1);
+  border: 2px solid rgba(90, 115, 89, 0.3);
+  border-radius: 8px;
+  padding: 20px;
+  transition: all 0.3s ease;
+}
+
+.process-box:hover {
+  border-color: #5a7359;
+  transform: translateY(-5px);
+}
+
+.process-box h3 {
+  font-size: 1.2em;
+  color: #5a7359;
+  margin-bottom: 15px;
+}
+
+.process-box video {
   flex: 1;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.process-box video:hover {
+  transform: scale(1.05);
+}
+
+/* Project Divider */
+.project-divider {
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(to right, transparent, #5a7359, transparent);
+  margin: 80px 0;
+  border-radius: 2px;
 }
 
 /* Animation Page Lightbox */
@@ -548,7 +552,7 @@ body {
 
 /* ===== PRODUCTION PAGE ===== */
 .production-content {
-  padding: 200px 80px 80px;
+  padding: 180px 80px 80px;
   max-width: 1600px;
   margin: 0 auto;
 }
@@ -556,10 +560,28 @@ body {
 .production-content h1 {
   font-size: 3em;
   color: #de6f5f;
-  margin-bottom: 60px;
+  margin-bottom: 30px;
   text-align: center;
   font-weight: 800;
   font-family: 'zeitung-pro-variable', Arial, sans-serif;
+}
+
+/* Project Description */
+.project-description {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto 60px;
+  padding: 30px;
+  background: rgba(222, 111, 95, 0.1);
+  border-radius: 12px;
+  border: 2px solid rgba(222, 111, 95, 0.2);
+}
+
+.project-description p {
+  font-size: 1.3em;
+  line-height: 1.8;
+  color: #2a2a2a;
+  font-weight: 400;
 }
 
 .production-grid {
@@ -631,36 +653,62 @@ body {
   transform: scale(1.05);
 }
 
-/* Production Page Lightbox */
-.lightbox {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.9);
-  z-index: 1000;
-  justify-content: center;
-  align-items: center;
+/* Slide Viewer Styles */
+.slide-viewer {
+  margin-top: 80px;
+  padding: 40px;
+  background: rgba(222, 111, 95, 0.05);
+  border-radius: 12px;
 }
 
-.lightbox.active {
+.slide-viewer h2 {
+  font-size: 2.5em;
+  color: #de6f5f;
+  text-align: center;
+  margin-bottom: 40px;
+  font-weight: 800;
+}
+
+.slide-container {
   display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
-.lightbox-content {
-  max-width: 90%;
-  max-height: 90%;
-  object-fit: contain;
+.slide-display {
+  flex: 1;
+  position: relative;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
 }
 
-.lightbox-close {
-  position: fixed;
-  top: 40px;
-  right: 40px;
-  background: rgba(255, 255, 255, 0.2);
-  border: 3px solid #ffffff;
+.slide-display img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.slide-counter {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 1.1em;
+  font-weight: 600;
+}
+
+.slide-nav {
+  background: #de6f5f;
+  border: 3px solid rgba(222, 111, 95, 0.5);
   border-radius: 50%;
   width: 70px;
   height: 70px;
@@ -669,49 +717,27 @@ body {
   justify-content: center;
   cursor: pointer;
   transition: all 0.3s ease;
-  color: #ffffff;
-}
-
-.lightbox-close:hover {
-  background: rgba(255, 255, 255, 0.3);
-  transform: rotate(90deg) scale(1.1);
-}
-
-.lightbox-close svg {
-  color: #ffffff;
-  width: 36px;
-  height: 36px;
-}
-
-/* PDF Download Button */
-.production-pdf {
-  text-align: center;
-  margin-top: 60px;
-}
-
-.pdf-download-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  padding: 18px 40px;
-  background: #de6f5f;
   color: #fff;
-  text-decoration: none;
-  font-weight: 800;
-  font-size: 1.15em;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-}
-
-.pdf-download-btn:hover {
-  background: #c45a4d;
-  transform: translateY(-3px);
-  box-shadow: 0 10px 30px rgba(222, 111, 95, 0.4);
-}
-
-.pdf-download-btn svg {
   flex-shrink: 0;
 }
+
+.slide-nav:hover {
+  background: #c45a4d;
+  transform: scale(1.1);
+  box-shadow: 0 5px 20px rgba(222, 111, 95, 0.4);
+}
+
+.slide-nav:disabled {
+  background: rgba(222, 111, 95, 0.3);
+  cursor: not-allowed;
+  transform: none;
+}
+
+.slide-nav svg {
+  width: 32px;
+  height: 32px;
+}
+
 /* Production Page Lightbox */
 .lightbox {
   display: none;
@@ -779,67 +805,12 @@ body {
   height: 36px;
 }
 
-.production-item img {
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-.production-item img:hover {
-  transform: scale(1.05);
-}
-
-.production-item video {
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-.production-item video:hover {
-  transform: scale(1.05);
-}
-/* PDF Download Button */
-.production-pdf {
-  text-align: center;
-  margin-top: 60px;
-}
-
-.pdf-download-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  padding: 18px 40px;
-  background: #de6f5f;
-  color: #fff;
-  text-decoration: none;
-  font-weight: 800;
-  font-size: 1.15em;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-}
-
-.pdf-download-btn:hover {
-  background: #c45a4d;
-  transform: translateY(-3px);
-  box-shadow: 0 10px 30px rgba(222, 111, 95, 0.4);
-}
-
-.pdf-download-btn svg {
-  flex-shrink: 0;
-}
-
 /* ===== RESUME PAGE ===== */
 .resume-content {
-  padding: 200px 80px 80px;
+  padding: 180px 80px 80px;
   max-width: 1000px;
   margin: 0 auto;
   text-align: center;
-}
-
-.resume-content h1 {
-  font-size: 3em;
-  color: #836190;
-  margin-bottom: 60px;
-  font-weight: 800;
-  font-family: 'zeitung-pro-variable', Arial, sans-serif;
 }
 
 .resume-container {
@@ -855,12 +826,12 @@ body {
 
 .resume-image {
   width: 100%;
-  max-width: 100%;  /* Changed from 800px to 100% */
+  max-width: 100%;
   height: auto;
   border-radius: 8px;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
   margin-bottom: 30px;
-  display: block;  /* Added to remove any inline spacing */
+  display: block;
 }
 
 .download-btn {
@@ -885,18 +856,9 @@ body {
 
 /* ===== ABOUT PAGE ===== */
 .about-content {
-  padding: 200px 80px 80px;
+  padding: 180px 80px 80px;
   max-width: 1200px;
   margin: 0 auto;
-}
-
-.about-content h1 {
-  font-size: 3em;
-  color: #6f6dac;
-  margin-bottom: 60px;
-  text-align: center;
-  font-weight: 800;
-  font-family: 'zeitung-pro-variable', Arial, sans-serif;
 }
 
 .about-section {
@@ -916,7 +878,7 @@ body {
   width: 100%;
   height: auto;
   display: block;
-  border-radius: 12px;  /* Added border-radius to the image itself */
+  border-radius: 12px;
 }
 
 .about-bio {
@@ -962,37 +924,8 @@ body {
   background: rgba(111, 109, 172, 0.2);
   transform: translateY(-3px);
 }
-/* Hamburger menu button styles (outside media query) */
-.menu-toggle {
-  display: none;
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  flex-direction: column;
-  gap: 5px;
-  background: rgba(255, 239, 204, 0.3);
-  border: 2px solid var(--color-offwhite);
-  padding: 12px;
-  border-radius: 8px;
-  cursor: pointer;
-  z-index: 1000;
-}
 
-.menu-toggle span {
-  width: 25px;
-  height: 3px;
-  background: var(--color-offwhite);
-  display: block;
-  transition: 0.3s;
-}
-
-/* String positioning - moved down more */
-.string-home {
-  bottom: 110px !important;
-  z-index: 1;
-}
-
-/* Hamburger menu button styles (outside media query) */
+/* Hamburger menu button styles */
 .menu-toggle {
   display: none;
   position: fixed;
@@ -1015,42 +948,6 @@ body {
   background: var(--color-offwhite);
   display: block;
   transition: 0.3s;
-}
-
-/* String positioning - moved down more */
-.string-home {
-  bottom: 110px !important;
-  z-index: 1;
-}
-/* Hamburger menu button styles (outside media query) */
-.menu-toggle {
-  display: none;
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  flex-direction: column;
-  gap: 5px;
-  background: rgba(255, 239, 204, 0.3);
-  border: 2px solid var(--color-offwhite);
-  padding: 12px;
-  border-radius: 8px;
-  cursor: pointer;
-  z-index: 1001;
-  pointer-events: auto;
-}
-
-.menu-toggle span {
-  width: 25px;
-  height: 3px;
-  background: var(--color-offwhite);
-  display: block;
-  transition: 0.3s;
-}
-
-/* String positioning - moved down more */
-.string-home {
-  bottom: 110px !important;
-  z-index: 1;
 }
 
 /* ===== MOBILE RESPONSIVE ===== */
@@ -1131,12 +1028,14 @@ body {
     font-size: 1.2em;
   }
 
-  .demo-title {
-    left: 60%;
+  .play-button {
+    width: 80px;
+    height: 80px;
   }
 
-  .demo-title h1 {
-    font-size: 2em;
+  .play-button svg {
+    width: 50px;
+    height: 50px;
   }
 
   /* Lamp repositioned on mobile */
@@ -1152,13 +1051,12 @@ body {
     padding: 180px 20px 50px;
   }
 
-  .animation-content h1 {
-    font-size: 2em;
-    margin-bottom: 40px;
+  .animation-project h2 {
+    font-size: 1.8em;
   }
 
-  .animation-project h2 {
-    font-size: 1.5em;
+  .final-animation h3 {
+    font-size: 1.4em;
   }
 
   .animation-process-3col {
@@ -1171,8 +1069,8 @@ body {
     gap: 15px;
   }
 
-  .animation-process {
-    grid-template-columns: 1fr;
+  .project-divider {
+    margin: 60px 0;
   }
 
   /* Production page mobile */
@@ -1182,7 +1080,16 @@ body {
 
   .production-content h1 {
     font-size: 2em;
+    margin-bottom: 30px;
+  }
+
+  .project-description {
+    padding: 20px;
     margin-bottom: 40px;
+  }
+
+  .project-description p {
+    font-size: 1em;
   }
 
   .production-grid {
@@ -1195,14 +1102,41 @@ body {
     grid-row: span 1;
   }
 
+  .slide-viewer {
+    padding: 20px;
+    margin-top: 60px;
+  }
+
+  .slide-viewer h2 {
+    font-size: 1.8em;
+    margin-bottom: 30px;
+  }
+
+  .slide-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .slide-nav {
+    width: 60px;
+    height: 60px;
+  }
+
+  .slide-nav.prev {
+    order: 2;
+  }
+
+  .slide-display {
+    order: 1;
+  }
+
+  .slide-nav.next {
+    order: 3;
+  }
+
   /* Resume page mobile */
   .resume-content {
     padding: 180px 20px 50px;
-  }
-
-  .resume-content h1 {
-    font-size: 2em;
-    margin-bottom: 40px;
   }
 
   .resume-container {
@@ -1212,11 +1146,6 @@ body {
   /* About page mobile */
   .about-content {
     padding: 180px 20px 50px;
-  }
-
-  .about-content h1 {
-    font-size: 2em;
-    margin-bottom: 40px;
   }
 
   .about-section {
@@ -1265,8 +1194,7 @@ body {
     width: 95vw;
   }
 
-  .download-btn,
-  .pdf-download-btn {
+  .download-btn {
     font-size: 1em;
     padding: 12px 30px;
   }
@@ -1278,10 +1206,6 @@ body {
     left: 65%;
   }
 
-  .demo-title {
-    left: 65%;
-  }
-
   .home-prompt h1 {
     font-size: 1.5em;
   }
@@ -1290,14 +1214,21 @@ body {
     font-size: 1em;
   }
 
-  .demo-title h1 {
+  .play-button {
+    width: 70px;
+    height: 70px;
+  }
+
+  .play-button svg {
+    width: 40px;
+    height: 40px;
+  }
+
+  .animation-project h2 {
     font-size: 1.5em;
   }
 
-  .animation-content h1,
-  .production-content h1,
-  .resume-content h1,
-  .about-content h1 {
+  .production-content h1 {
     font-size: 1.8em;
   }
 
@@ -1314,5 +1245,19 @@ body {
 
   .nav-logo img {
     height: 60px;
+  }
+
+  .slide-viewer h2 {
+    font-size: 1.5em;
+  }
+
+  .slide-nav {
+    width: 50px;
+    height: 50px;
+  }
+
+  .slide-nav svg {
+    width: 24px;
+    height: 24px;
   }
 }

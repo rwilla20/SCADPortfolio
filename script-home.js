@@ -3,7 +3,7 @@ const scene = document.querySelector('.scene');
 const stringHome = document.querySelector('.string-home');
 const lampContainer = document.querySelector('.lamp-home-container');
 const homePrompt = document.querySelector('.home-prompt');
-const demoTitle = document.querySelector('.demo-title');
+const playButton = document.querySelector('.play-button');
 const demoreelContainer = document.querySelector('.demoreel-container');
 const closeReel = document.querySelector('.close-reel');
 const stringSound = document.getElementById('string-sound');
@@ -83,17 +83,17 @@ function changeNavColor(page) {
   });
 }
 
-// Click string to turn off lamp and show demo reel
+// Click string OR play button to turn off lamp and show demo reel
 stringHome.addEventListener('click', turnOffLamp);
+playButton.addEventListener('click', turnOffLamp);
 
 function turnOffLamp() {
   // Play sound effect
   stringSound.currentTime = 0;
   stringSound.play().catch(err => console.log('Audio play failed:', err));
   
-  // Hide prompt text and demo title
+  // Hide prompt text
   homePrompt.classList.add('hidden');
-  if (demoTitle) demoTitle.classList.add('hidden');
   
   // Hide lamp
   lampContainer.classList.add('hidden');
@@ -124,9 +124,6 @@ function closeDemoReel() {
     lampContainer.classList.remove('hidden');
     homePrompt.classList.remove('hidden');
     homePrompt.classList.add('visible');
-    if (demoTitle) {
-      demoTitle.classList.remove('hidden');
-    }
     
     // Reset lamp to default
     changeLampImage('home');
