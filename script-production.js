@@ -101,7 +101,11 @@ productionVideos.forEach(video => {
     lightboxVideo.style.display = 'block';
     lightboxImg.style.display = 'none';
     lightboxVideo.load(); // Load the video with controls
-    // Removed autoplay - user can click play if they want
+    
+    // Autoplay the lightbox video after a brief moment
+    setTimeout(() => {
+      lightboxVideo.play().catch(err => console.log('Video play failed:', err));
+    }, 100);
   });
 });
 
