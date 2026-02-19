@@ -47,22 +47,21 @@ navItems.forEach(item => {
   
   item.addEventListener('mouseleave', () => {
     changeLampImage('home');
-    setActiveState(); // Reset to current page state
+    setActiveState();
   });
 });
 
 function changeLampImage(page) {
   // Change the lamp SVG source with smooth transition
   if (lampSources[page]) {
-    // Fade out
+    // Smooth fade transition
+    lampHome.style.transition = 'opacity 0.6s ease-in-out';
     lampHome.style.opacity = '0';
     
-    // Change image after fade out
     setTimeout(() => {
       lampHome.src = lampSources[page];
-      // Fade in
       lampHome.style.opacity = '1';
-    }, 600); // Increased from 200 to 600 for smoother transition
+    }, 300);
   }
 }
 
@@ -84,19 +83,20 @@ function changeNavColor(page) {
 }
 
 // Click string OR play button to turn off lamp and show demo reel
-// ONLY play sound on these clicks
 stringHome.addEventListener('click', (e) => {
+  e.preventDefault();
   e.stopPropagation();
   turnOffLamp();
 });
 
 playButton.addEventListener('click', (e) => {
+  e.preventDefault();
   e.stopPropagation();
   turnOffLamp();
 });
 
 function turnOffLamp() {
-  // Play sound effect ONLY when string or button is clicked
+  // Play sound effect
   stringSound.currentTime = 0;
   stringSound.play().catch(err => console.log('Audio play failed:', err));
   
@@ -118,21 +118,24 @@ function turnOffLamp() {
 
 // Close demo reel and go back to lamp
 closeReel.addEventListener('click', (e) => {
-  e.stopPropagation(); // Prevent triggering video play/pause
+  e.preventDefault();
+  e.stopPropagation();
   closeDemoReel();
 });
 
-// Make the entire demo reel clickable to play/pause the video
+// Make the entire demo reel container clickable to play/pause video
+// But NOT the close button
 demoreelContainer.addEventListener('click', (e) => {
-  // Don't do anything if clicking the close button
+  // Ignore clicks on the close button
   if (e.target.closest('.close-reel')) {
     return;
   }
   
+  // Find the video and toggle play/pause
   const video = demoreelContainer.querySelector('video');
   if (video) {
     if (video.paused) {
-      video.play();
+      video.play().catch(err => console.log('Video play failed:', err));
     } else {
       video.pause();
     }
@@ -140,6 +143,13 @@ demoreelContainer.addEventListener('click', (e) => {
 });
 
 function closeDemoReel() {
+  // Pause the video when closing
+  const video = demoreelContainer.querySelector('video');
+  if (video) {
+    video.pause();
+    video.currentTime = 0;
+  }
+  
   // Hide demo reel
   demoreelContainer.classList.remove('visible');
   
