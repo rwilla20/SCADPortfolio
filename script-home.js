@@ -1,4 +1,6 @@
 // Home page (Demo Reel) script
+console.log('Script loaded');
+
 const scene = document.querySelector('.scene');
 const stringHome = document.querySelector('.string-home');
 const lampContainer = document.querySelector('.lamp-home-container');
@@ -11,6 +13,12 @@ const navItems = document.querySelectorAll('.nav-item');
 const lampHome = document.querySelector('.lamp-home');
 const currentPage = 'home';
 
+console.log('Elements found:', {
+  stringHome: !!stringHome,
+  playButton: !!playButton,
+  demoreelContainer: !!demoreelContainer
+});
+
 // Lamp SVG sources for different colors
 const lampSources = {
   home: 'assets/lampon_home_noshadow.svg',
@@ -22,8 +30,9 @@ const lampSources = {
 
 // Set initial colors on page load
 window.addEventListener('DOMContentLoaded', () => {
+  console.log('DOM loaded');
   setActiveState();
-  setupVideoHandlers(); // Setup video handlers after DOM loads
+  setupVideoHandlers();
 });
 
 function setActiveState() {
@@ -53,9 +62,7 @@ navItems.forEach(item => {
 });
 
 function changeLampImage(page) {
-  // Change the lamp SVG source with smooth transition
-  if (lampSources[page]) {
-    // Smooth fade transition
+  if (lampSources[page] && lampHome) {
     lampHome.style.transition = 'opacity 0.6s ease-in-out';
     lampHome.style.opacity = '0';
     
@@ -85,71 +92,80 @@ function changeNavColor(page) {
 
 // Click string to turn off lamp (with sound)
 if (stringHome) {
-  stringHome.addEventListener('click', (e) => {
+  console.log('Adding string click listener');
+  stringHome.addEventListener('click', function(e) {
+    console.log('String clicked!');
     e.preventDefault();
     e.stopPropagation();
     turnOffLampWithSound();
   });
+} else {
+  console.error('String element not found!');
 }
 
 // Click play button to turn off lamp (NO sound)
 if (playButton) {
-  playButton.addEventListener('click', (e) => {
+  console.log('Adding play button listener');
+  playButton.addEventListener('click', function(e) {
+    console.log('Play button clicked!');
     e.preventDefault();
     e.stopPropagation();
     turnOffLampNoSound();
   });
+} else {
+  console.error('Play button not found!');
 }
 
 function turnOffLampWithSound() {
-  // Play sound effect
+  console.log('turnOffLampWithSound called');
   if (stringSound) {
     stringSound.currentTime = 0;
     stringSound.play().catch(err => console.log('Audio play failed:', err));
   }
-  
   openDemoReel();
 }
 
 function turnOffLampNoSound() {
-  // No sound, just open demo reel
+  console.log('turnOffLampNoSound called');
   openDemoReel();
 }
 
 function openDemoReel() {
-  // Hide prompt text
+  console.log('openDemoReel called');
+  
   if (homePrompt) {
     homePrompt.classList.add('hidden');
   }
   
-  // Hide lamp
   if (lampContainer) {
     lampContainer.classList.add('hidden');
   }
   
-  // Change background to dark
   if (scene) {
     scene.classList.remove('scene-light');
     scene.classList.add('scene-dark');
   }
   
-  // Show demo reel after transition
   setTimeout(() => {
     if (demoreelContainer) {
       demoreelContainer.classList.add('visible');
+      console.log('Demo reel now visible');
     }
     
-    // Start playing the video automatically
     const demoVideo = document.getElementById('demo-video');
     if (demoVideo) {
+      console.log('Starting video');
       demoVideo.play().catch(err => console.log('Video autoplay failed:', err));
+    } else {
+      console.error('Video element not found!');
     }
   }, 800);
 }
 
-// Close demo reel and go back to lamp
+// Close demo reel
 if (closeReel) {
-  closeReel.addEventListener('click', (e) => {
+  closeReel.addEventListener('click', function(e) {
+    console.log('Close button clicked');
     e.preventDefault();
     e.stopPropagation();
     closeDemoReel();
@@ -161,9 +177,8 @@ function setupVideoHandlers() {
   const demoVideo = document.getElementById('demo-video');
   const videoWrapper = document.querySelector('.demoreel-video');
   
-  // Make the video clickable to play/pause
   if (demoVideo) {
-    demoVideo.addEventListener('click', (e) => {
+    demoVideo.addEventListener('click', function(e) {
       e.preventDefault();
       e.stopPropagation();
       
@@ -175,9 +190,8 @@ function setupVideoHandlers() {
     });
   }
   
-  // Make the video wrapper clickable too
   if (videoWrapper) {
-    videoWrapper.addEventListener('click', (e) => {
+    videoWrapper.addEventListener('click', function(e) {
       e.preventDefault();
       e.stopPropagation();
       
@@ -193,25 +207,23 @@ function setupVideoHandlers() {
 }
 
 function closeDemoReel() {
-  // Pause and reset the video
+  console.log('closeDemoReel called');
+  
   const demoVideo = document.getElementById('demo-video');
   if (demoVideo) {
     demoVideo.pause();
     demoVideo.currentTime = 0;
   }
   
-  // Hide demo reel
   if (demoreelContainer) {
     demoreelContainer.classList.remove('visible');
   }
   
-  // Change background back to light
   if (scene) {
     scene.classList.remove('scene-dark');
     scene.classList.add('scene-light');
   }
   
-  // Show lamp and prompt again
   setTimeout(() => {
     if (lampContainer) {
       lampContainer.classList.remove('hidden');
@@ -220,8 +232,6 @@ function closeDemoReel() {
       homePrompt.classList.remove('hidden');
       homePrompt.classList.add('visible');
     }
-    
-    // Reset lamp to default
     changeLampImage('home');
   }, 300);
 }
