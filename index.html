@@ -13,58 +13,9 @@
       max-width: 900px !important;
     }
 
-    /* Custom video controls */
-    .video-controls {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 16px;
-      margin-top: 14px;
-    }
-
-    .ctrl-btn {
-      background: rgba(255,255,255,0.15);
-      border: 2px solid rgba(255,255,255,0.6);
-      border-radius: 50%;
-      width: 48px;
-      height: 48px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      color: #fff;
-      transition: background 0.2s ease, transform 0.2s ease;
-      flex-shrink: 0;
-    }
-
-    .ctrl-btn:hover {
-      background: rgba(255,255,255,0.3);
-      transform: scale(1.1);
-    }
-
-    .ctrl-btn svg {
-      width: 22px;
-      height: 22px;
-    }
-
-    /* Progress bar */
-    .video-progress {
-      flex: 1;
-      height: 5px;
-      background: rgba(255,255,255,0.3);
-      border-radius: 3px;
-      cursor: pointer;
-      position: relative;
-      max-width: 400px;
-    }
-
-    .video-progress-fill {
-      height: 100%;
-      background: #fff;
-      border-radius: 3px;
-      width: 0%;
-      pointer-events: none;
-      transition: width 0.1s linear;
+    /* Allow native controls to work */
+    .demoreel-video video {
+      pointer-events: auto !important;
     }
   </style>
 </head>
@@ -121,35 +72,10 @@
       </button>
       
       <div class="demoreel-video">
-        <video id="demo-video">
+        <video id="demo-video" controls>
           <source src="assets/demo.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
-      </div>
-
-      <!-- Custom controls -->
-      <div class="video-controls">
-        <!-- Play/Pause -->
-        <button class="ctrl-btn" id="play-pause-btn" aria-label="Play/Pause">
-          <svg id="play-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M8 5v14l11-7z"/>
-          </svg>
-          <svg id="pause-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="display:none">
-            <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
-          </svg>
-        </button>
-
-        <!-- Progress bar -->
-        <div class="video-progress" id="video-progress">
-          <div class="video-progress-fill" id="video-progress-fill"></div>
-        </div>
-
-        <!-- Fullscreen -->
-        <button class="ctrl-btn" id="fullscreen-btn" aria-label="Fullscreen">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/>
-          </svg>
-        </button>
       </div>
     </div>
   </div>
@@ -158,56 +84,5 @@
 
   <script src="script-home.js"></script>
   <script src="mobile.js"></script>
-  <script>
-    // Custom video controls
-    const demoVideo = document.getElementById('demo-video');
-    const playPauseBtn = document.getElementById('play-pause-btn');
-    const playIcon = document.getElementById('play-icon');
-    const pauseIcon = document.getElementById('pause-icon');
-    const progressBar = document.getElementById('video-progress');
-    const progressFill = document.getElementById('video-progress-fill');
-    const fullscreenBtn = document.getElementById('fullscreen-btn');
-
-    function updatePlayPauseIcon() {
-      if (demoVideo.paused) {
-        playIcon.style.display = '';
-        pauseIcon.style.display = 'none';
-      } else {
-        playIcon.style.display = 'none';
-        pauseIcon.style.display = '';
-      }
-    }
-
-    playPauseBtn.addEventListener('click', () => {
-      if (demoVideo.paused) {
-        demoVideo.play();
-      } else {
-        demoVideo.pause();
-      }
-    });
-
-    demoVideo.addEventListener('play', updatePlayPauseIcon);
-    demoVideo.addEventListener('pause', updatePlayPauseIcon);
-
-    demoVideo.addEventListener('timeupdate', () => {
-      if (demoVideo.duration) {
-        progressFill.style.width = (demoVideo.currentTime / demoVideo.duration * 100) + '%';
-      }
-    });
-
-    progressBar.addEventListener('click', (e) => {
-      const rect = progressBar.getBoundingClientRect();
-      const ratio = (e.clientX - rect.left) / rect.width;
-      demoVideo.currentTime = ratio * demoVideo.duration;
-    });
-
-    fullscreenBtn.addEventListener('click', () => {
-      if (demoVideo.requestFullscreen) {
-        demoVideo.requestFullscreen();
-      } else if (demoVideo.webkitRequestFullscreen) {
-        demoVideo.webkitRequestFullscreen();
-      }
-    });
-  </script>
 </body>
 </html>
