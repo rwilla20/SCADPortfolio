@@ -66,73 +66,15 @@ if (menuToggle) {
   });
 }
 
-// Lightbox functionality
-const lightbox = document.getElementById('lightbox');
-const lightboxImg = document.getElementById('lightbox-img');
-const lightboxVideo = document.getElementById('lightbox-video');
-const lightboxClose = document.getElementById('lightbox-close');
-const productionImages = document.querySelectorAll('.production-item img');
-const productionVideos = document.querySelectorAll('.production-item video, .production-video-item video');
-
-// Open lightbox when clicking on images
-productionImages.forEach(img => {
-  img.addEventListener('click', () => {
-    lightbox.classList.add('active');
-    lightboxImg.src = img.src;
-    lightboxImg.alt = img.alt;
-    lightboxImg.style.display = 'block';
-    lightboxVideo.style.display = 'none';
-    lightboxVideo.pause();
+// When a video is clicked, pause all OTHER videos
+const allVideos = document.querySelectorAll('video');
+allVideos.forEach(video => {
+  video.addEventListener('play', () => {
+    // Pause all other videos when this one plays
+    allVideos.forEach(otherVideo => {
+      if (otherVideo !== video) {
+        otherVideo.pause();
+      }
+    });
   });
-});
-
-// Open lightbox when clicking on videos
-productionVideos.forEach(video => {
-  video.addEventListener('click', () => {
-    lightbox.classList.add('active');
-    
-    // Pause ALL videos on the page to prevent echo
-    document.querySelectorAll('video').forEach(v => v.pause());
-    
-    // Get video source from either src attribute or source tag
-    const videoSrc = video.querySelector('source') ? video.querySelector('source').src : video.src;
-    lightboxVideo.src = videoSrc;
-    
-    lightboxVideo.style.display = 'block';
-    lightboxImg.style.display = 'none';
-    lightboxVideo.load(); // Load the video with controls
-    
-    // Autoplay the lightbox video after a brief moment
-    setTimeout(() => {
-      lightboxVideo.play().catch(err => console.log('Video play failed:', err));
-    }, 100);
-  });
-});
-
-// Close lightbox
-lightboxClose.addEventListener('click', () => {
-  lightbox.classList.remove('active');
-  lightboxVideo.pause();
-  lightboxVideo.currentTime = 0;
-  lightboxVideo.src = ''; // Clear source to stop loading
-});
-
-// Close lightbox when clicking outside the image/video
-lightbox.addEventListener('click', (e) => {
-  if (e.target === lightbox) {
-    lightbox.classList.remove('active');
-    lightboxVideo.pause();
-    lightboxVideo.currentTime = 0;
-    lightboxVideo.src = '';
-  }
-});
-
-// Close lightbox with Escape key
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && lightbox.classList.contains('active')) {
-    lightbox.classList.remove('active');
-    lightboxVideo.pause();
-    lightboxVideo.currentTime = 0;
-    lightboxVideo.src = '';
-  }
 });
