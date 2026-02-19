@@ -6,6 +6,18 @@
   <title>Riley Willard - Demo Reel</title>
   <link rel="stylesheet" href="https://use.typekit.net/lez4ize.css">
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Smaller demo reel */
+    .demoreel-container {
+      width: 60vw !important;
+      max-width: 900px !important;
+    }
+
+    /* Allow native controls to work */
+    .demoreel-video video {
+      pointer-events: auto !important;
+    }
+  </style>
 </head>
 <body class="page-home">
   <div class="scene scene-light">
@@ -60,19 +72,15 @@
       </button>
       
       <div class="demoreel-video">
-        <iframe 
-          src="https://www.youtube.com/embed/YOUR_VIDEO_ID" 
-          frameborder="0" 
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-          allowfullscreen>
-        </iframe>
+        <video id="demo-video" controls>
+          <source src="assets/demo.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
       </div>
     </div>
   </div>
 
-  <audio id="string-sound" preload="auto">
-    <source src="assets/string-pull.mp3" type="audio/mpeg">
-  </audio>
+  <!-- No audio element — sound removed -->
 
   <script src="script-home.js"></script>
   <script src="mobile.js"></script>
