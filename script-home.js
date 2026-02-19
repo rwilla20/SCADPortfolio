@@ -9,6 +9,7 @@ const closeReel = document.querySelector('.close-reel');
 const stringSound = document.getElementById('string-sound');
 const navItems = document.querySelectorAll('.nav-item');
 const lampHome = document.querySelector('.lamp-home');
+const demoVideo = document.getElementById('demo-video');
 const currentPage = 'home';
 
 // Lamp SVG sources for different colors
@@ -82,24 +83,34 @@ function changeNavColor(page) {
   });
 }
 
-// Click string OR play button to turn off lamp and show demo reel
+// Click string to turn off lamp (with sound)
 stringHome.addEventListener('click', (e) => {
   e.preventDefault();
   e.stopPropagation();
-  turnOffLamp();
+  turnOffLampWithSound();
 });
 
+// Click play button to turn off lamp (NO sound)
 playButton.addEventListener('click', (e) => {
   e.preventDefault();
   e.stopPropagation();
-  turnOffLamp();
+  turnOffLampNoSound();
 });
 
-function turnOffLamp() {
+function turnOffLampWithSound() {
   // Play sound effect
   stringSound.currentTime = 0;
   stringSound.play().catch(err => console.log('Audio play failed:', err));
   
+  openDemoReel();
+}
+
+function turnOffLampNoSound() {
+  // No sound, just open demo reel
+  openDemoReel();
+}
+
+function openDemoReel() {
   // Hide prompt text
   homePrompt.classList.add('hidden');
   
@@ -113,6 +124,11 @@ function turnOffLamp() {
   // Show demo reel after transition
   setTimeout(() => {
     demoreelContainer.classList.add('visible');
+    
+    // Start playing the video automatically
+    if (demoVideo) {
+      demoVideo.play().catch(err => console.log('Video autoplay failed:', err));
+    }
   }, 800);
 }
 
@@ -123,31 +139,42 @@ closeReel.addEventListener('click', (e) => {
   closeDemoReel();
 });
 
-// Make the entire demo reel container clickable to play/pause video
-// But NOT the close button
-demoreelContainer.addEventListener('click', (e) => {
-  // Ignore clicks on the close button
-  if (e.target.closest('.close-reel')) {
-    return;
-  }
-  
-  // Find the video and toggle play/pause
-  const video = demoreelContainer.querySelector('video');
-  if (video) {
-    if (video.paused) {
-      video.play().catch(err => console.log('Video play failed:', err));
+// Make the video clickable to play/pause - SIMPLE VERSION
+if (demoVideo) {
+  demoVideo.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    if (demoVideo.paused) {
+      demoVideo.play().catch(err => console.log('Video play failed:', err));
     } else {
-      video.pause();
+      demoVideo.pause();
     }
-  }
-});
+  });
+}
+
+// Make the video wrapper clickable too
+const videoWrapper = document.querySelector('.demoreel-video');
+if (videoWrapper) {
+  videoWrapper.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    if (demoVideo) {
+      if (demoVideo.paused) {
+        demoVideo.play().catch(err => console.log('Video play failed:', err));
+      } else {
+        demoVideo.pause();
+      }
+    }
+  });
+}
 
 function closeDemoReel() {
-  // Pause the video when closing
-  const video = demoreelContainer.querySelector('video');
-  if (video) {
-    video.pause();
-    video.currentTime = 0;
+  // Pause and reset the video
+  if (demoVideo) {
+    demoVideo.pause();
+    demoVideo.currentTime = 0;
   }
   
   // Hide demo reel
