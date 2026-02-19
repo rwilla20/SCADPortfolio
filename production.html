@@ -27,7 +27,6 @@
         <a href="about.html" class="nav-item" data-page="about">About Me</a>
       </div>
       <div class="nav-contact-info">
-        <span class="nav-contact">440.731.1975</span>
         <a href="mailto:rileywillardportfolio@gmail.com" class="nav-contact nav-email">rileywillardportfolio@gmail.com</a>
       </div>
     </nav>
@@ -35,11 +34,15 @@
     <!-- Production Content -->
     <div class="production-content">
       <h1>Domaine De La Citadelle</h1>
-      <!-- <p>blurb about the trip</p>
       
-      <div class="production-grid">
-        <!-- Advertisement Video (left, spans 2 rows) -->
-        <div class="production-item ad-video">
+      <!-- Project Description -->
+      <div class="project-description">
+        <p>Directed a two-month rebranding project for a small winery in Lacoste, France. Contributing to all aspects of branding while coordinating with a team to maintain a cohesive brand identity.</p>
+      </div>
+      
+      <!-- Videos Grid - 2 Videos Side by Side -->
+      <div class="production-videos-grid">
+        <div class="production-video-item">
           <h3>Advertisement</h3>
           <video controls>
             <source src="assets/production/CitadelleOPENER_FINALFINALmp4 (1).mov" type="video/mp4">
@@ -47,62 +50,47 @@
           </video>
         </div>
 
-        <!-- Color Swatches (top right) -->
-        <div class="production-item color-swatches">
-          <h3>Color Swatches</h3>
-          <img src="assets/production/Winery - Process Book (2).png" alt="Color Swatches">
-        </div>
-
-        <!-- Bottle Render (middle right) -->
-        <div class="production-item bottle-render">
-          <h3>Bottle Render</h3>
-          <img src="assets/production/Render_01.jpeg" alt="Bottle Render">
-        </div>
-
-        <!-- 3D Animation (bottom left) -->
-        <div class="production-item park-3d">
+        <div class="production-video-item">
           <h3>Sculpture Garden</h3>
           <video controls>
             <source src="assets/production/Video3_000.mov" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
-
-        <!-- Logo (bottom right) -->
-        <div class="production-item additional">
-          <h3>Logo</h3>
-          <img src="assets/production/Winery - Process Book (1).png" alt="Citadelle Logo">
-        </div>
       </div>
 
-      <!-- Presentation PDF Download -->
-      <div class="production-pdf">
-        <a href="assets/production/Citadelle Presentation_FINAL (1).pdf" class="pdf-download-btn" target="_blank">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-            <polyline points="14 2 14 8 20 8"></polyline>
-            <line x1="16" y1="13" x2="8" y2="13"></line>
-            <line x1="16" y1="17" x2="8" y2="17"></line>
-            <polyline points="10 9 9 9 8 9"></polyline>
-          </svg>
-          View Full Presentation
-        </a>
+      <!-- Presentation PDF Viewer -->
+      <div class="pdf-viewer-section">
+        <h2>Brand Identity</h2>
+        <div class="pdf-embed-container">
+          <iframe 
+            src="assets/production/Citadelle Presentation_FINAL (1).pdf#view=FitH&toolbar=0&navpanes=0" 
+            type="application/pdf"
+            width="100%" 
+            height="800px">
+          </iframe>
+          <p class="pdf-fallback">
+            If the PDF doesn't display, 
+            <a href="assets/production/Citadelle Presentation_FINAL (1).pdf" target="_blank" download>
+              click here to download it
+            </a>
+          </p>
+        </div>
       </div>
     </div>
   </div>
   
   <!-- Lightbox -->
-<div class="lightbox" id="lightbox">
-  <button class="lightbox-close" id="lightbox-close">
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <line x1="18" y1="6" x2="6" y2="18"></line>
-      <line x1="6" y1="6" x2="18" y2="18"></line>
-    </svg>
-  </button>
-  <img class="lightbox-content" id="lightbox-img" src="" alt="">
-  <video class="lightbox-content" id="lightbox-video" src="" controls></video>
-</div>
-
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightbox-close">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+    <img class="lightbox-content" id="lightbox-img" src="" alt="">
+    <video class="lightbox-content" id="lightbox-video" src="" controls></video>
+  </div>
 
   <script src="script-production.js"></script>
   <script src="mobile.js"></script>

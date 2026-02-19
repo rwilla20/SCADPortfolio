@@ -28,15 +28,9 @@
         <a href="about.html" class="nav-item" data-page="about">About Me</a>
       </div>
       <div class="nav-contact-info">
-        <span class="nav-contact">440.731.1975</span>
         <a href="mailto:rileywillardportfolio@gmail.com" class="nav-contact nav-email">rileywillardportfolio@gmail.com</a>
       </div>
     </nav>
-
-    <!-- Demo Reel Title -->
-    <div class="demo-title">
-      <h1>Demo Reel</h2>
-    </div>
 
     <!-- Lamp with String -->
     <div class="lamp-home-container">
@@ -44,10 +38,15 @@
       <img src="assets/lampon_string.svg" class="lamp-svg string-home clickable active" alt="String">
     </div>
 
-    <!-- Prompt Text -->
+    <!-- Prompt Text with Play Button -->
     <div class="home-prompt visible">
       <h1>Turn off the light!</h1>
       <p>The show's about to start!</p>
+      <button class="play-button clickable">
+        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M8 5v14l11-7z"/>
+        </svg>
+      </button>
     </div>
 
     <!-- Demo Reel Video (hidden initially) -->
@@ -61,12 +60,10 @@
       </button>
       
       <div class="demoreel-video">
-        <iframe 
-          src="https://www.youtube.com/embed/YOUR_VIDEO_ID" 
-          frameborder="0" 
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-          allowfullscreen>
-        </iframe>
+        <video controls autoplay>
+          <source src="assets/demo.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
       </div>
     </div>
   </div>

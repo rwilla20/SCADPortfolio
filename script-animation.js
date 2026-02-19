@@ -71,12 +71,15 @@ const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightbox-img');
 const lightboxVideo = document.getElementById('lightbox-video');
 const lightboxClose = document.getElementById('lightbox-close');
-const animationVideos = document.querySelectorAll('.process-box video');
+const animationVideos = document.querySelectorAll('.process-box video, .final-animation video, .rendered-animation video, .animation-process-grid video');
 
 // Open lightbox when clicking on videos
 animationVideos.forEach(video => {
   video.addEventListener('click', () => {
     lightbox.classList.add('active');
+    
+    // Pause ALL videos on the page to prevent echo
+    document.querySelectorAll('video').forEach(v => v.pause());
     
     // Get video source from either src attribute or source tag
     const videoSrc = video.querySelector('source') ? video.querySelector('source').src : video.src;
@@ -85,7 +88,7 @@ animationVideos.forEach(video => {
     lightboxVideo.style.display = 'block';
     lightboxImg.style.display = 'none';
     lightboxVideo.load();
-    lightboxVideo.play();
+    // Removed autoplay - user can click play if they want
   });
 });
 
