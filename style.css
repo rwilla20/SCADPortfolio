@@ -179,16 +179,14 @@ html {
   width: auto;
   height: 70%;
   max-width: 100%;
-  opacity: 0;
-  /* ULTRA SMOOTH: Very slow, dreamy fade */
-  transition: opacity 4s ease-in-out;
+  opacity: 1;
+  transition: opacity 0.6s ease-in-out;
   pointer-events: none;
 }
 
 .lamp-svg.active {
   opacity: 1;
-  /* Match the slow timing */
-  transition: opacity 4s ease-in-out;
+  transition: opacity 0.6s ease-in-out;
 }
 
 .lamp-svg.clickable {
@@ -289,11 +287,11 @@ html {
 /* ===== DEMO REEL CONTAINER ===== */
 .demoreel-container {
   position: fixed;
-  top: 50%;
+  top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 90vw;
-  max-width: 1400px;
+  width: 80vw;
+  max-width: 1200px;
   opacity: 0;
   pointer-events: none;
   transition: opacity 1s ease;
@@ -303,6 +301,7 @@ html {
 .demoreel-container.visible {
   opacity: 1;
   pointer-events: auto;
+  cursor: pointer;
 }
 
 .demoreel-video {
@@ -313,20 +312,23 @@ html {
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+  cursor: pointer;
 }
 
-.demoreel-video iframe {
+.demoreel-video iframe,
+.demoreel-video video {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  cursor: pointer;
 }
 
 /* Close button for demo reel */
 .close-reel {
   position: fixed;
-  top: 120px;
+  top: 180px;
   right: 40px;
   background: rgba(0, 0, 0, 0.8);
   border: 3px solid #ffffff;
@@ -1225,10 +1227,7 @@ html {
     font-size: 1.8em;
   }
 
-  .final-animation h3 {
-    font-size: 1.4em;
-  }
-
+  /* Show rendered animation on mobile */
   .rendered-animation {
     padding: 25px;
     margin-bottom: 40px;
@@ -1238,6 +1237,7 @@ html {
     font-size: 1.6em;
   }
 
+  /* Make process grid single column on mobile */
   .animation-process-grid {
     grid-template-columns: 1fr;
     gap: 15px;
@@ -1245,6 +1245,32 @@ html {
 
   .animation-process-grid .process-box video {
     min-height: 250px;
+  }
+
+  /* Create collapsible sections for process videos */
+  .animation-process-grid .process-box {
+    position: relative;
+  }
+
+  .animation-process-grid .process-box h3 {
+    cursor: pointer;
+    padding-right: 30px;
+    position: relative;
+  }
+
+  .animation-process-grid .process-box h3:after {
+    content: '▼';
+    position: absolute;
+    right: 0;
+    transition: transform 0.3s ease;
+  }
+
+  .animation-process-grid .process-box.collapsed h3:after {
+    transform: rotate(-90deg);
+  }
+
+  .animation-process-grid .process-box.collapsed video {
+    display: none;
   }
 
   .animation-process-3col {
@@ -1328,12 +1354,17 @@ html {
   }
 
   .about-section {
-    grid-template-columns: 1fr;
-    gap: 30px;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 20px;
+  }
+
+  .about-photo img {
+    width: 100%;
   }
 
   .about-bio p {
-    font-size: 1em;
+    font-size: 0.9em;
+    line-height: 1.6;
   }
 
   .contact-box {
