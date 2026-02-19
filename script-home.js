@@ -3,7 +3,7 @@ const scene = document.querySelector('.scene');
 const stringHome = document.querySelector('.string-home');
 const lampContainer = document.querySelector('.lamp-home-container');
 const homePrompt = document.querySelector('.home-prompt');
-const demoTitle = document.querySelector('.demo-title');
+const playButton = document.querySelector('.play-button');
 const demoreelContainer = document.querySelector('.demoreel-container');
 const closeReel = document.querySelector('.close-reel');
 const stringSound = document.getElementById('string-sound');
@@ -62,7 +62,7 @@ function changeLampImage(page) {
       lampHome.src = lampSources[page];
       // Fade in
       lampHome.style.opacity = '1';
-    }, 200);
+    }, 600); // Increased from 200 to 600 for smoother transition
   }
 }
 
@@ -83,17 +83,25 @@ function changeNavColor(page) {
   });
 }
 
-// Click string to turn off lamp and show demo reel
-stringHome.addEventListener('click', turnOffLamp);
+// Click string OR play button to turn off lamp and show demo reel
+// ONLY play sound on these clicks
+stringHome.addEventListener('click', (e) => {
+  e.stopPropagation();
+  turnOffLamp();
+});
+
+playButton.addEventListener('click', (e) => {
+  e.stopPropagation();
+  turnOffLamp();
+});
 
 function turnOffLamp() {
-  // Play sound effect
+  // Play sound effect ONLY when string or button is clicked
   stringSound.currentTime = 0;
   stringSound.play().catch(err => console.log('Audio play failed:', err));
   
-  // Hide prompt text and demo title
+  // Hide prompt text
   homePrompt.classList.add('hidden');
-  if (demoTitle) demoTitle.classList.add('hidden');
   
   // Hide lamp
   lampContainer.classList.add('hidden');
@@ -109,7 +117,27 @@ function turnOffLamp() {
 }
 
 // Close demo reel and go back to lamp
-closeReel.addEventListener('click', closeDemoReel);
+closeReel.addEventListener('click', (e) => {
+  e.stopPropagation(); // Prevent triggering video play/pause
+  closeDemoReel();
+});
+
+// Make the entire demo reel clickable to play/pause the video
+demoreelContainer.addEventListener('click', (e) => {
+  // Don't do anything if clicking the close button
+  if (e.target.closest('.close-reel')) {
+    return;
+  }
+  
+  const video = demoreelContainer.querySelector('video');
+  if (video) {
+    if (video.paused) {
+      video.play();
+    } else {
+      video.pause();
+    }
+  }
+});
 
 function closeDemoReel() {
   // Hide demo reel
@@ -124,9 +152,6 @@ function closeDemoReel() {
     lampContainer.classList.remove('hidden');
     homePrompt.classList.remove('hidden');
     homePrompt.classList.add('visible');
-    if (demoTitle) {
-      demoTitle.classList.remove('hidden');
-    }
     
     // Reset lamp to default
     changeLampImage('home');
