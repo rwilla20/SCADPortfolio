@@ -15,7 +15,6 @@ const lampSources = {
   home: 'assets/lampon_home_noshadow.svg',
   animation: 'assets/lampon_green.svg',
   production: 'assets/lampon_peach.svg',
-  'fine-arts': 'assets/lampon_yellow.svg',
   resume: 'assets/lampon_purple.svg',
   about: 'assets/lampon_blue.svg'
 };
