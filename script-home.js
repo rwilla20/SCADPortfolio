@@ -87,11 +87,14 @@ function openDemoReel() {
   lampContainer.classList.add('hidden');
   scene.classList.remove('scene-light');
   scene.classList.add('scene-dark');
-  demoreelContainer.classList.add('playing');
   closeReel.classList.add('visible');
 
-  const demoVideo = document.getElementById('demo-video');
-  if (demoVideo) demoVideo.play();
+  // Small delay so dark transition happens first, then video appears
+  setTimeout(() => {
+    demoreelContainer.classList.add('playing');
+    const demoVideo = document.getElementById('demo-video');
+    if (demoVideo) demoVideo.play();
+  }, 400);
 
   if (stringSound) {
     stringSound.currentTime = 0;
@@ -114,8 +117,12 @@ function closeDemoReel() {
 
   demoreelContainer.classList.remove('playing');
   closeReel.classList.remove('visible');
-  scene.classList.remove('scene-dark');
-  scene.classList.add('scene-light');
+
+  // Delay light coming back so video disappears first
+  setTimeout(() => {
+    scene.classList.remove('scene-dark');
+    scene.classList.add('scene-light');
+  }, 300);
 
   if (stringSound) {
     stringSound.currentTime = 0;
@@ -125,7 +132,7 @@ function closeDemoReel() {
   setTimeout(() => {
     lampContainer.classList.remove('hidden');
     changeLampImage('home');
-  }, 300);
+  }, 600);
 }
 
 // VIDEO WRAPPER CLICK - pause/play only, don't interfere with close button
