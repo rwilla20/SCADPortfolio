@@ -1016,7 +1016,7 @@ html {
   position: relative;
   width: 75%;
   max-width: 1000px;
-  margin: -80px auto 0;
+  margin: -250px auto 0;
 }
 
 .scrapbook-background {
@@ -1034,7 +1034,7 @@ html {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 12%;
-  padding: 12% 8% 8% 8%;
+  padding: 37% 8% 8% 8%;
   z-index: 1;
 }
 
