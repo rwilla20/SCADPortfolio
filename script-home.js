@@ -135,20 +135,4 @@ function closeDemoReel() {
   }, 600);
 }
 
-// VIDEO WRAPPER CLICK - pause/play only, don't interfere with close button
 const demoVideo = document.getElementById('demo-video');
-const videoWrapper = document.querySelector('.demoreel-video');
-
-if (videoWrapper) {
-  videoWrapper.addEventListener('click', function(e) {
-    // Don't trigger if close button was clicked
-    if (e.target.closest('.close-reel')) return;
-    if (demoVideo) {
-      if (demoVideo.paused) {
-        demoVideo.play();
-      } else {
-        demoVideo.pause();
-      }
-    }
-  });
-}
