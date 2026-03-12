@@ -12,7 +12,7 @@ function setActiveState() {
   navItems.forEach(item => {
     if (item.dataset.page === currentPage) {
       item.classList.add('active');
-      item.style.color = '#f4c542'; // Yellow accent
+      item.style.color = 'rgb(234, 190, 123)'; // Yellow accent
     } else {
       item.classList.remove('active');
       item.style.color = '#ffefcc';
@@ -37,7 +37,7 @@ function changeNavColor(page) {
     home: '#000000',
     animation: '#5a7359',
     production: '#de6f5f',
-    'fine-arts': '#f4c542', // Yellow
+    'fine-arts': 'rgb(234, 190, 123)', // Yellow
     resume: '#836190',
     about: '#6f6dac'
   };

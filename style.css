@@ -1039,7 +1039,7 @@ html {
 
 .fine-arts-content h1 {
   font-size: 3.5em;
-  color: #f4c542;
+  color: rgb(234, 190, 123);
   text-align: center;
   margin-bottom: 60px;
   font-weight: 800;
@@ -1063,8 +1063,8 @@ html {
   background: #fff;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 15px 50px rgba(244, 197, 66, 0.3);
-  border: 3px solid rgba(244, 197, 66, 0.4);
+  box-shadow: 0 15px 50px rgba(234, 190, 123, 0.3);
+  border: 3px solid rgba(234, 190, 123, 0.4);
 }
 
 .pdf-display iframe {
@@ -1077,28 +1077,28 @@ html {
 .pdf-fallback {
   text-align: center;
   padding: 25px;
-  background: rgba(244, 197, 66, 0.1);
+  background: rgba(234, 190, 123, 0.1);
   color: #2a2a2a;
   font-size: 1.1em;
 }
 
 .pdf-fallback a {
-  color: #f4c542;
+  color: rgb(234, 190, 123);
   font-weight: 700;
   text-decoration: none;
-  border-bottom: 2px solid #f4c542;
+  border-bottom: 2px solid rgb(234, 190, 123);
   transition: all 0.3s ease;
 }
 
 .pdf-fallback a:hover {
-  color: #d4a532;
-  border-bottom-color: #d4a532;
+  color: rgb(214, 170, 103);
+  border-bottom-color: rgb(214, 170, 103);
 }
 
 /* Navigation Arrows */
 .slide-nav {
-  background: rgba(244, 197, 66, 0.15);
-  border: 3px solid #f4c542;
+  background: rgba(234, 190, 123, 0.15);
+  border: 3px solid rgb(234, 190, 123);
   border-radius: 50%;
   width: 70px;
   height: 70px;
@@ -1107,15 +1107,15 @@ html {
   justify-content: center;
   cursor: pointer;
   transition: all 0.3s ease;
-  color: #f4c542;
+  color: rgb(234, 190, 123);
   flex-shrink: 0;
 }
 
 .slide-nav:hover:not(:disabled) {
-  background: #f4c542;
+  background: rgb(234, 190, 123);
   color: #fff;
   transform: scale(1.1);
-  box-shadow: 0 8px 25px rgba(244, 197, 66, 0.4);
+  box-shadow: 0 8px 25px rgba(234, 190, 123, 0.4);
 }
 
 .slide-nav:disabled {
@@ -1142,7 +1142,7 @@ html {
 
 .slide-counter {
   font-size: 1.8em;
-  color: #f4c542;
+  color: rgb(234, 190, 123);
   font-weight: 700;
   letter-spacing: 2px;
 }
@@ -1159,10 +1159,10 @@ html {
 .thumbnail {
   width: 50px;
   height: 50px;
-  border: 2px solid rgba(244, 197, 66, 0.4);
+  border: 2px solid rgba(234, 190, 123, 0.4);
   border-radius: 8px;
-  background: rgba(244, 197, 66, 0.1);
-  color: #f4c542;
+  background: rgba(234, 190, 123, 0.1);
+  color: rgb(234, 190, 123);
   font-size: 1.1em;
   font-weight: 600;
   cursor: pointer;
@@ -1173,17 +1173,17 @@ html {
 }
 
 .thumbnail:hover {
-  background: rgba(244, 197, 66, 0.3);
-  border-color: #f4c542;
+  background: rgba(234, 190, 123, 0.3);
+  border-color: rgb(234, 190, 123);
   transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(244, 197, 66, 0.3);
+  box-shadow: 0 5px 15px rgba(234, 190, 123, 0.3);
 }
 
 .thumbnail.active {
-  background: #f4c542;
+  background: rgb(234, 190, 123);
   color: #fff;
-  border-color: #f4c542;
-  box-shadow: 0 5px 20px rgba(244, 197, 66, 0.5);
+  border-color: rgb(234, 190, 123);
+  box-shadow: 0 5px 20px rgba(234, 190, 123, 0.5);
 }
 
 /* ===== ABOUT PAGE ===== */

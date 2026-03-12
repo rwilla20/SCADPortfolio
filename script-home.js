@@ -6,6 +6,7 @@ const homePrompt = document.querySelector('.home-prompt');
 const playButton = document.querySelector('.play-button');
 const demoreelContainer = document.querySelector('.demoreel-container');
 const closeReel = document.querySelector('.close-reel');
+const stringSound = document.getElementById('string-sound');
 const navItems = document.querySelectorAll('.nav-item');
 const lampHome = document.querySelector('.lamp-home');
 const currentPage = 'home';
@@ -19,132 +20,164 @@ const lampSources = {
   about: 'assets/lampon_blue.svg'
 };
 
-// Crossfade lamp: create a second img on top, fade it in, then swap
-function changeLampImage(page) {
-  if (!lampSources[page] || !lampHome) return;
-  const newSrc = lampSources[page];
-  if (lampHome.src.endsWith(newSrc)) return; // already showing this lamp
-
-  // Create overlay image for crossfade
-  const overlay = document.createElement('img');
-  overlay.src = newSrc;
-  overlay.style.cssText = `
-    position: absolute;
-    bottom: ${lampHome.style.bottom || '80px'};
-    left: 50%;
-    transform: translateX(-50%);
-    width: auto;
-    height: 70%;
-    max-width: 100%;
-    opacity: 0;
-    transition: opacity 0.6s ease-in-out;
-    pointer-events: none;
-    z-index: 3;
-  `;
-
-  lampContainer.appendChild(overlay);
-
-  // Trigger fade-in on next frame
-  requestAnimationFrame(() => {
-    requestAnimationFrame(() => {
-      overlay.style.opacity = '1';
-    });
-  });
-
-  // After crossfade completes, swap the main lamp src and remove overlay
-  setTimeout(() => {
-    lampHome.src = newSrc;
-    overlay.remove();
-  }, 650);
-}
-
-// Set initial nav state on page load
+// Set initial colors on page load
 window.addEventListener('DOMContentLoaded', () => {
   setActiveState();
 });
 
 function setActiveState() {
   navItems.forEach(item => {
-    item.style.color = '#ffefcc';
     if (item.dataset.page === currentPage) {
       item.classList.add('active');
+      item.style.color = '#ffefcc';
     } else {
       item.classList.remove('active');
+      item.style.color = '#ffefcc';
     }
   });
 }
 
-// Navbar hover — crossfade lamp and change nav colors
+// Navbar hover - change lamp SVG and nav item colors (SMOOTH FADE)
 navItems.forEach(item => {
   item.addEventListener('mouseenter', () => {
-    changeLampImage(item.dataset.page);
-    changeNavColor(item.dataset.page);
+    const page = item.dataset.page;
+    changeLampImage(page);
+    changeNavColor(page);
   });
-
+  
   item.addEventListener('mouseleave', () => {
     changeLampImage('home');
     setActiveState();
   });
 });
 
+function changeLampImage(page) {
+  if (lampSources[page] && lampHome) {
+    // Fade out completely
+    lampHome.style.opacity = '0';
+    
+    // Wait for fade out, then change image and fade in
+    setTimeout(() => {
+      lampHome.src = lampSources[page];
+      lampHome.style.opacity = '1';
+    }, 600); // Wait for full fade out (0.6s transition)
+  }
+}
+
 function changeNavColor(page) {
   const colors = {
     home: '#000000',
     animation: '#5a7359',
     production: '#de6f5f',
+    'fine-arts': 'rgb(234, 190, 123)',
     resume: '#836190',
     about: '#6f6dac'
   };
   navItems.forEach(item => {
-    item.style.color = item.dataset.page === page ? colors[page] : '#ffefcc';
+    if (item.dataset.page === page) {
+      item.style.color = colors[page];
+    } else {
+      item.style.color = '#ffefcc';
+    }
   });
 }
 
-// STRING CLICK — opens demo reel, NO sound
-stringHome.addEventListener('click', function () {
+// STRING CLICK - opens demo reel, NO sound
+stringHome.addEventListener('click', function() {
   openDemoReel();
 });
 
-// PLAY BUTTON CLICK — opens demo reel, NO sound
-playButton.addEventListener('click', function () {
+// PLAY BUTTON CLICK - opens demo reel, NO sound
+playButton.addEventListener('click', function() {
   openDemoReel();
 });
 
 function openDemoReel() {
+  // Hide prompt and lamp
   homePrompt.classList.add('hidden');
   lampContainer.classList.add('hidden');
-
+  
+  // Change background to dark
   scene.classList.remove('scene-light');
   scene.classList.add('scene-dark');
-
+  
+  // Show demo reel after transition
   setTimeout(() => {
     demoreelContainer.classList.add('visible');
+    
+    // Start video and play sound when video opens
     const demoVideo = document.getElementById('demo-video');
-    if (demoVideo) demoVideo.play();
+    if (demoVideo) {
+      demoVideo.play();
+    }
+    
+    // Play lamp sound when demo reel opens
+    if (stringSound) {
+      stringSound.currentTime = 0;
+      stringSound.play();
+    }
   }, 800);
 }
 
-// CLOSE BUTTON — closes demo reel, NO sound
-closeReel.addEventListener('click', function () {
+// CLOSE BUTTON - closes demo reel and plays sound
+closeReel.addEventListener('click', function() {
   closeDemoReel();
 });
 
 function closeDemoReel() {
+  // Pause and reset video
   const demoVideo = document.getElementById('demo-video');
   if (demoVideo) {
     demoVideo.pause();
     demoVideo.currentTime = 0;
   }
-
+  
+  // Hide demo reel
   demoreelContainer.classList.remove('visible');
-
+  
+  // Change background back to light
   scene.classList.remove('scene-dark');
   scene.classList.add('scene-light');
-
+  
+  // Play lamp sound when closing
+  if (stringSound) {
+    stringSound.currentTime = 0;
+    stringSound.play();
+  }
+  
+  // Show lamp and prompt again
   setTimeout(() => {
     lampContainer.classList.remove('hidden');
     homePrompt.classList.remove('hidden');
     homePrompt.classList.add('visible');
+    
+    // Reset lamp to default
     changeLampImage('home');
   }, 300);
+}
+
+// VIDEO CLICK to pause/play
+const demoVideo = document.getElementById('demo-video');
+if (demoVideo) {
+  demoVideo.addEventListener('click', function() {
+    if (demoVideo.paused) {
+      demoVideo.play();
+    } else {
+      demoVideo.pause();
+    }
+  });
+}
+
+// VIDEO WRAPPER CLICK
+const videoWrapper = document.querySelector('.demoreel-video');
+if (videoWrapper) {
+  videoWrapper.addEventListener('click', function() {
+    if (demoVideo) {
+      if (demoVideo.paused) {
+        demoVideo.play();
+      } else {
+        demoVideo.pause();
+      }
+    }
+  });
 }
