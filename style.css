@@ -107,6 +107,17 @@ html {
 }
 
 /* Special styling for Demo Reel when active */
+.close-reel {
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.close-reel.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
 .nav-item[data-page="home"].active {
   color: #000000 !important;
   text-shadow: 

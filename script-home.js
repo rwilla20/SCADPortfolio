@@ -90,15 +90,15 @@ playButton.addEventListener('click', function() {
 });
 
 function openDemoReel() {
-  // Hide prompt and lamp
-  homePrompt.classList.add('hidden');
+  // Dim background and hide lamp when video plays
   lampContainer.classList.add('hidden');
-
-  // Change background to dark
   scene.classList.remove('scene-light');
   scene.classList.add('scene-dark');
 
-  // Start video immediately (container already visible)
+  // Show close button
+  closeReel.classList.add('visible');
+
+  // Start video
   const demoVideo = document.getElementById('demo-video');
   if (demoVideo) {
     demoVideo.play();
@@ -123,7 +123,10 @@ function closeDemoReel() {
     demoVideo.currentTime = 0;
   }
 
-  // Change background back to light
+  // Hide close button
+  closeReel.classList.remove('visible');
+
+  // Restore background and lamp
   scene.classList.remove('scene-dark');
   scene.classList.add('scene-light');
 
@@ -132,11 +135,8 @@ function closeDemoReel() {
     stringSound.play();
   }
 
-  // Show lamp and prompt again
   setTimeout(() => {
     lampContainer.classList.remove('hidden');
-    homePrompt.classList.remove('hidden');
-    homePrompt.classList.add('visible');
     changeLampImage('home');
   }, 300);
 }
