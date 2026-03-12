@@ -107,16 +107,6 @@ html {
 }
 
 /* Special styling for Demo Reel when active */
-.close-reel {
-  opacity: 0;
-  pointer-events: none;
-  transition: all 0.3s ease;
-}
-
-.close-reel.visible {
-  opacity: 1;
-  pointer-events: auto;
-}
 
 .nav-item[data-page="home"].active {
   color: #000000 !important;
@@ -309,6 +299,13 @@ html {
   z-index: 3;
 }
 
+.demoreel-container.playing {
+  left: 50%;
+  top: 55%;
+  width: 70vw;
+  max-width: 1100px;
+}
+
 .demoreel-container.visible {
   opacity: 1;
   pointer-events: auto;
@@ -353,6 +350,13 @@ html {
   transition: all 0.3s ease;
   color: #ffffff;
   z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.close-reel.visible {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .close-reel:hover {
@@ -1010,16 +1014,8 @@ html {
 /* Scrapbook Container */
 .scrapbook-container {
   position: relative;
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  height: calc(100vh - 200px);
-}
-
-.scrapbook-background {
-  width: auto;
-  height: 100%;
-  display: block;
+  width: 75%;
+  max-width: 1000px;
   margin: 0 auto;
 }
 
@@ -1037,15 +1033,14 @@ html {
   height: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 4%;
-  padding: 10% 8% 5% 8%;
+  gap: 2%;
+  padding: 6% 7% 12% 7%;
 }
 
-/* Individual Slideshow */
 .scrapbook-slideshow {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px;
 }
 
 .scrapbook-slideshow h2 {
@@ -1053,14 +1048,11 @@ html {
 }
 
 .scrapbook-pdf-display {
- .scrapbook-pdf-display {
   flex: 1;
   background: #fff;
-  border-radius: 8px;
+  border-radius: 4px;
   overflow: hidden;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-  aspect-ratio: 8.5 / 11;
-}
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .scrapbook-pdf-display iframe {
@@ -1069,23 +1061,26 @@ html {
   min-height: 0;
   border: none;
   display: block;
-  object-fit: contain;
 }
 
-/* Scrapbook Controls */
+.scrapbook-slideshow.slideshow-active .scrapbook-pdf-display {
+  box-shadow: 0 0 0 3px rgb(234, 190, 123), 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
 .scrapbook-controls {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 20px;
+  gap: 12px;
+  flex-shrink: 0;
 }
 
 .scrapbook-nav {
   background: rgba(234, 190, 123, 0.2);
   border: 2px solid rgb(234, 190, 123);
   border-radius: 50%;
-  width: 45px;
-  height: 45px;
+  width: 35px;
+  height: 35px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1108,15 +1103,15 @@ html {
 }
 
 .scrapbook-nav svg {
-  width: 24px;
-  height: 24px;
+  width: 18px;
+  height: 18px;
 }
 
 .scrapbook-counter {
-  font-size: 1.3em;
+  font-size: 1em;
   color: rgb(234, 190, 123);
   font-weight: 700;
-  min-width: 80px;
+  min-width: 60px;
   text-align: center;
 }
 

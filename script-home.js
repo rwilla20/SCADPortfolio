@@ -90,19 +90,16 @@ playButton.addEventListener('click', function() {
 });
 
 function openDemoReel() {
-  // Dim background and hide lamp when video plays
   lampContainer.classList.add('hidden');
   scene.classList.remove('scene-light');
   scene.classList.add('scene-dark');
-
-  // Show close button
+  
+  // Move video to center and show close button
+  demoreelContainer.classList.add('playing');
   closeReel.classList.add('visible');
 
-  // Start video
   const demoVideo = document.getElementById('demo-video');
-  if (demoVideo) {
-    demoVideo.play();
-  }
+  if (demoVideo) demoVideo.play();
 
   if (stringSound) {
     stringSound.currentTime = 0;
@@ -116,17 +113,16 @@ closeReel.addEventListener('click', function() {
 });
 
 function closeDemoReel() {
-  // Pause and reset video
   const demoVideo = document.getElementById('demo-video');
   if (demoVideo) {
     demoVideo.pause();
     demoVideo.currentTime = 0;
   }
 
-  // Hide close button
+  // Move video back to right side and hide close button
+  demoreelContainer.classList.remove('playing');
   closeReel.classList.remove('visible');
 
-  // Restore background and lamp
   scene.classList.remove('scene-dark');
   scene.classList.add('scene-light');
 
