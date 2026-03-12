@@ -1000,7 +1000,7 @@ html {
 .scrapbook-container {
   position: relative;
   width: 100%;
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 0 auto;
   height: calc(100vh - 200px);
 }
@@ -1027,7 +1027,7 @@ html {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 4%;
-  padding: 5% 8% 8% 8%;
+  padding: 10% 8% 5% 8%;
 }
 
 /* Individual Slideshow */
@@ -1042,11 +1042,14 @@ html {
 }
 
 .scrapbook-pdf-display {
+ .scrapbook-pdf-display {
   flex: 1;
   background: #fff;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  aspect-ratio: 8.5 / 11;
+}
 }
 
 .scrapbook-pdf-display iframe {
@@ -1055,6 +1058,7 @@ html {
   min-height: 0;
   border: none;
   display: block;
+  object-fit: contain;
 }
 
 /* Scrapbook Controls */
