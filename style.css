@@ -1033,8 +1033,8 @@ html {
   height: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 3%;
-  padding: 12% 8% 8% 8%;
+  gap: 5%;
+  padding: 18% 8% 8% 8%;
   z-index: 1;
 }
 
