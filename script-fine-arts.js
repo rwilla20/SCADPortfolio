@@ -5,14 +5,14 @@ const currentPage = 'fine-arts';
 // Set initial colors on page load
 window.addEventListener('DOMContentLoaded', () => {
   setActiveState();
-  initSlideshow();
+  initSlideshows();
 });
 
 function setActiveState() {
   navItems.forEach(item => {
     if (item.dataset.page === currentPage) {
       item.classList.add('active');
-      item.style.color = 'rgb(234, 190, 123)'; // Yellow accent
+      item.style.color = 'rgb(234, 190, 123)';
     } else {
       item.classList.remove('active');
       item.style.color = '#ffefcc';
@@ -37,7 +37,7 @@ function changeNavColor(page) {
     home: '#000000',
     animation: '#5a7359',
     production: '#de6f5f',
-    'fine-arts': 'rgb(234, 190, 123)',   // ← ADD THIS LINE
+    'fine-arts': 'rgb(234, 190, 123)',
     resume: '#836190',
     about: '#6f6dac'
   };
@@ -68,106 +68,78 @@ if (menuToggle) {
   });
 }
 
-// PDF Slideshow Functionality
-const totalSlides = 10; // UPDATE THIS NUMBER based on how many PDFs you have
-const pdfBasePath = 'assets/fine-arts/';
-const pdfFiles = [
-  'artwork-1.pdf',
-  'artwork-2.pdf',
-  'artwork-3.pdf',
-  'artwork-4.pdf',
-  'artwork-5.pdf',
-  'artwork-6.pdf',
-  'artwork-7.pdf',
-  'artwork-8.pdf',
-  'artwork-9.pdf',
-  'artwork-10.pdf'
-];
+// Track which slideshow is active for keyboard navigation
+let activeSlideshow = null;
 
-let currentSlide = 1;
+// Dual Slideshow Functionality
+function initSlideshows() {
+  // Artwork slideshow (31 PDFs)
+  initSlideshow({
+    name: 'artwork',
+    total: 31,
+    basePath: 'assets/fine-arts/artwork/',
+    filePrefix: 'artwork-',
+    pdfElement: document.getElementById('artwork-pdf'),
+    prevButton: document.getElementById('artwork-prev'),
+    nextButton: document.getElementById('artwork-next'),
+    currentDisplay: document.getElementById('artwork-current'),
+    totalDisplay: document.getElementById('artwork-total')
+  });
 
-const pdfIframe = document.getElementById('current-pdf');
-const prevButton = document.getElementById('prev-slide');
-const nextButton = document.getElementById('next-slide');
-const currentSlideNum = document.getElementById('current-slide-num');
-const totalSlidesNum = document.getElementById('total-slides');
-const pdfDownload = document.getElementById('pdf-download');
-const thumbnailContainer = document.getElementById('thumbnail-container');
-
-function initSlideshow() {
-  totalSlidesNum.textContent = pdfFiles.length;
-  updateSlide();
-  generateThumbnails();
+  // Paintings slideshow (10 PDFs)
+  initSlideshow({
+    name: 'paintings',
+    total: 10,
+    basePath: 'assets/fine-arts/paintings/',
+    filePrefix: 'paint-',
+    pdfElement: document.getElementById('paintings-pdf'),
+    prevButton: document.getElementById('paintings-prev'),
+    nextButton: document.getElementById('paintings-next'),
+    currentDisplay: document.getElementById('paintings-current'),
+    totalDisplay: document.getElementById('paintings-total')
+  });
 }
 
-function updateSlide() {
-  // Update PDF source
-  const pdfPath = pdfBasePath + pdfFiles[currentSlide - 1];
-  pdfIframe.src = pdfPath + '#view=FitH&toolbar=0&navpanes=0';
-  
-  // Update download link
-  pdfDownload.href = pdfPath;
-  pdfDownload.download = pdfFiles[currentSlide - 1];
-  
-  // Update counter
-  currentSlideNum.textContent = currentSlide;
-  
-  // Update button states
-  prevButton.disabled = currentSlide === 1;
-  nextButton.disabled = currentSlide === pdfFiles.length;
-  
-  // Update active thumbnail
-  updateActiveThumbnail();
-}
+function initSlideshow(config) {
+  let currentSlide = 1;
 
-function generateThumbnails() {
-  pdfFiles.forEach((filename, index) => {
-    const thumb = document.createElement('button');
-    thumb.className = 'thumbnail';
-    thumb.setAttribute('data-slide', index + 1);
-    thumb.textContent = index + 1;
-    thumb.addEventListener('click', () => {
-      currentSlide = index + 1;
-      updateSlide();
+  const container = document.querySelector(
+    config.name === 'artwork' ? '.left-slideshow' : '.right-slideshow'
+  );
+
+  // Clicking anywhere in the slideshow makes it active
+  container.addEventListener('click', () => {
+    activeSlideshow = config.name;
+    document.querySelectorAll('.scrapbook-slideshow').forEach(el => {
+      el.classList.remove('slideshow-active');
     });
-    thumbnailContainer.appendChild(thumb);
+    container.classList.add('slideshow-active');
   });
-}
 
-function updateActiveThumbnail() {
-  const thumbnails = document.querySelectorAll('.thumbnail');
-  thumbnails.forEach((thumb, index) => {
-    if (index + 1 === currentSlide) {
-      thumb.classList.add('active');
-    } else {
-      thumb.classList.remove('active');
-    }
+  config.totalDisplay.textContent = config.total;
+
+  function updateSlide() {
+    const pdfPath = `${config.basePath}${config.filePrefix}${currentSlide}.pdf#view=FitH&toolbar=0&navpanes=0`;
+    config.pdfElement.src = pdfPath;
+    config.currentDisplay.textContent = currentSlide;
+    config.prevButton.disabled = currentSlide === 1;
+    config.nextButton.disabled = currentSlide === config.total;
+  }
+
+  config.prevButton.addEventListener('click', () => {
+    if (currentSlide > 1) { currentSlide--; updateSlide(); }
   });
+
+  config.nextButton.addEventListener('click', () => {
+    if (currentSlide < config.total) { currentSlide++; updateSlide(); }
+  });
+
+  // Keyboard navigation - only fires for the active slideshow
+  document.addEventListener('keydown', (e) => {
+    if (activeSlideshow !== config.name) return;
+    if (e.key === 'ArrowLeft' && currentSlide > 1) { currentSlide--; updateSlide(); }
+    if (e.key === 'ArrowRight' && currentSlide < config.total) { currentSlide++; updateSlide(); }
+  });
+
+  updateSlide();
 }
-
-// Previous slide
-prevButton.addEventListener('click', () => {
-  if (currentSlide > 1) {
-    currentSlide--;
-    updateSlide();
-  }
-});
-
-// Next slide
-nextButton.addEventListener('click', () => {
-  if (currentSlide < pdfFiles.length) {
-    currentSlide++;
-    updateSlide();
-  }
-});
-
-// Keyboard navigation
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'ArrowLeft' && currentSlide > 1) {
-    currentSlide--;
-    updateSlide();
-  } else if (e.key === 'ArrowRight' && currentSlide < pdfFiles.length) {
-    currentSlide++;
-    updateSlide();
-  }
-});

@@ -53,14 +53,15 @@ navItems.forEach(item => {
 
 function changeLampImage(page) {
   if (lampSources[page] && lampHome) {
-    // Fade out completely
+    // Start fading out
     lampHome.style.opacity = '0';
     
-    // Wait for fade out, then change image and fade in
+    // Wait only 300ms (half the transition time) then start fading in new image
+    // This creates overlap/crossfade effect
     setTimeout(() => {
       lampHome.src = lampSources[page];
       lampHome.style.opacity = '1';
-    }, 600); // Wait for full fade out (0.6s transition)
+    }, 300); // Reduced from 600ms for smoother crossfade
   }
 }
 

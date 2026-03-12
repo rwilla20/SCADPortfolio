@@ -795,6 +795,7 @@ html {
   border-bottom-color: #c45a4d;
   padding-bottom: 4px;
 }
+
 .production-content .pdf-fallback a {
   color: #de6f5f;
   border-bottom-color: #de6f5f;
@@ -847,76 +848,6 @@ html {
 
 .production-video-item video:hover {
   transform: scale(1.02);
-}
-
-/* OLD Production Grid - Keep for reference but not used */
-.production-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, 400px);
-  gap: 30px;
-}
-
-.production-item {
-  background: rgba(222, 111, 95, 0.1);
-  border: 2px solid rgba(222, 111, 95, 0.3);
-  border-radius: 8px;
-  padding: 20px;
-  overflow: hidden;
-  transition: all 0.3s ease;
-}
-
-.production-item:hover {
-  border-color: #de6f5f;
-  transform: translateY(-5px);
-}
-
-.production-item h3 {
-  font-size: 1.3em;
-  color: #de6f5f;
-  margin-bottom: 15px;
-}
-
-.production-item img {
-  width: 100%;
-  height: calc(100% - 50px);
-  object-fit: cover;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-.production-item img:hover {
-  transform: scale(1.05);
-}
-
-.ad-video {
-  grid-row: span 1;
-}
-
-.ad-video video {
-  width: 100%;
-  height: calc(100% - 50px);
-  object-fit: cover;
-  border-radius: 4px;
-}
-
-.ad-video .video-container {
-  height: calc(100% - 50px);
-  padding-bottom: 0;
-}
-
-.production-item video {
-  width: 100%;
-  height: calc(100% - 50px);
-  object-fit: cover;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-.production-item video:hover {
-  transform: scale(1.05);
 }
 
 /* PDF Viewer Styles - Hide Sidebar */
@@ -1052,7 +983,6 @@ html {
   text-align: center;
   margin-bottom: 60px;
   font-weight: 800;
-  text-transform: uppercase;
   letter-spacing: 3px;
 }
 
@@ -1064,6 +994,116 @@ html {
   justify-content: center;
   gap: 30px;
   margin-bottom: 40px;
+}
+
+/* Scrapbook Container */
+.scrapbook-container {
+  position: relative;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.scrapbook-background {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.scrapbook-slideshows {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4%;
+  padding: 8% 10%;
+}
+
+/* Individual Slideshow */
+.scrapbook-slideshow {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.scrapbook-slideshow h2 {
+  font-size: 2em;
+  color: rgb(234, 190, 123);
+  text-align: center;
+  font-weight: 700;
+  margin: 0;
+}
+
+.scrapbook-pdf-display {
+  flex: 1;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.scrapbook-pdf-display iframe {
+  width: 100%;
+  height: 100%;
+  min-height: 500px;
+  border: none;
+  display: block;
+}
+
+/* Scrapbook Controls */
+.scrapbook-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.scrapbook-nav {
+  background: rgba(234, 190, 123, 0.2);
+  border: 2px solid rgb(234, 190, 123);
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: rgb(234, 190, 123);
+}
+
+.scrapbook-nav:hover:not(:disabled) {
+  background: rgb(234, 190, 123);
+  color: #fff;
+  transform: scale(1.1);
+}
+
+.scrapbook-nav:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  border-color: #ccc;
+  color: #999;
+}
+
+.scrapbook-nav svg {
+  width: 24px;
+  height: 24px;
+}
+
+.scrapbook-counter {
+  font-size: 1.3em;
+  color: rgb(234, 190, 123);
+  font-weight: 700;
+  min-width: 80px;
+  text-align: center;
+}
+
+/* Active slideshow highlight */
+.scrapbook-slideshow.slideshow-active .scrapbook-pdf-display {
+  box-shadow: 0 0 0 3px rgb(234, 190, 123), 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
 .pdf-display {
@@ -1525,6 +1565,22 @@ html {
   .fine-arts-content h1 {
     font-size: 2em;
     margin-bottom: 40px;
+  }
+
+  /* Scrapbook mobile - stack slideshows vertically */
+  .scrapbook-background {
+    display: none;
+  }
+
+  .scrapbook-slideshows {
+    position: static;
+    grid-template-columns: 1fr;
+    padding: 0;
+    gap: 40px;
+  }
+
+  .scrapbook-pdf-display iframe {
+    min-height: 400px;
   }
 
   .pdf-slideshow {
