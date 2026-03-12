@@ -1026,6 +1026,166 @@ html {
   box-shadow: 0 10px 30px rgba(131, 97, 144, 0.4);
 }
 
+/* ===== FINE ARTS PAGE ===== */
+.page-fine-arts .scene-light {
+  background: linear-gradient(135deg, #ffefcc 0%, #fff8e6 100%);
+}
+
+.fine-arts-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 200px 60px 100px;
+}
+
+.fine-arts-content h1 {
+  font-size: 3.5em;
+  color: #f4c542;
+  text-align: center;
+  margin-bottom: 60px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+/* PDF Slideshow */
+.pdf-slideshow {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.pdf-display {
+  flex: 1;
+  max-width: 900px;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 15px 50px rgba(244, 197, 66, 0.3);
+  border: 3px solid rgba(244, 197, 66, 0.4);
+}
+
+.pdf-display iframe {
+  width: 100%;
+  height: 700px;
+  border: none;
+  display: block;
+}
+
+.pdf-fallback {
+  text-align: center;
+  padding: 25px;
+  background: rgba(244, 197, 66, 0.1);
+  color: #2a2a2a;
+  font-size: 1.1em;
+}
+
+.pdf-fallback a {
+  color: #f4c542;
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: 2px solid #f4c542;
+  transition: all 0.3s ease;
+}
+
+.pdf-fallback a:hover {
+  color: #d4a532;
+  border-bottom-color: #d4a532;
+}
+
+/* Navigation Arrows */
+.slide-nav {
+  background: rgba(244, 197, 66, 0.15);
+  border: 3px solid #f4c542;
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #f4c542;
+  flex-shrink: 0;
+}
+
+.slide-nav:hover:not(:disabled) {
+  background: #f4c542;
+  color: #fff;
+  transform: scale(1.1);
+  box-shadow: 0 8px 25px rgba(244, 197, 66, 0.4);
+}
+
+.slide-nav:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  border-color: #ccc;
+  color: #999;
+}
+
+.slide-nav svg {
+  width: 40px;
+  height: 40px;
+}
+
+/* Slideshow Controls */
+.slideshow-controls {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.slide-counter {
+  font-size: 1.8em;
+  color: #f4c542;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+/* Thumbnail Navigation */
+.thumbnail-container {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 100%;
+}
+
+.thumbnail {
+  width: 50px;
+  height: 50px;
+  border: 2px solid rgba(244, 197, 66, 0.4);
+  border-radius: 8px;
+  background: rgba(244, 197, 66, 0.1);
+  color: #f4c542;
+  font-size: 1.1em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.thumbnail:hover {
+  background: rgba(244, 197, 66, 0.3);
+  border-color: #f4c542;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(244, 197, 66, 0.3);
+}
+
+.thumbnail.active {
+  background: #f4c542;
+  color: #fff;
+  border-color: #f4c542;
+  box-shadow: 0 5px 20px rgba(244, 197, 66, 0.5);
+}
+
 /* ===== ABOUT PAGE ===== */
 .about-content {
   padding: 180px 80px 80px;
@@ -1346,6 +1506,49 @@ html {
 
   .resume-container {
     padding: 20px;
+  }
+
+  /* Fine Arts page mobile */
+  .fine-arts-content {
+    padding: 180px 20px 50px;
+  }
+
+  .fine-arts-content h1 {
+    font-size: 2em;
+    margin-bottom: 40px;
+  }
+
+  .pdf-slideshow {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .pdf-display iframe {
+    height: 500px;
+  }
+
+  .slide-nav {
+    width: 60px;
+    height: 60px;
+  }
+
+  .slide-nav svg {
+    width: 30px;
+    height: 30px;
+  }
+
+  .slideshow-controls {
+    gap: 20px;
+  }
+
+  .slide-counter {
+    font-size: 1.4em;
+  }
+
+  .thumbnail {
+    width: 45px;
+    height: 45px;
+    font-size: 1em;
   }
 
   /* About page mobile */
