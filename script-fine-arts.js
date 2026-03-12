@@ -116,7 +116,23 @@ function initSlideshow(config) {
     container.classList.add('slideshow-active');
   });
 
-  config.totalDisplay.textContent = config.total;
+ config.totalDisplay.textContent = config.total;
+
+  // Add fullscreen button
+  const fullscreenBtn = document.createElement('button');
+  fullscreenBtn.className = 'scrapbook-fullscreen';
+  fullscreenBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <polyline points="15 3 21 3 21 9"></polyline>
+    <polyline points="9 21 3 21 3 15"></polyline>
+    <line x1="21" y1="3" x2="14" y2="10"></line>
+    <line x1="3" y1="21" x2="10" y2="14"></line>
+  </svg>`;
+  fullscreenBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const pdfPath = `${config.basePath}${config.filePrefix}${currentSlide}.pdf`;
+    window.open(pdfPath, '_blank');
+  });
+  container.querySelector('.scrapbook-pdf-display').appendChild(fullscreenBtn);
 
   function updateSlide() {
     const pdfPath = `${config.basePath}${config.filePrefix}${currentSlide}.pdf#view=FitH&toolbar=0&navpanes=0`;

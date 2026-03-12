@@ -1049,6 +1049,7 @@ html {
 }
 
 .scrapbook-pdf-display {
+  position: relative;
   background: #fff;
   border-radius: 4px;
   overflow: hidden;
@@ -1056,6 +1057,29 @@ html {
   aspect-ratio: 8.5 / 11;
   width: 100%;
   flex: none;
+}
+
+.scrapbook-fullscreen {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: rgba(234, 190, 123, 0.9);
+  border: none;
+  border-radius: 6px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  color: #fff;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.scrapbook-pdf-display:hover .scrapbook-fullscreen {
+  opacity: 1;
 }
 
 .scrapbook-pdf-display iframe {
