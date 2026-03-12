@@ -53,15 +53,11 @@ navItems.forEach(item => {
 
 function changeLampImage(page) {
   if (lampSources[page] && lampHome) {
-    // Start fading out
     lampHome.style.opacity = '0';
-    
-    // Wait only 300ms (half the transition time) then start fading in new image
-    // This creates overlap/crossfade effect
     setTimeout(() => {
       lampHome.src = lampSources[page];
       lampHome.style.opacity = '1';
-    }, 300); // Reduced from 600ms for smoother crossfade
+    }, 300);
   }
 }
 
@@ -70,7 +66,7 @@ function changeNavColor(page) {
     home: '#000000',
     animation: '#5a7359',
     production: '#de6f5f',
-    'fine-arts': 'rgb(234, 190, 123)',   // ← ADD THIS LINE
+    'fine-arts': 'rgb(234, 190, 123)',
     resume: '#836190',
     about: '#6f6dac'
   };
@@ -83,12 +79,12 @@ function changeNavColor(page) {
   });
 }
 
-// STRING CLICK - opens demo reel, NO sound
+// STRING CLICK - opens demo reel
 stringHome.addEventListener('click', function() {
   openDemoReel();
 });
 
-// PLAY BUTTON CLICK - opens demo reel, NO sound
+// PLAY BUTTON CLICK - opens demo reel
 playButton.addEventListener('click', function() {
   openDemoReel();
 });
@@ -97,30 +93,24 @@ function openDemoReel() {
   // Hide prompt and lamp
   homePrompt.classList.add('hidden');
   lampContainer.classList.add('hidden');
-  
+
   // Change background to dark
   scene.classList.remove('scene-light');
   scene.classList.add('scene-dark');
-  
-  // Show demo reel after transition
-  setTimeout(() => {
-    demoreelContainer.classList.add('visible');
-    
-    // Start video and play sound when video opens
-    const demoVideo = document.getElementById('demo-video');
-    if (demoVideo) {
-      demoVideo.play();
-    }
-    
-    // Play lamp sound when demo reel opens
-    if (stringSound) {
-      stringSound.currentTime = 0;
-      stringSound.play();
-    }
-  }, 800);
+
+  // Start video immediately (container already visible)
+  const demoVideo = document.getElementById('demo-video');
+  if (demoVideo) {
+    demoVideo.play();
+  }
+
+  if (stringSound) {
+    stringSound.currentTime = 0;
+    stringSound.play();
+  }
 }
 
-// CLOSE BUTTON - closes demo reel and plays sound
+// CLOSE BUTTON - closes demo reel
 closeReel.addEventListener('click', function() {
   closeDemoReel();
 });
@@ -132,27 +122,21 @@ function closeDemoReel() {
     demoVideo.pause();
     demoVideo.currentTime = 0;
   }
-  
-  // Hide demo reel
-  demoreelContainer.classList.remove('visible');
-  
+
   // Change background back to light
   scene.classList.remove('scene-dark');
   scene.classList.add('scene-light');
-  
-  // Play lamp sound when closing
+
   if (stringSound) {
     stringSound.currentTime = 0;
     stringSound.play();
   }
-  
+
   // Show lamp and prompt again
   setTimeout(() => {
     lampContainer.classList.remove('hidden');
     homePrompt.classList.remove('hidden');
     homePrompt.classList.add('visible');
-    
-    // Reset lamp to default
     changeLampImage('home');
   }, 300);
 }
