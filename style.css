@@ -1287,7 +1287,7 @@ html {
   position: absolute;
   bottom: -15px;
   right: -15px;
-  width: 22%;
+  width: 12%;
   height: auto;
   z-index: 2;
   filter: drop-shadow(2px 4px 8px rgba(0, 0, 0, 0.2));
@@ -1592,7 +1592,7 @@ html {
   .fine-arts-content {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 160px 60px 40px;
+  padding: 100px 60px 40px;
 }
 
   .fine-arts-content h1 {
