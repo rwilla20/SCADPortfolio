@@ -69,7 +69,7 @@ function changeNavColor(page) {
     home: '#000000',
     animation: '#5a7359',
     production: '#de6f5f',
-    'fine-arts': 'rgb(234, 190, 123)',
+    'fine-arts': 'rgb(234, 190, 123)',   // ← ADD THIS LINE
     resume: '#836190',
     about: '#6f6dac'
   };

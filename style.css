@@ -795,6 +795,15 @@ html {
   border-bottom-color: #c45a4d;
   padding-bottom: 4px;
 }
+.production-content .pdf-fallback a {
+  color: #de6f5f;
+  border-bottom-color: #de6f5f;
+}
+
+.production-content .pdf-fallback a:hover {
+  color: #c45a4d;
+  border-bottom-color: #c45a4d;
+}
 
 /* Production Videos Grid - 2 Videos Side by Side */
 .production-videos-grid {
