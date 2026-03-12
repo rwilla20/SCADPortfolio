@@ -1278,6 +1278,19 @@ html {
   display: block;
   border-radius: 12px;
 }
+.about-photo {
+  position: relative;
+}
+
+.about-sketch {
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+  width: 45%;
+  height: auto;
+  z-index: 2;
+  filter: drop-shadow(2px 4px 8px rgba(0, 0, 0, 0.2));
+}
 
 .about-bio {
   display: flex;
