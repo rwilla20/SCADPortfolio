@@ -1033,8 +1033,8 @@ html {
   height: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 7%;
-  padding: 25% 8% 8% 8%;
+  gap: 12%;
+  padding: 35% 8% 8% 8%;
   z-index: 1;
 }
 
@@ -1267,8 +1267,9 @@ html {
 }
 
 .about-photo {
+  position: relative;
   border-radius: 12px;
-  overflow: hidden;
+  overflow: visible;
   border: none;
 }
 
@@ -1284,9 +1285,9 @@ html {
 
 .about-sketch {
   position: absolute;
-  bottom: -10px;
-  right: -10px;
-  width: 32%;
+  bottom: -15px;
+  right: -15px;
+  width: 22%;
   height: auto;
   z-index: 2;
   filter: drop-shadow(2px 4px 8px rgba(0, 0, 0, 0.2));
