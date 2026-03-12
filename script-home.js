@@ -136,3 +136,11 @@ function closeDemoReel() {
 }
 
 const demoVideo = document.getElementById('demo-video');
+if (demoVideo) {
+  demoVideo.addEventListener('click', function() {
+    // If background isn't dark yet, trigger full open
+    if (!scene.classList.contains('scene-dark')) {
+      openDemoReel();
+    }
+  });
+}
