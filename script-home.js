@@ -3,7 +3,6 @@ const scene = document.querySelector('.scene');
 const stringHome = document.querySelector('.string-home');
 const lampContainer = document.querySelector('.lamp-home-container');
 const homePrompt = document.querySelector('.home-prompt');
-const playButton = document.querySelector('.play-button');
 const demoreelContainer = document.querySelector('.demoreel-container');
 const closeReel = document.querySelector('.close-reel');
 const stringSound = document.getElementById('string-sound');
@@ -37,7 +36,7 @@ function setActiveState() {
   });
 }
 
-// Navbar hover - change lamp SVG and nav item colors (SMOOTH FADE)
+// Navbar hover - change lamp SVG and nav item colors
 navItems.forEach(item => {
   item.addEventListener('mouseenter', () => {
     const page = item.dataset.page;
@@ -84,17 +83,10 @@ stringHome.addEventListener('click', function() {
   openDemoReel();
 });
 
-// PLAY BUTTON CLICK - opens demo reel
-playButton.addEventListener('click', function() {
-  openDemoReel();
-});
-
 function openDemoReel() {
   lampContainer.classList.add('hidden');
   scene.classList.remove('scene-light');
   scene.classList.add('scene-dark');
-  
-  // Move video to center and show close button
   demoreelContainer.classList.add('playing');
   closeReel.classList.add('visible');
 
@@ -107,8 +99,9 @@ function openDemoReel() {
   }
 }
 
-// CLOSE BUTTON - closes demo reel
-closeReel.addEventListener('click', function() {
+// CLOSE BUTTON
+document.querySelector('.close-reel').addEventListener('click', function(e) {
+  e.stopPropagation();
   closeDemoReel();
 });
 
@@ -119,10 +112,8 @@ function closeDemoReel() {
     demoVideo.currentTime = 0;
   }
 
-  // Move video back to right side and hide close button
   demoreelContainer.classList.remove('playing');
   closeReel.classList.remove('visible');
-
   scene.classList.remove('scene-dark');
   scene.classList.add('scene-light');
 
@@ -137,22 +128,14 @@ function closeDemoReel() {
   }, 300);
 }
 
-// VIDEO CLICK to pause/play
+// VIDEO WRAPPER CLICK - pause/play only, don't interfere with close button
 const demoVideo = document.getElementById('demo-video');
-if (demoVideo) {
-  demoVideo.addEventListener('click', function() {
-    if (demoVideo.paused) {
-      demoVideo.play();
-    } else {
-      demoVideo.pause();
-    }
-  });
-}
-
-// VIDEO WRAPPER CLICK
 const videoWrapper = document.querySelector('.demoreel-video');
+
 if (videoWrapper) {
-  videoWrapper.addEventListener('click', function() {
+  videoWrapper.addEventListener('click', function(e) {
+    // Don't trigger if close button was clicked
+    if (e.target.closest('.close-reel')) return;
     if (demoVideo) {
       if (demoVideo.paused) {
         demoVideo.play();
