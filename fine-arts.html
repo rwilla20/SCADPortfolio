@@ -10,6 +10,7 @@
 </head>
 <body class="page-fine-arts">
   <div class="scene scene-light">
+
     <!-- Navigation -->
     <nav class="navbar navbar-green navbar-visible">
       <button class="menu-toggle">
@@ -33,80 +34,56 @@
       </div>
     </nav>
 
-    <!-- Fine Arts Content -->
+    <!-- Main Content -->
     <div class="fine-arts-content">
-      <h1>Sketches / Paintings</h1>
-      
-      <!-- Scrapbook Container -->
-      <div class="scrapbook-container">
-        <img src="assets/scrapbook.png" alt="Scrapbook" class="scrapbook-background">
-        
-        <!-- Two Slideshows Side by Side -->
-        <div class="scrapbook-slideshows">
-          
-          <!-- Left Slideshow - Artwork (31 PDFs) -->
-          <div class="scrapbook-slideshow left-slideshow">
-            <h2>Artwork</h2>
-            
-            <!-- PDF Display -->
-            <div class="scrapbook-pdf-display">
-              <iframe id="artwork-pdf" src="assets/fine-arts/artwork/artwork-1.pdf#view=FitH&toolbar=0&navpanes=0"></iframe>
-            </div>
-            
-            <!-- Controls -->
-            <div class="scrapbook-controls">
-              <button class="scrapbook-nav prev" id="artwork-prev" aria-label="Previous">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <polyline points="15 18 9 12 15 6"></polyline>
-                </svg>
-              </button>
-              
-              <div class="scrapbook-counter">
-                <span id="artwork-current">1</span> / <span id="artwork-total">31</span>
-              </div>
-              
-              <button class="scrapbook-nav next" id="artwork-next" aria-label="Next">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <polyline points="9 18 15 12 9 6"></polyline>
-                </svg>
-              </button>
-            </div>
-          </div>
-          
-          <!-- Right Slideshow - Paintings (10 PDFs) -->
-          <div class="scrapbook-slideshow right-slideshow">
-            <h2>Paintings</h2>
-            
-            <!-- PDF Display -->
-            <div class="scrapbook-pdf-display">
-              <iframe id="paintings-pdf" src="assets/fine-arts/paintings/paint-1.pdf#view=FitH&toolbar=0&navpanes=0"></iframe>
-            </div>
-            
-            <!-- Controls -->
-            <div class="scrapbook-controls">
-              <button class="scrapbook-nav prev" id="paintings-prev" aria-label="Previous">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <polyline points="15 18 9 12 15 6"></polyline>
-                </svg>
-              </button>
-              
-              <div class="scrapbook-counter">
-                <span id="paintings-current">1</span> / <span id="paintings-total">10</span>
-              </div>
-              
-              <button class="scrapbook-nav next" id="paintings-next" aria-label="Next">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <polyline points="9 18 15 12 9 6"></polyline>
-                </svg>
-              </button>
-            </div>
-          </div>
-          
+
+      <!-- Desktop Book -->
+      <div class="book-wrapper">
+        <h1 class="fine-arts-title">Sketches / Paintings</h1>
+        <div id="book"></div>
+        <div class="book-controls">
+          <button id="book-prev" class="book-nav">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+          </button>
+          <span class="book-counter" id="book-counter">1</span>
+          <button id="book-next" class="book-nav">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </button>
         </div>
       </div>
-    </div>
-  </div>
 
+      <!-- Mobile Slideshow -->
+      <div class="mobile-book">
+        <div class="mobile-tabs">
+          <button class="mobile-tab active" data-vol="1">Vol. 1</button>
+          <button class="mobile-tab" data-vol="2">Vol. 2</button>
+        </div>
+        <div class="mobile-slides" id="mobile-vol-1"></div>
+        <div class="mobile-slides" id="mobile-vol-2"></div>
+        <div class="mobile-controls">
+          <button class="book-nav" id="mobile-prev">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+          </button>
+          <span class="book-counter" id="mobile-counter">1 / 31</span>
+          <button class="book-nav" id="mobile-next">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </button>
+        </div>
+      </div>
+
+    </div><!-- end fine-arts-content -->
+
+    <!-- Lightbox for zoom -->
+    <div class="book-lightbox" id="book-lightbox">
+      <button class="book-lightbox-close" id="book-lightbox-close">
+        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+      <img class="book-lightbox-img" id="book-lightbox-img" src="" alt="">
+    </div>
+
+  </div><!-- end scene -->
+
+  <script src="https://unpkg.com/page-flip/dist/js/page-flip.browser.js"></script>
   <script src="script-fine-arts.js"></script>
   <script src="mobile.js"></script>
 </body>
