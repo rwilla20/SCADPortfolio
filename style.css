@@ -36,7 +36,15 @@ html {
 }
 
 .scene-light {
-  background: var(--color-offwhite);
+  background: #ffefcc;
+  background-image:
+    radial-gradient(ellipse at 20% 30%, rgba(111,109,172,0.18) 0%, transparent 50%),
+    radial-gradient(ellipse at 75% 20%, rgba(222,111,95,0.15) 0%, transparent 45%),
+    radial-gradient(ellipse at 55% 70%, rgba(90,115,89,0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 85% 75%, rgba(234,190,123,0.2) 0%, transparent 45%),
+    radial-gradient(ellipse at 10% 80%, rgba(131,97,144,0.13) 0%, transparent 40%),
+    radial-gradient(ellipse at 50% 10%, rgba(111,179,172,0.12) 0%, transparent 40%);
+  transition: background-color 0.8s ease;
 }
 
 .scene-dark {
@@ -52,7 +60,7 @@ html {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 60px;
+  padding: 10px 60px;
   z-index: 100;
 }
 
@@ -72,7 +80,7 @@ html {
 }
 
 .nav-logo img {
-  height: 120px;
+  height: 70px;
   width: auto;
   object-fit: contain;
 }
@@ -291,19 +299,19 @@ html {
   top: 55%;
   left: 62%;
   transform: translate(-50%, -50%);
-  width: 50vw;
-  max-width: 900px;
+  width: 55vw;
+  max-width: 960px;
   opacity: 1;
   pointer-events: auto;
-  transition: opacity 1s ease;
+  transition: left 0.7s cubic-bezier(0.4, 0, 0.2, 1), width 0.7s cubic-bezier(0.4, 0, 0.2, 1), max-width 0.7s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 3;
 }
 
 .demoreel-container.playing {
   left: 50%;
   top: 55%;
-  width: 70vw;
-  max-width: 1100px;
+  width: 80vw;
+  max-width: 1300px;
 }
 
 .demoreel-container.visible {
