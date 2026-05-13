@@ -15,9 +15,16 @@ const lampSources = {
   home: 'assets/lampon_home_noshadow.svg',
   animation: 'assets/lampon_green.svg',
   production: 'assets/lampon_peach.svg',
+  'fine-arts': 'assets/lampoff_lamp.svg',
   resume: 'assets/lampon_purple.svg',
   about: 'assets/lampon_blue.svg'
 };
+
+// Preload all lamp SVGs to prevent flicker on hover
+Object.values(lampSources).forEach(src => {
+  const img = new Image();
+  img.src = src;
+});
 
 // Set initial colors on page load
 window.addEventListener('DOMContentLoaded', () => {
@@ -50,14 +57,39 @@ navItems.forEach(item => {
   });
 });
 
+// Use a second image element for smooth crossfade with no flicker gap
+const lampHomeB = (function() {
+  const img = document.createElement('img');
+  img.className = 'lamp-svg lamp-home';
+  img.style.opacity = '0';
+  img.style.zIndex = '3';
+  img.alt = 'Lamp';
+  const container = document.querySelector('.lamp-home-container');
+  if (container) container.appendChild(img);
+  return img;
+})();
+
+let currentLampSrc = lampSources.home;
+let usingB = false;
+
 function changeLampImage(page) {
-  if (lampSources[page] && lampHome) {
-    lampHome.style.opacity = '0';
-    setTimeout(() => {
-      lampHome.src = lampSources[page];
-      lampHome.style.opacity = '1';
-    }, 300);
-  }
+  const newSrc = lampSources[page];
+  if (!newSrc || newSrc === currentLampSrc) return;
+  currentLampSrc = newSrc;
+
+  const incoming = usingB ? lampHomeB : lampHome;
+  const outgoing = usingB ? lampHome : lampHomeB;
+  usingB = !usingB;
+
+  incoming.src = newSrc;
+  incoming.style.transition = 'opacity 0.4s ease';
+  outgoing.style.transition = 'opacity 0.4s ease';
+
+  // Wait one frame for src to register, then crossfade
+  requestAnimationFrame(() => {
+    incoming.style.opacity = '1';
+    outgoing.style.opacity = '0';
+  });
 }
 
 function changeNavColor(page) {
@@ -131,6 +163,7 @@ function closeDemoReel() {
 
   setTimeout(() => {
     lampContainer.classList.remove('hidden');
+    currentLampSrc = null; // force reset
     changeLampImage('home');
   }, 600);
 }
