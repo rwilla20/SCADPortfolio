@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Riley Willard — 3D Character Animator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500&family=Work+Sans:wght@300;400;500;600&family=Special+Elite&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <nav>
+    <div class="wrap">
+      <a href="index.html" class="nav-mark" aria-label="Riley Willard — home">
+        <img src="images/rw-mark.png" alt="RW monogram">
+        <span class="nav-mark-text">Riley <em>Willard</em></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="current" style="--accent:var(--gold);">Home</a></li>
+        <li><a href="about.html" style="--accent:var(--blue);">About</a></li>
+        <li><a href="projects.html" style="--accent:var(--peach);">Projects</a></li>
+        <li><a href="animation.html" style="--accent:var(--sage);">Animation</a></li>
+        <li><a href="contact.html" style="--accent:var(--lavender);">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="film-divider">
+    <div class="sprocket-row">
+      <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+    </div>
+  </div>
+
+  <header class="hero" id="top">
+    <div class="wrap">
+
+      <div class="hero-top">
+        <div class="hero-copy">
+          <div class="hero-eyebrow"><span class="dot"></span> 3D Character Animator · SCAD</div>
+          <h1>Riley<br><em>Willard</em></h1>
+          <p class="hero-sub">Bringing characters and worlds to life, frame by frame — with a soft spot for production and the magic of watching a story finally come together.</p>
+          <div class="hero-cta">
+            <a href="projects.html" class="btn">View Work</a>
+            <a href="about.html" class="btn-ghost">About Riley →</a>
+          </div>
+        </div>
+
+        <div class="lamp-stage" id="lampStage" role="button" tabindex="0" aria-label="Turn on the lamp">
+          <div class="lamp-glow" id="lampGlow"></div>
+          <img class="lamp-img" id="heroLamp" src="images/lamp-plain.png" alt="Illustration of a stained-glass table lamp, RW monogram">
+          <div class="lamp-hint" id="lampHint">— click to light the lamp —</div>
+        </div>
+      </div>
+
+      <div class="demo-reel">
+        <div class="demo-reel-label">
+          <div class="section-label" style="margin-bottom:0;">— Screening Room —</div>
+        </div>
+        <div class="demo-reel-frame-wrap">
+          <div class="marquee-lights">
+            <div class="edge top"></div>
+            <div class="edge bottom"></div>
+            <div class="edge left"></div>
+            <div class="edge right"></div>
+          </div>
+          <div class="demo-reel-frame has-video">
+            <video class="demo-reel-video" controls preload="metadata">
+              <source src="videos/demo-reel.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <div class="sprocket-row" style="opacity:0.4;">
+    <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+  </div>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <a href="index.html" class="nav-mark">
+        <img src="images/rw-mark.png" alt="RW monogram">
+        <span class="nav-mark-text">Riley <em>Willard</em></span>
+      </a>
+      <span class="site-footer-meta">Character Animation · SCAD · 2026</span>
+    </div>
+  </footer>
+
+<script>
+  const heroLamp = document.getElementById('heroLamp');
+  const lampGlow = document.getElementById('lampGlow');
+  const lampHint = document.getElementById('lampHint');
+  const stage = document.getElementById('lampStage');
+
+  const navLinks = document.querySelectorAll('.nav-links a');
+  const root = document.documentElement;
+
+  const SRC = {
+    plain:  "images/lamp-plain.png",
+    all:    "images/lamp-all.png",
+    blue:   "images/lamp-blue.png",
+    peach:  "images/lamp-peach.png",
+    green:  "images/lamp-green.png",
+    purple: "images/lamp-purple.png",
+  };
+  const PAGE_COLOR = { 'about.html': 'blue', 'projects.html': 'peach', 'animation.html': 'green', 'contact.html': 'purple' };
+  const COLOR_HEX = { blue: '#7c8ec2', peach: '#e2a483', green: '#8ba474', purple: '#a68cbd' };
+
+  let lampOn = false;
+  let hovering = null;
+
+  function render(){
+    document.body.classList.toggle('lamp-on', lampOn);
+
+    if(hovering){
+      heroLamp.src = SRC[hovering];
+      lampGlow.classList.add('show');
+      root.style.setProperty('--marquee-color', COLOR_HEX[hovering]);
+    } else {
+      root.style.setProperty('--marquee-color', 'var(--gold)');
+      if(lampOn){
+        heroLamp.src = SRC.all;
+        lampGlow.classList.add('show');
+        lampHint.textContent = '— click to dim the lamp —';
+        lampHint.style.opacity = 0.5;
+      } else {
+        heroLamp.src = SRC.plain;
+        lampGlow.classList.remove('show');
+        lampHint.textContent = '— click to light the lamp —';
+        lampHint.style.opacity = 0.65;
+      }
+    }
+  }
+
+  function toggleLamp(){ lampOn = !lampOn; render(); }
+
+  stage.addEventListener('click', toggleLamp);
+  stage.addEventListener('keydown', (e) => {
+    if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); toggleLamp(); }
+  });
+
+  navLinks.forEach(link => {
+    const file = link.getAttribute('href');
+    const color = PAGE_COLOR[file];
+    if(!color) return;
+    link.addEventListener('mouseenter', () => { hovering = color; render(); });
+    link.addEventListener('focus', () => { hovering = color; render(); });
+    link.addEventListener('mouseleave', () => { hovering = null; render(); });
+    link.addEventListener('blur', () => { hovering = null; render(); });
+  });
+
+  render();
+</script>
+
+</body>
+</html>
