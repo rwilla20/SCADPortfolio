@@ -89,26 +89,9 @@
             <div class="poster-body has-image">
               <img class="poster-image" src="images/projects/gonewrong-poster.jpg" alt="Gone Wrong poster — a grinning, hollow-eyed creature looms in a dark room">
               <div class="poster-caption">
+                <div class="poster-caption-title">Gone Wrong</div>
                 <div class="poster-caption-row">
                   <span class="type">Visual Effects Short Film</span>
-                  <span class="cta">See the reel →</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </button>
-
-        <button class="poster-card" data-project="3">
-          <div class="poster-frame">
-            <div class="poster-lights">
-              <div class="edge top"></div><div class="edge bottom"></div>
-              <div class="edge left"></div><div class="edge right"></div>
-            </div>
-            <div class="poster-body has-image">
-              <img class="poster-image poster-image--bottom" src="images/projects/citadelle-poster.jpg" alt="Domaine de la Citadelle illustration — a gnarled olive tree with the word CITADELLE beneath it">
-              <div class="poster-caption">
-                <div class="poster-caption-row">
-                  <span class="type">Brand Collaboration</span>
                   <span class="cta">See the reel →</span>
                 </div>
               </div>
@@ -122,19 +105,11 @@
       <div class="project-detail" id="projectDetail">
         <div class="project-detail-panel">
           <div class="modal-eyebrow" id="detailEyebrow">3D Animated Short Film</div>
-          <div class="modal-title-row">
-            <h3 id="detailTitle">Me in a Nut Shell</h3>
-            <span class="modal-year" id="detailYear">2026</span>
-          </div>
+          <h3 id="detailTitle">Me in a Nut Shell</h3>
           <p class="modal-paragraph" id="detailParagraph"></p>
 
-          <div id="featuredVideoSection" class="featured-video-frame">
-            <video class="featured-video-media" id="featuredVideoEl" controls preload="metadata"></video>
-            <div class="featured-video-caption" id="featuredVideoCaption"></div>
-          </div>
-
           <div id="stillsSection">
-            <div class="modal-subhead" id="stillsSubhead">Stills</div>
+            <div class="modal-subhead">Stills</div>
             <div class="stills-gallery">
               <button class="gallery-nav prev" id="stillsPrev" aria-label="Previous still">‹</button>
               <div class="gallery-viewport" id="stillsViewport">
@@ -148,10 +123,8 @@
             </div>
           </div>
 
-          <div id="videosSection">
-            <div class="modal-subhead">Videos</div>
-            <div class="modal-video-grid" id="detailVideos"></div>
-          </div>
+          <div class="modal-subhead">Videos</div>
+          <div class="modal-video-grid" id="detailVideos"></div>
         </div>
       </div>
 
@@ -182,7 +155,6 @@
     {
       eyebrow: '3D Animated Short Film',
       title: 'Me in a Nut Shell',
-      year: '2026',
       paragraph: "In the middle of the woods, a little creature tries to find where he belongs.",
       stills: [
         'images/projects/mian-still-1.jpg',
@@ -202,7 +174,6 @@
     {
       eyebrow: 'Visual Effects Short Film',
       title: 'Gone Wrong',
-      year: '2026',
       paragraph: "A visual effects short film following a group of friends whose ghost hunt goes sideways when they discover the abandoned house they're exploring is home to something much worse than a ghost.",
       stillsCount: 0,
       videos: [
@@ -215,34 +186,10 @@
     {
       eyebrow: 'VR Video Game',
       title: 'Broomsmith',
-      year: '2026',
       paragraph: "Add a short paragraph here about the project — the brief, your role, the tools you used, and what you're proud of.",
       stillsCount: 0,
       videos: [
         { src: 'videos/projects/broomsmith-trailer.mp4', poster: 'images/projects/broomsmith-poster.jpg', label: 'Trailer' },
-      ],
-    },
-    {
-      eyebrow: 'Brand Collaboration',
-      title: 'SCADPro Domaine de la Citadelle',
-      year: '2025',
-      paragraph: "Led a two-month rebranding initiative for a winery in Lacoste, France — developing visual identity systems in Adobe Illustrator and Canva, producing 3D brand visualizations in Autodesk Maya, and designing packaging prototypes in Rhino.",
-      featuredVideo: { src: 'videos/projects/citadelle-opener.mp4', poster: '', label: 'Opener' },
-      stillsLabel: 'Slide Deck',
-      stills: [
-        'images/projects/citadelle-slides/slide-02.jpg','images/projects/citadelle-slides/slide-03.jpg',
-        'images/projects/citadelle-slides/slide-04.jpg','images/projects/citadelle-slides/slide-05.jpg','images/projects/citadelle-slides/slide-06.jpg',
-        'images/projects/citadelle-slides/slide-07.jpg','images/projects/citadelle-slides/slide-08.jpg','images/projects/citadelle-slides/slide-09.jpg',
-        'images/projects/citadelle-slides/slide-10.jpg','images/projects/citadelle-slides/slide-11.jpg','images/projects/citadelle-slides/slide-12.jpg',
-        'images/projects/citadelle-slides/slide-13.jpg','images/projects/citadelle-slides/slide-14.jpg','images/projects/citadelle-slides/slide-15.jpg',
-        'images/projects/citadelle-slides/slide-16.jpg','images/projects/citadelle-slides/slide-17.jpg','images/projects/citadelle-slides/slide-18.jpg',
-        'images/projects/citadelle-slides/slide-19.jpg','images/projects/citadelle-slides/slide-20.jpg','images/projects/citadelle-slides/slide-21.jpg',
-        'images/projects/citadelle-slides/slide-22.jpg','images/projects/citadelle-slides/slide-23.jpg','images/projects/citadelle-slides/slide-24.jpg',
-        'images/projects/citadelle-slides/slide-25.jpg','images/projects/citadelle-slides/slide-26.jpg','images/projects/citadelle-slides/slide-27.jpg',
-        'images/projects/citadelle-slides/slide-28.jpg','images/projects/citadelle-slides/slide-29.jpg',
-      ],
-      videos: [
-        { src: 'videos/projects/citadelle-sculpture-walk.mp4', poster: '', label: 'Sculpture Walk' },
       ],
     },
   ];
@@ -250,14 +197,8 @@
   const detail = document.getElementById('projectDetail');
   const detailEyebrow = document.getElementById('detailEyebrow');
   const detailTitle = document.getElementById('detailTitle');
-  const detailYear = document.getElementById('detailYear');
   const detailParagraph = document.getElementById('detailParagraph');
   const detailVideos = document.getElementById('detailVideos');
-  const videosSection = document.getElementById('videosSection');
-  const stillsSubhead = document.getElementById('stillsSubhead');
-  const featuredVideoSection = document.getElementById('featuredVideoSection');
-  const featuredVideoEl = document.getElementById('featuredVideoEl');
-  const featuredVideoCaption = document.getElementById('featuredVideoCaption');
   const posterCards = document.querySelectorAll('.poster-card');
   const stillsSection = document.getElementById('stillsSection');
 
@@ -353,24 +294,7 @@
     const p = PROJECTS[index];
     detailEyebrow.textContent = p.eyebrow;
     detailTitle.textContent = p.title;
-    detailYear.textContent = p.year || '';
     detailParagraph.textContent = p.paragraph;
-
-    if(p.featuredVideo){
-      featuredVideoSection.style.display = '';
-      featuredVideoEl.innerHTML = `<source src="${p.featuredVideo.src}" type="video/mp4">`;
-      if(p.featuredVideo.poster) featuredVideoEl.setAttribute('poster', p.featuredVideo.poster);
-      else featuredVideoEl.removeAttribute('poster');
-      featuredVideoEl.load();
-      featuredVideoCaption.textContent = p.featuredVideo.label || '';
-    } else {
-      featuredVideoSection.style.display = 'none';
-      featuredVideoEl.removeAttribute('src');
-      featuredVideoEl.innerHTML = '';
-      featuredVideoEl.load();
-    }
-
-    stillsSubhead.textContent = p.stillsLabel || 'Stills';
 
     stillsList = buildStillsList(p);
     currentStillIndex = 0;
@@ -378,8 +302,6 @@
     renderStillSlide();
 
     detailVideos.innerHTML = '';
-    const videoCount = (p.videos && p.videos.length) || p.videosCount || 0;
-    videosSection.style.display = videoCount ? '' : 'none';
     if(p.videos && p.videos.length){
       p.videos.forEach(v => {
         detailVideos.innerHTML += `<div class="video-tile"><video class="video-tile-media" controls preload="metadata" poster="${v.poster || ''}"><source src="${v.src}" type="video/mp4"></video><div class="video-caption">${v.label}</div></div>`;
