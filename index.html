@@ -56,7 +56,7 @@
         </div>
       </div>
 
-      <div class="demo-reel">
+      <div class="demo-reel" id="demoReel">
         <div class="demo-reel-label">
           <div class="section-label" style="margin-bottom:0;">— Screening Room —</div>
         </div>
@@ -140,7 +140,14 @@
     }
   }
 
-  function toggleLamp(){ lampOn = !lampOn; render(); }
+  function toggleLamp(){
+    lampOn = !lampOn;
+    render();
+    if(lampOn){
+      const demoReel = document.getElementById('demoReel');
+      if(demoReel) demoReel.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }
 
   stage.addEventListener('click', toggleLamp);
   stage.addEventListener('keydown', (e) => {
