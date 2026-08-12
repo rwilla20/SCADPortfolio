@@ -38,8 +38,8 @@
       <div>
         <div class="about-photo-wrap">
           <img class="about-photo" src="images/riley-about.jpg" alt="Riley Willard smiling in front of the Forsyth Park fountain in Savannah, Georgia">
-          <div class="about-photo-caption">Exhibit A — Savannah, GA</div>
         </div>
+
         <h2>A family raised<br>on movies.</h2>
       </div>
       <div class="about-body">
@@ -71,7 +71,51 @@
       </a>
       <span class="site-footer-meta">Character Animation · SCAD · 2026</span>
     </div>
+    <div class="footer-audience-row">
+      <img id="footerAudienceImg" class="footer-audience-img" src="images/footer/audience-about.svg" data-default="images/footer/audience-about.svg" alt="Row of theater seats">
+      <div class="footer-nav-overlay">
+        <a href="index.html" class="footer-nav-seg" data-page="home" style="--accent:var(--gold); left:35.36%; width:6.93%;"><span class="sr-only">Home</span></a>
+        <a href="about.html" class="footer-nav-seg" data-page="about" style="--accent:var(--blue); left:40.79%; width:7.05%;"><span class="sr-only">About</span></a>
+        <a href="projects.html" class="footer-nav-seg" data-page="projects" style="--accent:var(--peach); left:46.47%; width:6.99%;"><span class="sr-only">Projects</span></a>
+        <a href="animation.html" class="footer-nav-seg" data-page="animation" style="--accent:var(--sage); left:52.16%; width:7.05%;"><span class="sr-only">Animation</span></a>
+        <a href="contact.html" class="footer-nav-seg" data-page="contact" style="--accent:var(--lavender); left:57.65%; width:6.92%;"><span class="sr-only">Contact</span></a>
+      </div>
+    </div>
   </footer>
+
+<script>
+  (function(){
+    const img = document.getElementById('footerAudienceImg');
+    if(!img) return;
+    const defaultSrc = img.dataset.default;
+    const IMAGES = {
+      home: 'images/footer/audience-home.svg',
+      about: 'images/footer/audience-about.svg',
+      projects: 'images/footer/audience-projects.svg',
+      animation: 'images/footer/audience-animation.svg',
+      contact: 'images/footer/audience-contact.svg',
+    };
+    const COLORS = { home:'#c9a24a', about:'#7c8ec2', projects:'#e2a483', animation:'#8ba474', contact:'#a68cbd' };
+
+    function lightUp(page){
+      img.src = IMAGES[page];
+      img.style.filter = `drop-shadow(0 0 14px ${COLORS[page]}) drop-shadow(0 0 4px ${COLORS[page]})`;
+    }
+    function reset(){
+      img.src = defaultSrc;
+      img.style.filter = '';
+    }
+
+    document.querySelectorAll('.footer-nav-seg').forEach(seg => {
+      const page = seg.dataset.page;
+      seg.addEventListener('mouseenter', () => lightUp(page));
+      seg.addEventListener('mouseleave', reset);
+      seg.addEventListener('focus', () => lightUp(page));
+      seg.addEventListener('blur', reset);
+    });
+  })();
+</script>
+
 
 </body>
 </html>

@@ -30,26 +30,12 @@
   <div class="accent-topbar" style="--accent:var(--peach);"></div>
 
   <section class="reel-section page-glow" id="projects" style="--accent:var(--peach); --accent-deep:#b06f4e;">
-    <div class="wrap page-header">
-      <div class="marquee-title-frame">
-        <div class="marquee-title-lights">
-          <div class="edge top"></div><div class="edge bottom"></div>
-          <div class="edge left"></div><div class="edge right"></div>
-        </div>
-        <div class="marquee-title-label">Now Screening</div>
-      </div>
-      <div class="section-title-bar"></div>
-      <h2>Projects</h2>
-    </div>
-    <div class="wrap-wide" style="position:relative; z-index:1;">
+    <div class="project-detail-bg-bleed" id="projectDetailBgBleed"></div>
+    <div class="wrap-wide" style="position:relative; z-index:1; padding-top:28px;">
       <div class="poster-grid" id="posterGrid">
 
         <button class="poster-card" data-project="0">
           <div class="poster-frame">
-            <div class="poster-lights">
-              <div class="edge top"></div><div class="edge bottom"></div>
-              <div class="edge left"></div><div class="edge right"></div>
-            </div>
             <div class="poster-body has-image">
               <img class="poster-image" src="images/projects/mian-poster.jpg" alt="Me in a Nutshell movie poster — a small acorn-shelled creature stands on a pile of blueberries in a glowing forest">
               <div class="poster-caption">
@@ -64,10 +50,6 @@
 
         <button class="poster-card" data-project="2">
           <div class="poster-frame">
-            <div class="poster-lights">
-              <div class="edge top"></div><div class="edge bottom"></div>
-              <div class="edge left"></div><div class="edge right"></div>
-            </div>
             <div class="poster-body has-image">
               <img class="poster-image poster-image--inset" src="images/projects/broomsmith-poster.jpg" alt="Broomsmith title art — a young wizard holding a mallet, sparks flying from a glowing broom-in-progress">
               <div class="poster-caption">
@@ -82,10 +64,6 @@
 
         <button class="poster-card" data-project="1">
           <div class="poster-frame">
-            <div class="poster-lights">
-              <div class="edge top"></div><div class="edge bottom"></div>
-              <div class="edge left"></div><div class="edge right"></div>
-            </div>
             <div class="poster-body has-image">
               <img class="poster-image" src="images/projects/gonewrong-poster.jpg" alt="Gone Wrong poster — a grinning, hollow-eyed creature looms in a dark room">
               <div class="poster-caption">
@@ -100,10 +78,6 @@
 
         <button class="poster-card" data-project="3">
           <div class="poster-frame">
-            <div class="poster-lights">
-              <div class="edge top"></div><div class="edge bottom"></div>
-              <div class="edge left"></div><div class="edge right"></div>
-            </div>
             <div class="poster-body has-image">
               <img class="poster-image poster-image--bottom" src="images/projects/citadelle-poster.jpg" alt="Domaine de la Citadelle illustration — a gnarled olive tree with the word CITADELLE beneath it">
               <div class="poster-caption">
@@ -120,7 +94,7 @@
 
       <!-- info appears here, underneath the posters, and swaps as you click -->
       <div class="project-detail" id="projectDetail">
-        <div class="project-detail-panel">
+        <div class="project-detail-panel" id="projectDetailPanel">
           <div class="modal-eyebrow" id="detailEyebrow">3D Animated Short Film</div>
           <div class="modal-title-row">
             <h3 id="detailTitle">Me in a Nut Shell</h3>
@@ -175,6 +149,16 @@
       </a>
       <span class="site-footer-meta">Character Animation · SCAD · 2026</span>
     </div>
+    <div class="footer-audience-row">
+      <img id="footerAudienceImg" class="footer-audience-img" src="images/footer/audience-projects.svg" data-default="images/footer/audience-projects.svg" alt="Row of theater seats">
+      <div class="footer-nav-overlay">
+        <a href="index.html" class="footer-nav-seg" data-page="home" style="--accent:var(--gold); left:35.36%; width:6.93%;"><span class="sr-only">Home</span></a>
+        <a href="about.html" class="footer-nav-seg" data-page="about" style="--accent:var(--blue); left:40.79%; width:7.05%;"><span class="sr-only">About</span></a>
+        <a href="projects.html" class="footer-nav-seg" data-page="projects" style="--accent:var(--peach); left:46.47%; width:6.99%;"><span class="sr-only">Projects</span></a>
+        <a href="animation.html" class="footer-nav-seg" data-page="animation" style="--accent:var(--sage); left:52.16%; width:7.05%;"><span class="sr-only">Animation</span></a>
+        <a href="contact.html" class="footer-nav-seg" data-page="contact" style="--accent:var(--lavender); left:57.65%; width:6.92%;"><span class="sr-only">Contact</span></a>
+      </div>
+    </div>
   </footer>
 
 <script>
@@ -182,6 +166,7 @@
     {
       eyebrow: '3D Animated Short Film',
       title: 'Me in a Nut Shell',
+      bg: 'images/projects/backgrounds/bg-mian.jpg',
       year: '2026',
       paragraph: "In the middle of the woods, a little creature tries to find where he belongs.",
       stills: [
@@ -215,6 +200,7 @@
     {
       eyebrow: 'VR Video Game',
       title: 'Broomsmith',
+      bg: 'images/projects/backgrounds/bg-broomsmith.jpg',
       year: '2026',
       paragraph: "Add a short paragraph here about the project — the brief, your role, the tools you used, and what you're proud of.",
       stillsCount: 0,
@@ -225,6 +211,7 @@
     {
       eyebrow: 'Brand Collaboration',
       title: 'SCADPro Domaine de la Citadelle',
+      bg: 'images/projects/backgrounds/bg-citadelle.jpg',
       year: '2025',
       paragraph: "Led a two-month rebranding initiative for a winery in Lacoste, France — developing visual identity systems in Adobe Illustrator and Canva, producing 3D brand visualizations in Autodesk Maya, and designing packaging prototypes in Rhino.",
       featuredVideo: { src: 'videos/projects/citadelle-opener.mp4', poster: '', label: 'Opener' },
@@ -248,6 +235,8 @@
   ];
 
   const detail = document.getElementById('projectDetail');
+  const detailBgBleed = document.getElementById('projectDetailBgBleed');
+  const detailPanel = document.getElementById('projectDetailPanel');
   const detailEyebrow = document.getElementById('detailEyebrow');
   const detailTitle = document.getElementById('detailTitle');
   const detailYear = document.getElementById('detailYear');
@@ -356,6 +345,10 @@
     detailYear.textContent = p.year || '';
     detailParagraph.textContent = p.paragraph;
 
+    if(p.bg){
+      detailBgBleed.style.setProperty('--detail-bg', `url('${p.bg}')`);
+    }
+
     if(p.featuredVideo){
       featuredVideoSection.style.display = '';
       featuredVideoEl.innerHTML = `<source src="${p.featuredVideo.src}" type="video/mp4">`;
@@ -389,6 +382,25 @@
     }
   }
 
+  const projectsSection = document.getElementById('projects');
+
+  function positionBgBleed(){
+    if(openIndex === null){
+      detailBgBleed.classList.remove('show');
+      return;
+    }
+    const p = PROJECTS[openIndex];
+    if(!p.bg){
+      detailBgBleed.classList.remove('show');
+      return;
+    }
+    const sectionRect = projectsSection.getBoundingClientRect();
+    const detailRect = detail.getBoundingClientRect();
+    detailBgBleed.style.top = (detailRect.top - sectionRect.top) + 'px';
+    detailBgBleed.style.height = detail.scrollHeight + 'px';
+    detailBgBleed.classList.add('show');
+  }
+
   function selectProject(index){
     posterCards.forEach(c => c.classList.toggle('active', Number(c.dataset.project) === index));
     if(openIndex === index){
@@ -396,18 +408,57 @@
       posterCards.forEach(c => c.classList.remove('active'));
       openIndex = null;
       closeLightbox();
+      positionBgBleed();
       return;
     }
     fillDetail(index);
     detail.classList.add('open');
     openIndex = index;
     closeLightbox();
+    positionBgBleed();
+    setTimeout(positionBgBleed, 520);
   }
+
+  window.addEventListener('resize', () => { if(openIndex !== null) positionBgBleed(); });
 
   posterCards.forEach(card => {
     card.addEventListener('click', () => selectProject(Number(card.dataset.project)));
   });
 </script>
+
+<script>
+  (function(){
+    const img = document.getElementById('footerAudienceImg');
+    if(!img) return;
+    const defaultSrc = img.dataset.default;
+    const IMAGES = {
+      home: 'images/footer/audience-home.svg',
+      about: 'images/footer/audience-about.svg',
+      projects: 'images/footer/audience-projects.svg',
+      animation: 'images/footer/audience-animation.svg',
+      contact: 'images/footer/audience-contact.svg',
+    };
+    const COLORS = { home:'#c9a24a', about:'#7c8ec2', projects:'#e2a483', animation:'#8ba474', contact:'#a68cbd' };
+
+    function lightUp(page){
+      img.src = IMAGES[page];
+      img.style.filter = `drop-shadow(0 0 14px ${COLORS[page]}) drop-shadow(0 0 4px ${COLORS[page]})`;
+    }
+    function reset(){
+      img.src = defaultSrc;
+      img.style.filter = '';
+    }
+
+    document.querySelectorAll('.footer-nav-seg').forEach(seg => {
+      const page = seg.dataset.page;
+      seg.addEventListener('mouseenter', () => lightUp(page));
+      seg.addEventListener('mouseleave', reset);
+      seg.addEventListener('focus', () => lightUp(page));
+      seg.addEventListener('blur', reset);
+    });
+  })();
+</script>
+
 
 </body>
 </html>

@@ -39,7 +39,7 @@
 
     <div class="wrap" style="position:relative; z-index:1;">
 
-      <div class="wip-section">
+      <div class="wip-section" style="--wip-bg:url('images/animation/wc-whatif.jpg');">
         <div class="wip-section-head-col">
           <div class="wip-section-head">
             <h3>What if..</h3>
@@ -61,7 +61,7 @@
         </div>
       </div>
 
-      <div class="wip-section">
+      <div class="wip-section" style="--wip-bg:url('images/animation/wc-lipsync.jpg');">
         <div class="wip-section-head-col">
           <div class="wip-section-head">
             <h3>Plague</h3>
@@ -83,7 +83,7 @@
         </div>
       </div>
 
-      <div class="wip-section">
+      <div class="wip-section" style="--wip-bg:url('images/animation/wc-fox.jpg');">
         <div class="wip-section-head-col">
           <div class="wip-section-head">
             <h3>Caught on Camera</h3>
@@ -115,6 +115,16 @@
         <span class="nav-mark-text">Riley <em>Willard</em></span>
       </a>
       <span class="site-footer-meta">Character Animation · SCAD · 2026</span>
+    </div>
+    <div class="footer-audience-row">
+      <img id="footerAudienceImg" class="footer-audience-img" src="images/footer/audience-animation.svg" data-default="images/footer/audience-animation.svg" alt="Row of theater seats">
+      <div class="footer-nav-overlay">
+        <a href="index.html" class="footer-nav-seg" data-page="home" style="--accent:var(--gold); left:35.36%; width:6.93%;"><span class="sr-only">Home</span></a>
+        <a href="about.html" class="footer-nav-seg" data-page="about" style="--accent:var(--blue); left:40.79%; width:7.05%;"><span class="sr-only">About</span></a>
+        <a href="projects.html" class="footer-nav-seg" data-page="projects" style="--accent:var(--peach); left:46.47%; width:6.99%;"><span class="sr-only">Projects</span></a>
+        <a href="animation.html" class="footer-nav-seg" data-page="animation" style="--accent:var(--sage); left:52.16%; width:7.05%;"><span class="sr-only">Animation</span></a>
+        <a href="contact.html" class="footer-nav-seg" data-page="contact" style="--accent:var(--lavender); left:57.65%; width:6.92%;"><span class="sr-only">Contact</span></a>
+      </div>
     </div>
   </footer>
 
@@ -151,6 +161,40 @@
     render();
   });
 </script>
+
+<script>
+  (function(){
+    const img = document.getElementById('footerAudienceImg');
+    if(!img) return;
+    const defaultSrc = img.dataset.default;
+    const IMAGES = {
+      home: 'images/footer/audience-home.svg',
+      about: 'images/footer/audience-about.svg',
+      projects: 'images/footer/audience-projects.svg',
+      animation: 'images/footer/audience-animation.svg',
+      contact: 'images/footer/audience-contact.svg',
+    };
+    const COLORS = { home:'#c9a24a', about:'#7c8ec2', projects:'#e2a483', animation:'#8ba474', contact:'#a68cbd' };
+
+    function lightUp(page){
+      img.src = IMAGES[page];
+      img.style.filter = `drop-shadow(0 0 14px ${COLORS[page]}) drop-shadow(0 0 4px ${COLORS[page]})`;
+    }
+    function reset(){
+      img.src = defaultSrc;
+      img.style.filter = '';
+    }
+
+    document.querySelectorAll('.footer-nav-seg').forEach(seg => {
+      const page = seg.dataset.page;
+      seg.addEventListener('mouseenter', () => lightUp(page));
+      seg.addEventListener('mouseleave', reset);
+      seg.addEventListener('focus', () => lightUp(page));
+      seg.addEventListener('blur', reset);
+    });
+  })();
+</script>
+
 
 </body>
 </html>
