@@ -65,7 +65,7 @@
         <button class="poster-card" data-project="1">
           <div class="poster-frame">
             <div class="poster-body has-image">
-              <img class="poster-image" src="images/projects/gonewrong-poster.jpg" alt="Gone Wrong poster — a grinning, hollow-eyed creature looms in a dark room">
+              <img class="poster-image" src="images/projects/gonewrong-poster.jpg" alt="Gone Wrong poster — a green-tinted horror movie poster with three haunted faces">
               <div class="poster-caption">
                 <div class="poster-caption-row">
                   <span class="type">Visual Effects Short Film</span>
@@ -102,11 +102,6 @@
           </div>
           <p class="modal-paragraph" id="detailParagraph"></p>
 
-          <div id="featuredVideoSection" class="featured-video-frame">
-            <video class="featured-video-media" id="featuredVideoEl" controls preload="metadata"></video>
-            <div class="featured-video-caption" id="featuredVideoCaption"></div>
-          </div>
-
           <div id="stillsSection">
             <div class="modal-subhead" id="stillsSubhead">Stills</div>
             <div class="stills-gallery">
@@ -116,10 +111,16 @@
                 <button class="gallery-fullscreen-btn" id="stillsFullscreenBtn" aria-label="View full screen">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H3v5M16 3h5v5M8 21H3v-5M16 21h5v-5"/></svg>
                 </button>
+                <div class="gallery-item-caption" id="stillsItemCaption"></div>
                 <div class="gallery-counter" id="stillsCounter"></div>
               </div>
               <button class="gallery-nav next" id="stillsNext" aria-label="Next still">›</button>
             </div>
+          </div>
+
+          <div id="featuredVideoSection" class="featured-video-frame">
+            <video class="featured-video-media" id="featuredVideoEl" controls preload="metadata"></video>
+            <div class="featured-video-caption" id="featuredVideoCaption"></div>
           </div>
 
           <div id="videosSection">
@@ -189,7 +190,16 @@
       title: 'Gone Wrong',
       year: '2026',
       paragraph: "A visual effects short film following a group of friends whose ghost hunt goes sideways when they discover the abandoned house they're exploring is home to something much worse than a ghost.",
-      stillsCount: 0,
+      stills: [
+        { src: 'images/projects/gonewrong-poster-old.jpg', label: 'VFX Still' },
+        { src: 'images/projects/gonewrong-stills/still-1.jpg', label: '' },
+        { src: 'images/projects/gonewrong-stills/still-2.jpg', label: '' },
+        { src: 'images/projects/gonewrong-stills/still-3.jpg', label: '' },
+        { src: 'images/projects/gonewrong-stills/still-4.jpg', label: '' },
+        { src: 'images/projects/gonewrong-stills/still-5.jpg', label: '' },
+        { src: 'images/projects/gonewrong-stills/still-6.jpg', label: '' },
+        { src: 'images/projects/gonewrong-stills/still-7.jpg', label: '' },
+      ],
       videos: [
         { src: 'videos/projects/gonewrong-shot1.mp4', poster: '', label: 'Shot 001 — Render' },
         { src: 'videos/projects/gonewrong-shot2.mp4', poster: '', label: 'Shot 002 — Comp' },
@@ -202,8 +212,15 @@
       title: 'Broomsmith',
       bg: 'images/projects/backgrounds/bg-broomsmith.jpg',
       year: '2026',
-      paragraph: "Add a short paragraph here about the project — the brief, your role, the tools you used, and what you're proud of.",
-      stillsCount: 0,
+      paragraph: "Led animation for Broomsmith, a VR video game, animating movement cycles for the two snail characters as well as the dragon.",
+      stills: [
+        { src: 'images/projects/broomsmith-stills/char-prisma.jpg', label: 'Character Design' },
+        { src: 'images/projects/broomsmith-stills/char-jelly.jpg', label: 'Character Design' },
+        { src: 'images/projects/broomsmith-stills/char-johnny.jpg', label: 'Character Design' },
+        { src: 'images/projects/broomsmith-stills/layout-1.jpg', label: 'Layout' },
+        { src: 'images/projects/broomsmith-stills/layout-2.jpg', label: 'Layout' },
+        { src: 'images/projects/broomsmith-stills/layout-3.jpg', label: 'Layout' },
+      ],
       videos: [
         { src: 'videos/projects/broomsmith-trailer.mp4', poster: 'images/projects/broomsmith-poster.jpg', label: 'Trailer' },
       ],
@@ -214,7 +231,6 @@
       bg: 'images/projects/backgrounds/bg-citadelle.jpg',
       year: '2025',
       paragraph: "Led a two-month rebranding initiative for a winery in Lacoste, France — developing visual identity systems in Adobe Illustrator and Canva, producing 3D brand visualizations in Autodesk Maya, and designing packaging prototypes in Rhino.",
-      featuredVideo: { src: 'videos/projects/citadelle-opener.mp4', poster: '', label: 'Opener' },
       stillsLabel: 'Slide Deck',
       stills: [
         'images/projects/citadelle-slides/slide-02.jpg','images/projects/citadelle-slides/slide-03.jpg',
@@ -229,6 +245,7 @@
         'images/projects/citadelle-slides/slide-28.jpg','images/projects/citadelle-slides/slide-29.jpg',
       ],
       videos: [
+        { src: 'videos/projects/citadelle-opener.mp4', poster: '', label: 'Opener' },
         { src: 'videos/projects/citadelle-sculpture-walk.mp4', poster: '', label: 'Sculpture Walk' },
       ],
     },
@@ -252,6 +269,7 @@
 
   const stillsContent = document.getElementById('stillsContent');
   const stillsCounter = document.getElementById('stillsCounter');
+  const stillsItemCaption = document.getElementById('stillsItemCaption');
   const stillsPrev = document.getElementById('stillsPrev');
   const stillsNext = document.getElementById('stillsNext');
   const stillsFullscreenBtn = document.getElementById('stillsFullscreenBtn');
@@ -273,7 +291,12 @@
 
   function buildStillsList(p){
     if(p.stills && p.stills.length){
-      return p.stills.map((src, i) => ({ type: 'image', src, alt: `${p.title} — still ${i+1}` }));
+      return p.stills.map((item, i) => {
+        if(typeof item === 'string'){
+          return { type: 'image', src: item, alt: `${p.title} — still ${i+1}`, label: '' };
+        }
+        return { type: 'image', src: item.src, alt: item.label ? `${p.title} — ${item.label}` : `${p.title} — still ${i+1}`, label: item.label || '' };
+      });
     }
     const n = p.stillsCount || 0;
     return Array.from({ length: n }, (_, i) => ({ type: 'placeholder', label: `Still ${i+1}` }));
@@ -284,6 +307,8 @@
     if(!slide){
       stillsContent.innerHTML = '';
       stillsCounter.textContent = '';
+      stillsItemCaption.textContent = '';
+      stillsItemCaption.style.display = 'none';
       return;
     }
     stillsContent.innerHTML = slide.type === 'image'
@@ -292,6 +317,14 @@
     stillsCounter.textContent = `${currentStillIndex + 1} / ${stillsList.length}`;
     stillsPrev.disabled = stillsList.length <= 1;
     stillsNext.disabled = stillsList.length <= 1;
+
+    if(slide.type === 'image' && slide.label){
+      stillsItemCaption.textContent = slide.label;
+      stillsItemCaption.style.display = '';
+    } else {
+      stillsItemCaption.textContent = '';
+      stillsItemCaption.style.display = 'none';
+    }
 
     if(lightboxOpen) renderLightboxSlide();
   }

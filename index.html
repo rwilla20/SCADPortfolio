@@ -55,7 +55,7 @@
             <h1>Riley<br><em>Willard</em></h1>
             <p class="hero-sub">Bringing characters and worlds to life, frame by frame — with a soft spot for production and the magic of watching a story finally come together.</p>
             <div class="hero-cta">
-              <a href="projects.html" class="btn">View Work</a>
+              <a href="projects.html" class="btn" id="viewWorkBtn">View Demo Reel</a>
               <a href="about.html" class="btn-ghost">About Riley →</a>
             </div>
           </div>
@@ -74,9 +74,13 @@
             <div class="edge right"></div>
           </div>
           <div class="demo-reel-frame has-video">
-            <video class="demo-reel-video" controls preload="metadata">
+            <video class="demo-reel-video" id="demoReelVideo" controls preload="metadata">
               <source src="videos/demo-reel.mp4" type="video/mp4">
             </video>
+            <button class="demo-reel-fullscreen-btn" id="demoReelFullscreenBtn" aria-label="Watch full screen">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H3v5M16 3h5v5M8 21H3v-5M16 21h5v-5"/></svg>
+              Watch Full Screen
+            </button>
           </div>
         </div>
       </div>
@@ -164,6 +168,27 @@
   stage.addEventListener('keydown', (e) => {
     if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); toggleLamp(); }
   });
+
+  const viewWorkBtn = document.getElementById('viewWorkBtn');
+  if(viewWorkBtn){
+    viewWorkBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      if(!lampOn){ lampOn = true; render(); }
+      const demoReel = document.getElementById('demoReel');
+      if(demoReel) demoReel.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+  }
+
+  const demoReelVideo = document.getElementById('demoReelVideo');
+  const demoReelFullscreenBtn = document.getElementById('demoReelFullscreenBtn');
+  if(demoReelFullscreenBtn && demoReelVideo){
+    demoReelFullscreenBtn.addEventListener('click', () => {
+      if(demoReelVideo.requestFullscreen) demoReelVideo.requestFullscreen();
+      else if(demoReelVideo.webkitRequestFullscreen) demoReelVideo.webkitRequestFullscreen();
+      else if(demoReelVideo.webkitEnterFullscreen) demoReelVideo.webkitEnterFullscreen();
+      demoReelVideo.play().catch(() => {});
+    });
+  }
 
   navLinks.forEach(link => {
     const file = link.getAttribute('href');
