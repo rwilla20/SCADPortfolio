@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Riley Willard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500&family=Work+Sans:wght@300;400;500;600&family=Special+Elite&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <nav>
+    <div class="wrap">
+      <a href="index.html" class="nav-mark" aria-label="Riley Willard — home">
+        <img src="images/rw-mark.png" alt="RW monogram">
+        <span class="nav-mark-text">Riley <em>Willard</em></span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" style="--accent:var(--gold);">Home</a></li>
+        <li><a href="about.html" style="--accent:var(--blue);">About</a></li>
+        <li><a href="projects.html" style="--accent:var(--peach);">Projects</a></li>
+        <li><a href="animation.html" style="--accent:var(--sage);">Animation</a></li>
+        <li><a href="contact.html" class="current" style="--accent:var(--lavender);">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="film-divider">
+    <div class="sprocket-row">
+      <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+    </div>
+  </div>
+
+  <div class="accent-topbar" style="--accent:var(--lavender);"></div>
+
+  <section class="contact-hero" id="contact" style="--accent:var(--lavender);">
+    <div class="wrap">
+      <a href="index.html" class="nav-mark">
+        <img src="images/rw-mark.png" alt="RW monogram">
+        <span class="nav-mark-text">Riley <em>Willard</em></span>
+      </a>
+      <h1>Let's tell a story together.</h1>
+      <p>Open to production and character animation opportunities — reach out any time.</p>
+      <a class="mail-ticket" href="mailto:rileywillardportfolio@gmail.com">✉ rileywillardportfolio@gmail.com</a>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <a href="index.html" class="nav-mark">
+        <img src="images/rw-mark.png" alt="RW monogram">
+        <span class="nav-mark-text">Riley <em>Willard</em></span>
+      </a>
+      <span class="site-footer-meta">Character Animation · SCAD · 2026</span>
+    </div>
+    <div class="footer-audience-row">
+      <img id="footerAudienceImg" class="footer-audience-img" src="images/footer/audience-contact.svg" data-default="images/footer/audience-contact.svg" alt="Row of theater seats">
+      <div class="footer-nav-overlay">
+        <a href="index.html" class="footer-nav-seg" data-page="home" style="--accent:var(--gold); left:35.36%; width:6.93%;"><span class="sr-only">Home</span></a>
+        <a href="about.html" class="footer-nav-seg" data-page="about" style="--accent:var(--blue); left:40.79%; width:7.05%;"><span class="sr-only">About</span></a>
+        <a href="projects.html" class="footer-nav-seg" data-page="projects" style="--accent:var(--peach); left:46.47%; width:6.99%;"><span class="sr-only">Projects</span></a>
+        <a href="animation.html" class="footer-nav-seg" data-page="animation" style="--accent:var(--sage); left:52.16%; width:7.05%;"><span class="sr-only">Animation</span></a>
+        <a href="contact.html" class="footer-nav-seg" data-page="contact" style="--accent:var(--lavender); left:57.65%; width:6.92%;"><span class="sr-only">Contact</span></a>
+      </div>
+    </div>
+  </footer>
+
+<script>
+  (function(){
+    const img = document.getElementById('footerAudienceImg');
+    if(!img) return;
+    const defaultSrc = img.dataset.default;
+    const IMAGES = {
+      home: 'images/footer/audience-home.svg',
+      about: 'images/footer/audience-about.svg',
+      projects: 'images/footer/audience-projects.svg',
+      animation: 'images/footer/audience-animation.svg',
+      contact: 'images/footer/audience-contact.svg',
+    };
+    const COLORS = { home:'#c9a24a', about:'#7c8ec2', projects:'#e2a483', animation:'#8ba474', contact:'#a68cbd' };
+
+    function lightUp(page){
+      img.src = IMAGES[page];
+      img.style.filter = `drop-shadow(0 0 14px ${COLORS[page]}) drop-shadow(0 0 4px ${COLORS[page]})`;
+    }
+    function reset(){
+      img.src = defaultSrc;
+      img.style.filter = '';
+    }
+
+    document.querySelectorAll('.footer-nav-seg').forEach(seg => {
+      const page = seg.dataset.page;
+      seg.addEventListener('mouseenter', () => lightUp(page));
+      seg.addEventListener('mouseleave', reset);
+      seg.addEventListener('focus', () => lightUp(page));
+      seg.addEventListener('blur', reset);
+    });
+  })();
+</script>
+
+
+
+<script>
+  (function(){
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    if(!navToggle || !navLinks) return;
+    navToggle.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+    navLinks.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  })();
+</script>
+</body>
+</html>

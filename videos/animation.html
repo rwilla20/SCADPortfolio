@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Animation — Riley Willard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500&family=Work+Sans:wght@300;400;500;600&family=Special+Elite&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <nav>
+    <div class="wrap">
+      <a href="index.html" class="nav-mark" aria-label="Riley Willard — home">
+        <img src="images/rw-mark.png" alt="RW monogram">
+        <span class="nav-mark-text">Riley <em>Willard</em></span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" style="--accent:var(--gold);">Home</a></li>
+        <li><a href="about.html" style="--accent:var(--blue);">About</a></li>
+        <li><a href="projects.html" style="--accent:var(--peach);">Projects</a></li>
+        <li><a href="animation.html" class="current" style="--accent:var(--sage);">Animation</a></li>
+        <li><a href="contact.html" style="--accent:var(--lavender);">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="accent-topbar" style="--accent:var(--sage);"></div>
+
+  <section class="reel-section page-glow" id="animation" style="--accent:var(--sage); --accent-deep:#5f7749;">
+    <div class="wrap page-header">
+      <div class="section-label accent">Now Playing</div>
+      <div class="section-title-bar"></div>
+      <h2>Animation</h2>
+      <p style="max-width:60ch; color:var(--walnut); margin-top:10px;">Work-in-progress reels, one strip per project — blocking through polish.</p>
+    </div>
+
+    <div class="wrap" style="position:relative; z-index:1;">
+
+      <div class="wip-section" style="--wip-bg:url('images/animation/wc-whatif.jpg');">
+        <div class="wip-section-head-col">
+          <div class="wip-section-head">
+            <h3>What if..</h3>
+            <span class="wip-section-tag">Reel 01</span>
+          </div>
+          <p class="wip-subtitle">Everything you type comes true.</p>
+        </div>
+        <div class="wip-gallery" data-wip-gallery>
+          <button class="gallery-nav prev" aria-label="Previous clip">‹</button>
+          <div class="wip-gallery-viewport">
+            <video class="wip-gallery-video active" data-label="Reference" controls preload="metadata"><source src="videos/animation/project1-reference.mp4" type="video/mp4"></video>
+            <video class="wip-gallery-video" data-label="Blocking" controls preload="metadata"><source src="videos/animation/project1-blocking.mp4" type="video/mp4"></video>
+            <video class="wip-gallery-video" data-label="1st Pass" controls preload="metadata"><source src="videos/animation/project1-1stpass.mp4" type="video/mp4"></video>
+            <video class="wip-gallery-video" data-label="Final" controls preload="metadata"><source src="videos/animation/project1-final.mp4" type="video/mp4"></video>
+            <div class="wip-gallery-caption"></div>
+            <div class="wip-gallery-counter"></div>
+          </div>
+          <button class="gallery-nav next" aria-label="Next clip">›</button>
+        </div>
+      </div>
+
+      <div class="wip-section" style="--wip-bg:url('images/animation/wc-lipsync.jpg');">
+        <div class="wip-section-head-col">
+          <div class="wip-section-head">
+            <h3>Plague</h3>
+            <span class="wip-section-tag">Reel 02</span>
+          </div>
+          <p class="wip-subtitle">Working on animating dialogue.</p>
+        </div>
+        <div class="wip-gallery" data-wip-gallery>
+          <button class="gallery-nav prev" aria-label="Previous clip">‹</button>
+          <div class="wip-gallery-viewport">
+            <video class="wip-gallery-video active" data-label="Reference" controls preload="metadata"><source src="videos/animation/project2-reference.mp4" type="video/mp4"></video>
+            <video class="wip-gallery-video" data-label="Blocking" controls preload="metadata"><source src="videos/animation/project2-blocking.mp4" type="video/mp4"></video>
+            <video class="wip-gallery-video" data-label="1st Pass" controls preload="metadata"><source src="videos/animation/project2-final.mp4" type="video/mp4"></video>
+            <video class="wip-gallery-video" data-label="Final" controls preload="metadata"><source src="videos/animation/project2-1stpass.mp4" type="video/mp4"></video>
+            <div class="wip-gallery-caption"></div>
+            <div class="wip-gallery-counter"></div>
+          </div>
+          <button class="gallery-nav next" aria-label="Next clip">›</button>
+        </div>
+      </div>
+
+      <div class="wip-section" style="--wip-bg:url('images/animation/wc-fox.jpg');">
+        <div class="wip-section-head-col">
+          <div class="wip-section-head">
+            <h3>Caught on Camera</h3>
+            <span class="wip-section-tag">Reel 03</span>
+          </div>
+          <p class="wip-subtitle">Quadruped animation.</p>
+        </div>
+        <div class="wip-gallery" data-wip-gallery>
+          <button class="gallery-nav prev" aria-label="Previous clip">‹</button>
+          <div class="wip-gallery-viewport">
+            <video class="wip-gallery-video active" data-label="Reference" controls preload="metadata"><source src="videos/animation/project3-reference.mp4" type="video/mp4"></video>
+            <video class="wip-gallery-video" data-label="Blocking" controls preload="metadata"><source src="videos/animation/project3-final.mp4" type="video/mp4"></video>
+            <video class="wip-gallery-video" data-label="1st Pass" controls preload="metadata"><source src="videos/animation/project3-blocking.mp4" type="video/mp4"></video>
+            <video class="wip-gallery-video" data-label="Final" controls preload="metadata"><source src="videos/animation/project3-1stpass.mp4" type="video/mp4"></video>
+            <div class="wip-gallery-caption"></div>
+            <div class="wip-gallery-counter"></div>
+          </div>
+          <button class="gallery-nav next" aria-label="Next clip">›</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <a href="index.html" class="nav-mark">
+        <img src="images/rw-mark.png" alt="RW monogram">
+        <span class="nav-mark-text">Riley <em>Willard</em></span>
+      </a>
+      <span class="site-footer-meta">Character Animation · SCAD · 2026</span>
+    </div>
+    <div class="footer-audience-row">
+      <img id="footerAudienceImg" class="footer-audience-img" src="images/footer/audience-animation.svg" data-default="images/footer/audience-animation.svg" alt="Row of theater seats">
+      <div class="footer-nav-overlay">
+        <a href="index.html" class="footer-nav-seg" data-page="home" style="--accent:var(--gold); left:35.36%; width:6.93%;"><span class="sr-only">Home</span></a>
+        <a href="about.html" class="footer-nav-seg" data-page="about" style="--accent:var(--blue); left:40.79%; width:7.05%;"><span class="sr-only">About</span></a>
+        <a href="projects.html" class="footer-nav-seg" data-page="projects" style="--accent:var(--peach); left:46.47%; width:6.99%;"><span class="sr-only">Projects</span></a>
+        <a href="animation.html" class="footer-nav-seg" data-page="animation" style="--accent:var(--sage); left:52.16%; width:7.05%;"><span class="sr-only">Animation</span></a>
+        <a href="contact.html" class="footer-nav-seg" data-page="contact" style="--accent:var(--lavender); left:57.65%; width:6.92%;"><span class="sr-only">Contact</span></a>
+      </div>
+    </div>
+  </footer>
+
+<script>
+  document.querySelectorAll('[data-wip-gallery]').forEach(gallery => {
+    const videos = Array.from(gallery.querySelectorAll('.wip-gallery-video'));
+    const prevBtn = gallery.querySelector('.gallery-nav.prev');
+    const nextBtn = gallery.querySelector('.gallery-nav.next');
+    const caption = gallery.querySelector('.wip-gallery-caption');
+    const counter = gallery.querySelector('.wip-gallery-counter');
+    let index = videos.findIndex(v => v.classList.contains('active'));
+    if(index < 0) index = 0;
+
+    function render(){
+      videos.forEach((v, i) => {
+        const active = i === index;
+        v.classList.toggle('active', active);
+        if(!active) v.pause();
+      });
+      caption.textContent = videos[index].dataset.label || '';
+      counter.textContent = `${index + 1} / ${videos.length}`;
+      prevBtn.disabled = videos.length <= 1;
+      nextBtn.disabled = videos.length <= 1;
+    }
+
+    function step(delta){
+      if(!videos.length) return;
+      index = (index + delta + videos.length) % videos.length;
+      render();
+    }
+
+    prevBtn.addEventListener('click', () => step(-1));
+    nextBtn.addEventListener('click', () => step(1));
+    render();
+  });
+</script>
+
+<script>
+  (function(){
+    const img = document.getElementById('footerAudienceImg');
+    if(!img) return;
+    const defaultSrc = img.dataset.default;
+    const IMAGES = {
+      home: 'images/footer/audience-home.svg',
+      about: 'images/footer/audience-about.svg',
+      projects: 'images/footer/audience-projects.svg',
+      animation: 'images/footer/audience-animation.svg',
+      contact: 'images/footer/audience-contact.svg',
+    };
+    const COLORS = { home:'#c9a24a', about:'#7c8ec2', projects:'#e2a483', animation:'#8ba474', contact:'#a68cbd' };
+
+    function lightUp(page){
+      img.src = IMAGES[page];
+      img.style.filter = `drop-shadow(0 0 14px ${COLORS[page]}) drop-shadow(0 0 4px ${COLORS[page]})`;
+    }
+    function reset(){
+      img.src = defaultSrc;
+      img.style.filter = '';
+    }
+
+    document.querySelectorAll('.footer-nav-seg').forEach(seg => {
+      const page = seg.dataset.page;
+      seg.addEventListener('mouseenter', () => lightUp(page));
+      seg.addEventListener('mouseleave', reset);
+      seg.addEventListener('focus', () => lightUp(page));
+      seg.addEventListener('blur', reset);
+    });
+  })();
+</script>
+
+
+
+<script>
+  (function(){
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    if(!navToggle || !navLinks) return;
+    navToggle.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+    navLinks.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  })();
+</script>
+</body>
+</html>
