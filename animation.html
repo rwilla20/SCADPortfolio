@@ -17,7 +17,10 @@
         <img src="images/rw-mark.png" alt="RW monogram">
         <span class="nav-mark-text">Riley <em>Willard</em></span>
       </a>
-      <ul class="nav-links">
+      <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
         <li><a href="index.html" style="--accent:var(--gold);">Home</a></li>
         <li><a href="about.html" style="--accent:var(--blue);">About</a></li>
         <li><a href="projects.html" style="--accent:var(--peach);">Projects</a></li>
@@ -196,5 +199,23 @@
 </script>
 
 
+
+<script>
+  (function(){
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    if(!navToggle || !navLinks) return;
+    navToggle.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+    navLinks.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  })();
+</script>
 </body>
 </html>
