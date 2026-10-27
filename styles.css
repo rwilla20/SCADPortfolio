@@ -224,12 +224,22 @@ body.lamp-on .lamp-stage:hover .lamp-img{
 }
 body.lamp-on .lamp-img{ filter: drop-shadow(0 18px 34px rgba(0,0,0,0.55)) drop-shadow(0 0 26px rgba(226,164,131,0.3)); }
 
-.lamp-hint{
-  position:absolute; bottom: 4px; left: 50%; transform: translateX(-50%);
-  font-family:'Special Elite', monospace; font-size: 0.72rem; letter-spacing: 0.06em;
-  color: var(--walnut); opacity: 0.65; text-align:center; white-space: nowrap; transition: opacity .4s ease, color .9s ease;
+
+/* nav: role next to name */
+.nav-mark-role{
+  font-family:'Special Elite', monospace; font-size: 0.74rem; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--walnut);
+  padding-left: 12px; margin-left: 2px; border-left: 1px solid rgba(92,65,48,0.35);
+  white-space: nowrap; transition: color .9s ease, border-color .9s ease;
 }
-body.lamp-on .lamp-hint{ color: #d9a24a; }
+body.lamp-on .nav-mark-role{ color: #d9c9a4; border-left-color: rgba(241,230,204,0.35); }
+.site-footer .nav-mark-role{ display:none; }
+.contact-hero{ scroll-margin-top: 78px; }
+.contact-hero h2{ color: var(--cream); font-size: clamp(2rem, 4vw, 3rem); margin: 22px 0 14px; }
+@media (max-width: 520px){
+  .nav-mark{ gap: 8px; }
+  .nav-mark-role{ font-size: 0.6rem; letter-spacing: 0.05em; padding-left: 8px; }
+}
 
 /* ---------- demo reel (home) ---------- */
 .demo-reel{ position:relative; }
@@ -486,14 +496,17 @@ body.lamp-on .footer-audience-img{ filter: brightness(2.6) contrast(0.75); }
   .nav-toggle{ display: flex; }
   .nav-links{
     display: flex;
-    position: absolute; top: 100%; left: 0; right: 0;
+    position: absolute; top: 100%; right: 0; left: auto;
     flex-direction: column; gap: 0;
-    background: var(--cream);
-    border-bottom: 1px solid rgba(36,31,26,0.12);
+    min-width: 200px;
+    background: rgba(246,239,221,0.88);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(36,31,26,0.12); border-top: none;
+    border-radius: 0 0 4px 4px;
     max-height: 0; overflow: hidden;
     transition: max-height .35s ease, background-color .9s ease;
   }
-  body.lamp-on .nav-links{ background: #14110d; border-bottom-color: rgba(241,230,204,0.12); }
+  body.lamp-on .nav-links{ background: rgba(20,17,13,0.88); border-color: rgba(241,230,204,0.12); }
   .nav-links.open{ max-height: 320px; }
   .nav-links li{ width: 100%; }
   .nav-links a{
