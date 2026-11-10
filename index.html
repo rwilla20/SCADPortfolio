@@ -985,11 +985,6 @@ footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);fo
           <div class="pol-photo"><span class="pol-ph">photo</span><img src="images/about/photo-2.jpg" alt="dinner with friends" onerror="this.remove()"></div>
           <figcaption>dinner with friends</figcaption>
         </figure>
-        <figure class="pol tall" data-piece="pol-6" data-video="videos/about/pol-6.mp4" style="--rot:6deg;--tape:-6deg" tabindex="0" aria-label="Memory: rowing">
-          <!-- still: images/about/pol-6.jpg · hover video: videos/about/pol-6.mp4 -->
-          <div class="pol-photo"><span class="pol-ph">photo 6</span><img src="images/about/pol-6.jpg" alt="rowing" onerror="this.remove()"><span class="pol-play" aria-hidden="true">▶ memory</span></div>
-          <figcaption>rowing</figcaption>
-        </figure>
         </div>
 
     </div>
@@ -1000,7 +995,7 @@ footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);fo
 <footer class="inner">
   <span>© 2026 Riley Willard</span>
   <span class="ft-contact">Let's work together! <a href="mailto:rileywillardportfolio@gmail.com">rileywillardportfolio@gmail.com</a></span>
-  <span>3D Animator · Artist · Producer</span>
+  <span>3D Animator · Artist · Coordinator</span>
 </footer>
 
 <script id="rw-main">
@@ -1560,8 +1555,8 @@ function route(){
 }
 window.addEventListener("hashchange", route);
 
-// ----- Rotating role: Animator → Artist → Producer -----
-const roleEl = document.getElementById("role"), ROLES = ["Animator","Artist","Producer"];
+// ----- Rotating role: Animator → Artist → Coordinator -----
+const roleEl = document.getElementById("role"), ROLES = ["Animator","Artist","Coordinator"];
 let ri = 0;
 if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
   setInterval(() => {
@@ -1601,7 +1596,7 @@ route();
 // ----- Layout: Riley's saved desktop and phone layouts (desktop = wider than 720px) -----
 (() => {
   const FONTS = {"Limelight":'"Limelight",Georgia,serif',"Poiret One":'"Poiret One",Futura,Arial,sans-serif',"Federo":'"Federo",Georgia,serif',"Italiana":'"Italiana",Georgia,serif',"Cinzel":'"Cinzel",Georgia,serif',"Abril Fatface":'"Abril Fatface",Georgia,serif',"Playfair Display":'"Playfair Display",Georgia,serif',"DM Serif Display":'"DM Serif Display",Georgia,serif',"Bodoni Moda":'"Bodoni Moda",Georgia,serif',"Cormorant Garamond":'"Cormorant Garamond",Georgia,serif',"Instrument Serif":'"Instrument Serif",Georgia,serif',"Bebas Neue":'"Bebas Neue",Impact,sans-serif',"Big Shoulders Display":'"Big Shoulders Display",Impact,sans-serif',"Monoton":'"Monoton",Impact,sans-serif',"Righteous":'"Righteous",Arial,sans-serif',"Syne":'"Syne",Arial,sans-serif',"Josefin Sans":'"Josefin Sans",Futura,Arial,sans-serif',"Montserrat":'"Montserrat",Arial,sans-serif',"Space Grotesk":'"Space Grotesk",Arial,sans-serif',"Bricolage Grotesque":'"Bricolage Grotesque",Arial,sans-serif'};
-  const LAYOUT = /*LAYOUT-DATA*/{"desktop":{"al":"right","ctaX":0,"ctaY":0,"hideCta":0,"hideLogo":0,"hideName":0,"hideQuote":0,"hideQuoteBtn":0,"hideRole":0,"indent":7,"lead":82,"logo":47.77,"logoX":0,"logoY":0,"nameX":0,"nameY":0,"reel":100,"roleX":0,"roleY":0,"rot":-8.84,"s1":120,"s2":71.69,"size":40,"track":2},"phone":{"al":"center","ctaX":0,"ctaY":0,"hideCta":0,"hideLogo":0,"hideName":1,"hideQuote":0,"hideQuoteBtn":0,"hideRole":0,"indent":0,"lead":90,"logo":62,"logoX":0,"logoY":0,"nameX":0,"nameY":0,"reel":100,"roleX":0,"roleY":0,"rot":-12,"s1":61.67,"s2":60,"size":77,"track":2},"fonts":{"fBody":"Josefin Sans","fDisplay":"Limelight","fHeader":"Limelight","fName":"Limelight","fQuote":"Cormorant Garamond","fRole":"Josefin Sans"},"about":{"cam":{"x":-5.8,"y":-78.6,"rot":-7.127968991833654,"s":1,"hide":0,"z":31},"script":{"x":0,"y":0,"rot":0,"s":1,"hide":0},"snapcam":{"x":0,"y":0,"rot":-4,"s":1.15,"hide":0,"z":35},"pol-1":{"x":136.453125,"y":217.46484375,"rot":4,"s":1.37608642578125,"hide":0,"z":53},"pol-3":{"x":-66.0390625,"y":602.0703125,"rot":10.221312600159422,"s":1.54122314453125,"hide":0,"z":33},"resume":{"x":304.640625,"y":-445.01171875,"rot":1.0506046989246443,"s":1.0641845703125,"hide":0,"z":51},"photo-2":{"x":-185.7421875,"y":105.10546875,"rot":-9.833748120302516,"s":1.46474609375,"hide":0,"z":35},"pol-6":{"x":294.68359375,"y":294.22265625,"rot":-10.39327857561318,"s":1.30499267578125,"hide":1,"z":32}},"aboutLen":{"desktop":100,"phone":100},"snapDrop":{"desktop":{"fx":-0.0906,"fy":-1.7405,"rot":10.8}}}/*END-LAYOUT-DATA*/;
+  const LAYOUT = /*LAYOUT-DATA*/{"desktop":{"al":"right","ctaX":0,"ctaY":0,"hideCta":0,"hideLogo":0,"hideName":0,"hideQuote":0,"hideQuoteBtn":0,"hideRole":0,"indent":7,"lead":82,"logo":47.77,"logoX":0,"logoY":0,"nameX":0.00037524015369836696,"nameY":0.011632444764649376,"reel":100,"roleX":0,"roleY":0,"rot":-8.84,"s1":120,"s2":44.851531130876744,"size":60,"track":2},"phone":{"al":"center","ctaX":0,"ctaY":0,"hideCta":0,"hideLogo":0,"hideName":1,"hideQuote":0,"hideQuoteBtn":0,"hideRole":0,"indent":0,"lead":90,"logo":62,"logoX":0,"logoY":0,"nameX":0,"nameY":0,"reel":100,"roleX":0,"roleY":0,"rot":-12,"s1":61.67,"s2":60,"size":77,"track":2},"fonts":{"fBody":"Josefin Sans","fDisplay":"Limelight","fHeader":"Limelight","fName":"Limelight","fQuote":"Cormorant Garamond","fRole":"Josefin Sans"},"about":{"cam":{"x":-5.8,"y":-78.6,"rot":-7.127968991833654,"s":1,"hide":0,"z":31},"script":{"x":0,"y":0,"rot":0,"s":1,"hide":0},"snapcam":{"x":-0.0703125,"y":-18.69921875,"rot":-4,"s":1.15,"hide":0,"z":38},"pol-1":{"x":185.5390625,"y":335.4921875,"rot":4,"s":1.37608642578125,"hide":0,"z":36},"pol-3":{"x":-88.5,"y":834.23828125,"rot":10.221312600159422,"s":1.54122314453125,"hide":0,"z":35},"resume":{"x":330.6171875,"y":-509.95703125,"rot":1.0506046989246443,"s":1.3980957031249999,"hide":0,"z":32},"photo-2":{"x":-213.8984375,"y":105.0078125,"rot":-9.833748120302516,"s":1.46474609375,"hide":0,"z":37}},"aboutLen":{"desktop":100,"phone":100},"snapDrop":{"desktop":{"fx":-0.0906,"fy":-1.7405,"rot":10.8}}}/*END-LAYOUT-DATA*/;
   const HIDE = {hideLogo:"heroLogo", hideName:"heroTitle", hideRole:"heroRole", hideCta:"seeReel", hideQuote:"quoteText", hideQuoteBtn:"quoteBtn"};
   const css = document.documentElement.style;
   const FV = {fName:"--f-name", fRole:"--f-role", fQuote:"--f-quote", fDisplay:"--f-display", fHeader:"--f-header", fBody:"--f-body"};
